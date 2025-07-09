@@ -1,2 +1,2 @@
-añadir los cambios a la zona de intercambio temporal.
-hacer un commit de los cambios con el mensaje "añadido capítulos 3"
+Para añadir los cambios a la zona de intercambio temporal, usar el comando git add.
+Para hacer un commit de los cambios con el mensaje "Añadido capítulo 3".

@@ -184,7 +184,9 @@ class SoftCronwChatbot {
         this.isMinimized = false;
         this.elements.widget?.classList.remove('hidden');
         this.elements.preview?.classList.add('hidden');
-        this.elements.notification?.style.display = 'none';
+        if (this.elements.notification) {
+            this.elements.notification.style.display = 'none';
+        }
         this.analytics.track('chat_opened');
         this.scrollToBottom();
     }
@@ -420,7 +422,14 @@ class SoftCronwChatbot {
         const description = document.getElementById('project-description')?.value;
         
         if (!email || !description) {
-            alert('Por favor completa todos los campos');
+            this.addMessage('⚠️ Por favor completa todos los campos obligatorios (email y descripción del proyecto).', 'bot');
+            return;
+        }
+        
+        // Validar formato de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            this.addMessage('⚠️ Por favor introduce un email válido.', 'bot');
             return;
         }
         
