@@ -1,0 +1,403 @@
+//
+// _payments.scss
+// Estilos específicos para la página de Métodos de Pago
+// Siguiendo metodología BEM y sistema de diseño de SoftCronw
+//
+
+// ================================
+// HERO SECTION - PAYMENTS
+// ================================
+
+.payments-hero {
+  min-height: 100vh;
+  position: relative;
+  @include flex-center();
+  background: $gradient-hero;
+  overflow: hidden;
+  
+  // Overlay para mejor legibilidad
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($color-dark, 0.3);
+    z-index: 1;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  // BEM Element: Hero content
+  .hero-content {
+    text-align: center;
+    color: $color-white;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .hero-badge {
+      @include flexbox(row, center, center);
+      background: rgba($color-white, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba($color-white, 0.2);
+      border-radius: $border-radius-full;
+      padding: $spacing-2 $spacing-4;
+      margin-bottom: $spacing-6;
+      display: inline-flex;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-medium;
+      
+      i {
+        margin-right: $spacing-2;
+        color: $color-accent;
+      }
+    }
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: $font-weight-bold;
+      line-height: $line-height-tight;
+      margin-bottom: $spacing-6;
+      
+      .title-line {
+        display: block;
+        
+        &.title-highlight {
+          background: linear-gradient(45deg, $color-accent, $color-secondary);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+    
+    .hero-description {
+      font-size: $font-size-xl;
+      line-height: $line-height-relaxed;
+      margin-bottom: $spacing-6;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-features {
+      @include flexbox(row, center, center);
+      gap: $spacing-8;
+      flex-wrap: wrap;
+      margin-top: $spacing-6;
+      
+      @include respond-below(md) {
+        flex-direction: column;
+        gap: $spacing-4;
+        align-items: center;
+      }
+      
+      .feature {
+        @include flexbox(row, center, center);
+        gap: $spacing-2;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        
+        i {
+          color: $color-accent;
+          font-size: $font-size-lg;
+        }
+      }
+    }
+  }
+  
+  // BEM Element: Background flotante
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    
+    .floating-icons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      
+      i {
+        position: absolute;
+        font-size: 2rem;
+        color: rgba($color-white, 0.1);
+        animation: float 6s ease-in-out infinite;
+        
+        @include respond-below(md) {
+          font-size: 1.5rem;
+        }
+        
+        &:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        &:nth-child(2) { top: 30%; right: 15%; animation-delay: 1s; }
+        &:nth-child(3) { top: 60%; left: 20%; animation-delay: 2s; }
+        &:nth-child(4) { bottom: 30%; right: 10%; animation-delay: 3s; }
+        &:nth-child(5) { bottom: 20%; left: 15%; animation-delay: 4s; }
+        &:nth-child(6) { top: 50%; left: 50%; animation-delay: 5s; }
+      }
+    }
+  }
+}
+
+// ================================
+// PAYMENT METHODS SECTION
+// ================================
+
+.payment-methods {
+  padding: $spacing-20 0;
+  background: $color-gray-50;
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: $spacing-16;
+    
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-4;
+      color: $color-dark;
+      
+      .text-gradient {
+        background: linear-gradient(45deg, $color-primary, $color-secondary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    
+    .section-subtitle {
+      font-size: $font-size-xl;
+      color: $color-gray-600;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: $line-height-relaxed;
+    }
+  }
+  
+  // BEM Element: Payment cards grid
+  .payment-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: $spacing-8;
+    margin-top: $spacing-12;
+    
+    @include respond-below(md) {
+      grid-template-columns: 1fr;
+      gap: $spacing-6;
+    }
+  }
+}
+
+// ================================
+// PAYMENT CARD COMPONENT
+// ================================
+
+.payment-card {
+  background: $color-white;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-lg;
+  overflow: hidden;
+  transition: $transition-all;
+  position: relative;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-2xl;
+  }
+  
+  // BEM Modifier: Featured card
+  &.featured {
+    border: 2px solid $color-primary;
+    
+    .featured-badge {
+      position: absolute;
+      top: -1px;
+      right: 20px;
+      background: linear-gradient(45deg, $color-primary, $color-secondary);
+      color: $color-white;
+      padding: $spacing-2 $spacing-4;
+      border-radius: 0 0 $border-radius-md $border-radius-md;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
+      z-index: 10;
+    }
+  }
+  
+  // BEM Element: Header
+  &__header {
+    padding: $spacing-8;
+    @include flexbox(row, space-between, flex-start);
+    
+    .payment-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: $border-radius-full;
+      @include flex-center();
+      background: linear-gradient(45deg, $color-primary, $color-secondary);
+      color: $color-white;
+      font-size: $font-size-2xl;
+      position: relative;
+      
+      // Modifier para PayPal
+      &.paypal {
+        background: linear-gradient(45deg, #0070ba, #003087);
+      }
+      
+      .icon-glow {
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-radius: $border-radius-full;
+        background: linear-gradient(45deg, $color-primary, $color-secondary);
+        opacity: 0.3;
+        animation: pulse 2s infinite;
+      }
+    }
+    
+    .payment-status {
+      @include flexbox(row, center, center);
+      gap: $spacing-2;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-semibold;
+      
+      &.available {
+        color: $color-success;
+      }
+    }
+  }
+  
+  // BEM Element: Content
+  &__content {
+    padding: 0 $spacing-8;
+    
+    .payment-title {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-4;
+      color: $color-dark;
+    }
+    
+    .payment-description {
+      color: $color-gray-600;
+      margin-bottom: $spacing-6;
+      line-height: $line-height-relaxed;
+    }
+    
+    .payment-details {
+      @include flexbox(column, flex-start, stretch);
+      gap: $spacing-3;
+      
+      .detail-item {
+        @include flexbox(row, flex-start, center);
+        gap: $spacing-3;
+        font-size: $font-size-sm;
+        color: $color-gray-700;
+        
+        i {
+          color: $color-primary;
+          width: 16px;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+  
+  // BEM Element: Actions
+  &__actions {
+    padding: $spacing-8;
+    border-top: 1px solid $color-gray-200;
+    margin-top: $spacing-6;
+    
+    .btn-payment {
+      @include button-base();
+      width: 100%;
+      @include flexbox(row, center, center);
+      gap: $spacing-2;
+      
+      &.btn-primary {
+        @include button-primary();
+        background: linear-gradient(45deg, $color-primary, $color-secondary);
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 5px 15px rgba($color-primary, 0.4);
+        }
+      }
+    }
+  }
+}
+
+// ================================
+// TOOLTIPS
+// ================================
+
+[data-tooltip] {
+  position: relative;
+  cursor: help;
+  
+  &:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $color-dark;
+    color: $color-white;
+    padding: $spacing-2 $spacing-3;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-xs;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 1;
+    animation: fadeInUp 0.3s ease;
+  }
+}
+
+// ================================
+// ANIMATIONS
+// ================================
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+// ================================
+// RESPONSIVE ADJUSTMENTS
+// ================================
+
+@include respond-below(md) {
+  .payment-methods {
+    padding: $spacing-16 0;
+  }
+  
+  .payment-card {
+    &__header {
+      padding: $spacing-6;
+    }
+    
+    &__content {
+      padding: 0 $spacing-6;
+    }
+    
+    &__actions {
+      padding: $spacing-6;
+    }
+  }
+} 
