@@ -1,0 +1,396 @@
+//
+// _variables.scss
+// Variables principales del sistema de diseño de SoftCronw
+// Siguiendo la metodología BEM y principios de diseño escalable
+//
+
+// ================================
+// COLOR SYSTEM
+// ================================
+
+// Brand Colors - Colores principales de la marca
+$color-primary: #1e3a8a !default;          // Azul profundo - Confianza y profesionalismo
+$color-primary-light: #3b82f6 !default;    // Azul claro - Tecnología y modernidad
+$color-primary-dark: #1e40af !default;     // Azul oscuro - Solidez y experiencia
+
+$color-secondary: #10b981 !default;        // Verde esmeralda - Crecimiento y éxito
+$color-secondary-light: #34d399 !default;  // Verde claro - Frescura e innovación
+$color-secondary-dark: #065f46 !default;   // Verde oscuro - Estabilidad
+
+$color-accent: #f59e0b !default;           // Amarillo dorado - Atención y energía
+$color-accent-light: #fbbf24 !default;     // Amarillo claro - Optimismo
+$color-accent-dark: #d97706 !default;      // Naranja - Acción y dinamismo
+
+// Neutral Colors - Escala de grises moderna
+$color-white: #ffffff !default;
+$color-gray-50: #f9fafb !default;
+$color-gray-100: #f3f4f6 !default;
+$color-gray-200: #e5e7eb !default;
+$color-gray-300: #d1d5db !default;
+$color-gray-400: #9ca3af !default;
+$color-gray-500: #6b7280 !default;
+$color-gray-600: #4b5563 !default;
+$color-gray-700: #374151 !default;
+$color-gray-800: #1f2937 !default;
+$color-gray-900: #111827 !default;
+$color-black: #000000 !default;
+$color-dark: #1a1a1a !default;
+
+// Status Colors - Colores de estado para UI
+$color-success: #10b981 !default;
+$color-warning: #f59e0b !default;
+$color-error: #ef4444 !default;
+$color-danger: #ef4444 !default;
+$color-info: #3b82f6 !default;
+
+// Semantic Colors - Colores semánticos para UI
+$color-background: $color-white !default;
+$color-background-light: $color-gray-50 !default;
+$color-text: $color-gray-900 !default;
+$color-text-muted: $color-gray-600 !default;
+$color-text-primary: $color-gray-900 !default;
+$color-text-secondary: $color-gray-600 !default;
+$color-border: $color-gray-300 !default;
+
+// Background Colors - Fondos especiales
+$color-bg-primary: $color-white !default;
+$color-bg-secondary: $color-gray-50 !default;
+$color-bg-dark: $color-gray-900 !default;
+$color-bg-overlay: rgba(0, 0, 0, 0.5) !default;
+
+// Gradient Colors - Sistema de gradientes
+$gradient-primary: linear-gradient(135deg, $color-primary, $color-primary-light) !default;
+$gradient-secondary: linear-gradient(135deg, $color-secondary, $color-secondary-light) !default;
+$gradient-accent: linear-gradient(135deg, $color-accent, $color-accent-light) !default;
+$gradient-hero: linear-gradient(135deg, rgba($color-primary, 0.9), rgba($color-secondary, 0.8)) !default;
+$gradient-card: linear-gradient(135deg, rgba($color-white, 0.1), rgba($color-white, 0.05)) !default;
+
+// ================================
+// TYPOGRAPHY SYSTEM
+// ================================
+
+// Font Families - Tipografías del proyecto
+$font-family-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !default;
+$font-family-secondary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !default;
+$font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !default;
+
+// Font Weights - Pesos de fuente disponibles
+$font-weight-light: 300 !default;
+$font-weight-regular: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+$font-weight-extrabold: 800 !default;
+$font-weight-black: 900 !default;
+
+// Font Sizes - Sistema de tamaños escalable
+$font-size-xs: 0.75rem !default;    // 12px
+$font-size-sm: 0.875rem !default;   // 14px
+$font-size-base: 1rem !default;     // 16px - Base del sistema
+$font-size-lg: 1.125rem !default;   // 18px
+$font-size-xl: 1.25rem !default;    // 20px
+$font-size-2xl: 1.5rem !default;    // 24px
+$font-size-3xl: 1.875rem !default;  // 30px
+$font-size-4xl: 2.25rem !default;   // 36px
+$font-size-5xl: 3rem !default;      // 48px
+$font-size-6xl: 3.75rem !default;   // 60px
+$font-size-7xl: 4.5rem !default;    // 72px
+
+// Line Heights - Alturas de línea para legibilidad
+$line-height-none: 1 !default;
+$line-height-tight: 1.25 !default;
+$line-height-snug: 1.375 !default;
+$line-height-normal: 1.5 !default;
+$line-height-relaxed: 1.625 !default;
+$line-height-loose: 2 !default;
+
+// Letter Spacing - Espaciado entre letras
+$letter-spacing-tighter: -0.05em !default;
+$letter-spacing-tight: -0.025em !default;
+$letter-spacing-normal: 0 !default;
+$letter-spacing-wide: 0.025em !default;
+$letter-spacing-wider: 0.05em !default;
+$letter-spacing-widest: 0.1em !default;
+
+// ================================
+// SPACING SYSTEM
+// ================================
+
+// Base spacing unit - Unidad base para el sistema de espaciado
+$spacing-base: 1rem !default; // 16px
+
+// Spacing Scale - Escala de espaciado consistente
+$spacing-0: 0 !default;
+$spacing-1: 0.25rem !default;   // 4px
+$spacing-2: 0.5rem !default;    // 8px
+$spacing-3: 0.75rem !default;   // 12px
+$spacing-4: 1rem !default;      // 16px
+$spacing-5: 1.25rem !default;   // 20px
+$spacing-6: 1.5rem !default;    // 24px
+$spacing-8: 2rem !default;      // 32px
+$spacing-10: 2.5rem !default;   // 40px
+$spacing-12: 3rem !default;     // 48px
+$spacing-16: 4rem !default;     // 64px
+$spacing-20: 5rem !default;     // 80px
+$spacing-24: 6rem !default;     // 96px
+$spacing-32: 8rem !default;     // 128px
+$spacing-40: 10rem !default;    // 160px
+$spacing-48: 12rem !default;    // 192px
+$spacing-56: 14rem !default;    // 224px
+$spacing-64: 16rem !default;    // 256px
+
+// Semantic Spacing - Espaciado semántico
+$spacing-xs: $spacing-2 !default;
+$spacing-sm: $spacing-4 !default;
+$spacing-md: $spacing-6 !default;
+$spacing-lg: $spacing-8 !default;
+$spacing-xl: $spacing-12 !default;
+$spacing-2xl: $spacing-16 !default;
+$spacing-3xl: $spacing-24 !default;
+
+// ================================
+// LAYOUT & GRID SYSTEM
+// ================================
+
+// Container Sizes - Tamaños de contenedor
+$container-max-widths: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px
+) !default;
+
+// Grid System - Sistema de grillas
+$grid-columns: 12 !default;
+$grid-gutter-width: $spacing-6 !default;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  2xl: 1400px
+) !default;
+
+// ================================
+// RESPONSIVE BREAKPOINTS
+// ================================
+
+$breakpoint-xs: 480px !default;
+$breakpoint-sm: 640px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 1024px !default;
+$breakpoint-xl: 1280px !default;
+$breakpoint-2xl: 1536px !default;
+
+// Breakpoint Map para usar con mixins
+$breakpoints: (
+  'mobile': 480px,
+  'tablet': 768px,
+  'xs': $breakpoint-xs,
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+  '2xl': $breakpoint-2xl
+) !default;
+
+// ================================
+// ANIMATIONS & TRANSITIONS
+// ================================
+
+// Animation Durations - Duraciones de animación
+$duration-fast: 150ms !default;
+$duration-base: 300ms !default;
+$duration-slow: 500ms !default;
+$duration-slower: 750ms !default;
+$duration-slowest: 1000ms !default;
+
+// Animation Easings - Curvas de animación
+$ease-linear: linear !default;
+$ease-in: ease-in !default;
+$ease-out: ease-out !default;
+$ease-in-out: ease-in-out !default;
+$ease-in-back: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default;
+$ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275) !default;
+$ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55) !default;
+$ease-bounce: cubic-bezier(0.25, 0.46, 0.45, 0.94) !default;
+
+// Common Transitions - Transiciones comunes
+$transition-all: all $duration-base $ease-in-out !default;
+$transition-colors: color $duration-base $ease-in-out, background-color $duration-base $ease-in-out, border-color $duration-base $ease-in-out !default;
+$transition-opacity: opacity $duration-base $ease-in-out !default;
+$transition-transform: transform $duration-base $ease-in-out !default;
+
+// Base Transition - Transición base para componentes
+$transition-base: $transition-all !default;
+
+// ================================
+// BORDERS & RADIUS
+// ================================
+
+// Border Widths - Anchos de borde
+$border-width-0: 0 !default;
+$border-width-1: 1px !default;
+$border-width-2: 2px !default;
+$border-width-4: 4px !default;
+$border-width-8: 8px !default;
+
+// Border Radius - Radio de bordes
+$border-radius-none: 0 !default;
+$border-radius-sm: 0.125rem !default;    // 2px
+$border-radius-base: 0.25rem !default;   // 4px
+$border-radius-md: 0.375rem !default;    // 6px
+$border-radius-lg: 0.5rem !default;      // 8px
+$border-radius-xl: 0.75rem !default;     // 12px
+$border-radius-2xl: 1rem !default;       // 16px
+$border-radius-3xl: 1.5rem !default;     // 24px
+$border-radius-full: 9999px !default;    // Círculo perfecto
+
+// ================================
+// SHADOWS & EFFECTS
+// ================================
+
+// Box Shadows - Sombras predefinidas
+$shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
+$shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !default;
+$shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !default;
+$shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !default;
+$shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !default;
+$shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !default;
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !default;
+$shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06) !default;
+
+// Colored Shadows - Sombras con color
+$shadow-primary: 0 10px 30px rgba($color-primary, 0.3) !default;
+$shadow-secondary: 0 10px 30px rgba($color-secondary, 0.3) !default;
+$shadow-accent: 0 10px 30px rgba($color-accent, 0.3) !default;
+
+// ================================
+// Z-INDEX SCALE
+// ================================
+
+$z-index-dropdown: 1000 !default;
+$z-index-sticky: 1020 !default;
+$z-index-fixed: 1030 !default;
+$z-index-modal-backdrop: 1040 !default;
+$z-index-modal: 1050 !default;
+$z-index-popover: 1060 !default;
+$z-index-tooltip: 1070 !default;
+$z-index-toast: 1080 !default;
+
+// Z-Index Map para componentes específicos
+$z-indexes: (
+  'header': 100,
+  'navigation': 200,
+  'dropdown': 300,
+  'sidebar': 350,
+  'fixed': 380,
+  'modal': 400,
+  'tooltip': 500,
+  'overlay': 600,
+  'loader': 700
+) !default;
+
+// ================================
+// COMPONENT-SPECIFIC VARIABLES
+// ================================
+
+// Button Variables - Variables específicas para botones
+$button-padding-y: $spacing-3 !default;
+$button-padding-x: $spacing-6 !default;
+$button-font-weight: $font-weight-semibold !default;
+$button-border-radius: $border-radius-lg !default;
+$button-transition: $transition-all !default;
+
+// Card Variables - Variables específicas para tarjetas
+$card-padding: $spacing-6 !default;
+$card-border-radius: $border-radius-2xl !default;
+$card-shadow: $shadow-lg !default;
+$card-bg: rgba($color-white, 0.95) !default;
+
+// Form Variables - Variables específicas para formularios
+$input-padding-y: $spacing-3 !default;
+$input-padding-x: $spacing-4 !default;
+$input-border-radius: $border-radius-lg !default;
+$input-border-color: $color-gray-300 !default;
+$input-focus-border-color: $color-primary !default;
+
+// Header Variables - Variables específicas para header
+$header-height: 80px !default;
+$header-bg: rgba($color-white, 0.95) !default;
+$header-shadow: $shadow-lg !default;
+
+// Footer Variables - Variables específicas para footer
+$footer-bg: $color-gray-900 !default;
+$footer-color: $color-gray-300 !default;
+$footer-padding: $spacing-16 !default;
+
+// ================================
+// UTILITY VARIABLES
+// ================================
+
+// Opacity Scale - Escala de opacidad
+$opacity-0: 0 !default;
+$opacity-25: 0.25 !default;
+$opacity-50: 0.5 !default;
+$opacity-75: 0.75 !default;
+$opacity-100: 1 !default;
+
+// Aspect Ratios - Proporciones de aspecto
+$aspect-square: 1 / 1 !default;
+$aspect-video: 16 / 9 !default;
+$aspect-photo: 4 / 3 !default;
+
+// ================================
+// EXPERIMENTAL & FUTURE
+// ================================
+
+// CSS Custom Properties Support - Soporte para propiedades CSS personalizadas
+$enable-css-custom-properties: true !default;
+
+// Print Styles - Variables para estilos de impresión
+$print-page-size: a4 !default;
+$print-body-min-width: map-get($container-max-widths, lg) !default; 
+
+// ================================
+// FUTURISTIC NAVIGATION VARIABLES
+// ================================
+
+// Glassmorphism effects
+$glass-bg-primary: rgba(255, 255, 255, 0.1);
+$glass-bg-secondary: rgba(255, 255, 255, 0.2);
+$glass-border: rgba(255, 255, 255, 0.2);
+$glass-shadow: rgba(0, 0, 0, 0.3);
+
+// Neomorphism effects
+$neomorph-light: rgba(255, 255, 255, 0.2);
+$neomorph-dark: rgba(0, 0, 0, 0.2);
+
+// Advanced cubic-bezier curves
+$cubic-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+$cubic-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$cubic-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+// Particle effects
+$particle-primary: $color-primary;
+$particle-secondary: rgba(255, 255, 255, 0.6);
+$particle-size-sm: 1px;
+$particle-size-md: 2px;
+$particle-size-lg: 3px;
+
+// Advanced shadows for depth
+$shadow-neomorph: 
+  10px 10px 20px rgba(0, 0, 0, 0.1),
+  -10px -10px 20px rgba(255, 255, 255, 0.1),
+  inset 2px 2px 5px rgba(255, 255, 255, 0.1),
+  inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+
+$shadow-glass: 
+  0 20px 40px rgba(0, 0, 0, 0.1),
+  0 0 20px rgba(255, 255, 255, 0.1);
+
+$shadow-floating: 
+  0 15px 30px rgba(0, 0, 0, 0.3),
+  0 0 30px $color-primary; 

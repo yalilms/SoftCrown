@@ -1,0 +1,514 @@
+//
+// _mixins.scss
+// Mixins esenciales para SoftCronw
+// Utilities reutilizables siguiendo metodología BEM
+//
+
+// ================================
+// RESPONSIVE BREAKPOINTS MIXINS
+// ================================
+
+// Mixin para media queries responsive
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Mixin para max-width media queries
+@mixin respond-below($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint) - 1px) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Mixin para rangos específicos de breakpoints
+@mixin respond-between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    @media (min-width: map-get($breakpoints, $lower)) and (max-width: map-get($breakpoints, $upper) - 1px) {
+      @content;
+    }
+  } @else {
+    @warn "One or both breakpoints are not available in $breakpoints map.";
+  }
+}
+
+// ================================
+// FLEXBOX UTILITIES
+// ================================
+
+// Mixin para flexbox básico
+@mixin flexbox($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// Mixin para centrar elementos con flexbox
+@mixin flex-center($direction: row) {
+  @include flexbox($direction, center, center);
+}
+
+// Mixin para flex space-between
+@mixin flex-between($direction: row) {
+  @include flexbox($direction, space-between, center);
+}
+
+// Mixin para flex space-around
+@mixin flex-around($direction: row) {
+  @include flexbox($direction, space-around, center);
+}
+
+// Mixin para grid layout
+@mixin grid($columns: 1, $gap: $spacing-4) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// ================================
+// POSITIONING UTILITIES
+// ================================
+
+// Mixin para posicionamiento absoluto centrado
+@mixin absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Mixin para posicionamiento fijo centrado
+@mixin fixed-center() {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Mixin para overlay completo
+@mixin full-overlay($z-index: 1000) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $z-index;
+}
+
+// ================================
+// ANIMATIONS & TRANSITIONS
+// ================================
+
+// Mixin para transiciones suaves
+@mixin transition($properties: all, $duration: $duration-base, $easing: $ease-in-out) {
+  transition: $properties $duration $easing;
+}
+
+// Mixin para animaciones de hover
+@mixin hover-effect($scale: 1.05, $duration: $duration-base) {
+  @include transition(transform, $duration);
+  cursor: pointer;
+  
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+// Mixin para efectos de fadeIn
+@mixin fade-in($duration: $duration-base, $delay: 0s) {
+  opacity: 0;
+  animation: fadeIn $duration $ease-in-out $delay forwards;
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Mixin para animaciones de slide
+@mixin slide-in($direction: left, $distance: 30px, $duration: $duration-base) {
+  @if $direction == left {
+    transform: translateX(-$distance);
+  } @else if $direction == right {
+    transform: translateX($distance);
+  } @else if $direction == up {
+    transform: translateY(-$distance);
+  } @else if $direction == down {
+    transform: translateY($distance);
+  }
+  
+  opacity: 0;
+  animation: slideIn#{capitalize($direction)} $duration $ease-out forwards;
+  
+  @keyframes slideInLeft {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInDown {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+// ================================
+// TYPOGRAPHY MIXINS
+// ================================
+
+// Mixin para tipografía responsive
+@mixin responsive-font($min-size, $max-size, $min-width: 320px, $max-width: 1200px) {
+  font-size: $min-size;
+  
+  @media (min-width: $min-width) and (max-width: $max-width) {
+    font-size: calc(#{$min-size} + #{strip-unit($max-size - $min-size)} * ((100vw - #{$min-width}) / #{strip-unit($max-width - $min-width)}));
+  }
+  
+  @media (min-width: $max-width) {
+    font-size: $max-size;
+  }
+}
+
+// Mixin para truncar texto
+@mixin text-truncate() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Mixin para texto multilinea truncado
+@mixin text-truncate-multiline($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Mixin para headings con estilo consistente
+@mixin heading-style($size, $weight: $font-weight-bold, $color: $color-gray-900) {
+  font-family: $font-family-primary;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-4;
+}
+
+// ================================
+// BUTTON MIXINS
+// ================================
+
+// Button Reset - Resetea estilos de botón
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+// Mixin base para botones
+@mixin button-base() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $button-padding-y $button-padding-x;
+  border: none;
+  border-radius: $button-border-radius;
+  font-family: $font-family-primary;
+  font-weight: $button-font-weight;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $button-transition;
+  user-select: none;
+  white-space: nowrap;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Mixin para botón primario
+@mixin button-primary() {
+  @include button-base();
+  background: $gradient-primary;
+  color: $color-white;
+  box-shadow: $shadow-primary;
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba($color-primary, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Mixin para botón secundario
+@mixin button-secondary() {
+  @include button-base();
+  background: transparent;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  
+  &:hover:not(:disabled) {
+    background: $color-primary;
+    color: $color-white;
+    transform: translateY(-2px);
+  }
+}
+
+// Mixin para botón con efecto glassmorphism
+@mixin button-glass($bg-color: $color-white, $opacity: 0.1) {
+  @include button-base();
+  background: rgba($bg-color, $opacity);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba($bg-color, 0.2);
+  color: $color-white;
+  
+  &:hover:not(:disabled) {
+    background: rgba($bg-color, $opacity + 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+// ================================
+// CARD MIXINS
+// ================================
+
+// Mixin base para tarjetas
+@mixin card-base() {
+  background: $card-bg;
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  padding: $card-padding;
+  @include transition(all, $duration-base);
+}
+
+// Mixin para tarjeta con glassmorphism
+@mixin card-glass($bg-opacity: 0.1, $border-opacity: 0.2) {
+  background: rgba($color-white, $bg-opacity);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba($color-white, $border-opacity);
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  padding: $card-padding;
+}
+
+// Mixin para efecto hover en tarjetas
+@mixin card-hover($scale: 1.05, $shadow: $shadow-xl) {
+  &:hover {
+    transform: translateY(-10px) scale($scale);
+    box-shadow: $shadow;
+  }
+}
+
+// ================================
+// FORM MIXINS
+// ================================
+
+// Mixin base para inputs
+@mixin input-base() {
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  font-family: $font-family-secondary;
+  font-size: $font-size-base;
+  @include transition(border-color, $duration-base);
+  
+  &:focus {
+    outline: none;
+    border-color: $input-focus-border-color;
+    box-shadow: 0 0 0 3px rgba($input-focus-border-color, 0.1);
+  }
+  
+  &::placeholder {
+    color: $color-gray-400;
+  }
+}
+
+// Mixin para inputs con estado de error
+@mixin input-error() {
+  border-color: $color-error;
+  
+  &:focus {
+    border-color: $color-error;
+    box-shadow: 0 0 0 3px rgba($color-error, 0.1);
+  }
+}
+
+// ================================
+// GRADIENT MIXINS
+// ================================
+
+// Mixin para gradientes personalizados
+@mixin gradient($direction: 135deg, $colors...) {
+  background: linear-gradient($direction, $colors);
+}
+
+// Mixin para gradiente radial
+@mixin radial-gradient($center: center, $colors...) {
+  background: radial-gradient($center, $colors);
+}
+
+// Mixin para gradiente de texto
+@mixin text-gradient($colors...) {
+  background: linear-gradient(135deg, $colors);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ================================
+// UTILITY MIXINS
+// ================================
+
+// Mixin para ocultar elementos visualmente pero mantenerlos accesibles
+@mixin visually-hidden() {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Mixin para aspect ratio
+@mixin aspect-ratio($ratio: $aspect-square) {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: percentage(1 / $ratio);
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Mixin para clearfix
+@mixin clearfix() {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Mixin para scrollbar personalizado
+@mixin custom-scrollbar($track-color: $color-gray-100, $thumb-color: $color-gray-400, $width: 8px) {
+  &::-webkit-scrollbar {
+    width: $width;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+    border-radius: $border-radius-full;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $border-radius-full;
+    
+    &:hover {
+      background: darken($thumb-color, 10%);
+    }
+  }
+}
+
+// ================================
+// 3D EFFECTS MIXINS
+// ================================
+
+// Mixin para efectos 3D
+@mixin transform-3d($preserve: true) {
+  @if $preserve {
+    transform-style: preserve-3d;
+  }
+  perspective: 1000px;
+}
+
+// Mixin para efecto tilt 3D
+@mixin tilt-3d($max-tilt: 15deg) {
+  @include transform-3d();
+  @include transition(transform, $duration-base);
+  
+  &:hover {
+    transform: rotateX($max-tilt / 2) rotateY($max-tilt);
+  }
+}
+
+// ================================
+// GLASSMORPHISM MIXINS
+// ================================
+
+// Mixin principal para glassmorphism
+@mixin glassmorphism($bg-opacity: 0.1, $blur: 20px, $border-opacity: 0.2) {
+  background: rgba($color-white, $bg-opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba($color-white, $border-opacity);
+}
+
+// Mixin para glassmorphism oscuro
+@mixin glassmorphism-dark($bg-opacity: 0.1, $blur: 20px, $border-opacity: 0.2) {
+  background: rgba($color-black, $bg-opacity);
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba($color-white, $border-opacity);
+} 

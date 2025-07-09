@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Pago y Condiciones - SoftCronw</title>
+    <meta name="description" content="Métodos de pago seguros, condiciones comerciales transparentes y garantías para tus proyectos con SoftCronw.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/payments.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <a href="index.html" class="nav__logo">SoftCronw</a>
+                
+                <button class="hamburger" aria-label="Toggle navigation">
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay">
+        <nav class="nav-menu">
+            <ul class="nav-menu__list">
+                <li class="nav-menu__item">
+                    <a href="index.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-home"></i>
+                        <span class="nav-menu__text">Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="servicios.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-code"></i>
+                        <span class="nav-menu__text">Servicios</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="sobre-nosotros.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-users"></i>
+                        <span class="nav-menu__text">Sobre Nosotros</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="portfolio.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-briefcase"></i>
+                        <span class="nav-menu__text">Portfolio</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="contacto.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-envelope"></i>
+                        <span class="nav-menu__text">Contacto</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Page Indicators -->
+            <div class="nav-indicator">
+                <span class="nav-indicator__dot" data-page="inicio"></span>
+                <span class="nav-indicator__dot" data-page="servicios"></span>
+                <span class="nav-indicator__dot" data-page="nosotros"></span>
+                <span class="nav-indicator__dot" data-page="portfolio"></span>
+                <span class="nav-indicator__dot" data-page="contacto"></span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section Futuristic -->
+        <section class="payments-hero">
+            <div class="container">
+                <div class="hero-content" data-aos="fade-up">
+                    <div class="hero-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Pagos 100% Seguros</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        <span class="title-line">Métodos de</span>
+                        <span class="title-line title-highlight">Pago Seguros</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Ofrecemos múltiples opciones de pago seguras y convenientes. 
+                        Todos nuestros pagos están protegidos con encriptación SSL de nivel bancario.
+                    </p>
+                    
+                    <div class="hero-features">
+                        <div class="feature">
+                            <i class="fas fa-lock"></i>
+                            <span>SSL Seguro</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Múltiples Métodos</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-receipt"></i>
+                            <span>Facturación Automática</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-background">
+                <div class="floating-icons">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-paypal"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fas fa-university"></i>
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Methods Section -->
+        <section class="payment-methods">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">
+                        Métodos de <span class="text-gradient">Pago</span> Disponibles
+                    </h2>
+                    <p class="section-subtitle">
+                        Elige el método que más te convenga para realizar tus pagos de forma segura
+                    </p>
+                </div>
+
+                <div class="payment-cards">
+                    <!-- Transferencia Bancaria -->
+                    <div class="payment-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="payment-card__header">
+                            <div class="payment-icon" data-tooltip="Transferencia bancaria segura y verificada">
+                                <i class="fas fa-university"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="payment-status available">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Disponible</span>
+                            </div>
+                        </div>
+                        <div class="payment-card__content">
+                            <h3 class="payment-title">Transferencia Bancaria</h3>
+                            <p class="payment-description">
+                                Pago seguro directo a nuestra cuenta bancaria verificada con cifrado SSL
+                            </p>
+                            <div class="payment-details">
+                                <div class="detail-item" data-tooltip="Confirmación automática al recibir el pago">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Confirmación inmediata</span>
+                                </div>
+                                <div class="detail-item" data-tooltip="Protección bancaria completa">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Máxima seguridad</span>
+                                </div>
+                                <div class="detail-item" data-tooltip="No cobramos comisiones adicionales">
+                                    <i class="fas fa-euro-sign"></i>
+                                    <span>Sin comisiones extra</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-card__actions">
+                            <button class="btn-payment btn-primary" onclick="showBankDetails()">
+                                <i class="fas fa-info-circle"></i>
+                                Ver Datos Bancarios
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- PayPal -->
+                    <div class="payment-card featured" data-aos="fade-up" data-aos-delay="200">
+                        <div class="featured-badge" data-tooltip="Método preferido por el 70% de nuestros clientes">Más Popular</div>
+                        <div class="payment-card__header">
+                            <div class="payment-icon paypal" data-tooltip="PayPal - Líder mundial en pagos digitales">
+                                <i class="fab fa-paypal"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="payment-status available">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Disponible</span>
+                            </div>
+                        </div>
+                        <div class="payment-card__content">
+                            <h3 class="payment-title">PayPal</h3>
+                            <p class="payment-description">
+                                Pago rápido y seguro internacional con protección al comprador y garantía de reembolso
+                            </p>
+                            <div class="payment-details">
+                                <div class="detail-item" data-tooltip="Pago confirmado en segundos">
+                                    <i class="fas fa-bolt"></i>
+                                    <span>Procesamiento instantáneo</span>
+                                </div>
+                                <div class="detail-item" data-tooltip="Disponible en más de 200 países">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Aceptado mundialmente</span>
+                                </div>
+                                <div class="detail-item" data-tooltip="Garantía de reembolso PayPal">
+                                    <i class="fas fa-user-shield"></i>
+                                    <span>Protección al comprador</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-card__actions">
+                            <button class="btn-payment btn-primary paypal-btn" onclick="payWithPayPal()">
+                                <i class="fab fa-paypal"></i>
+                                Pagar con PayPal
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tarjetas de Crédito/Débito -->
+                    <div class="payment-card coming-soon" data-aos="fade-up" data-aos-delay="300">
+                        <div class="payment-card__header">
+                            <div class="payment-icon cards" data-tooltip="Próximamente: Visa, Mastercard y más">
+                                <i class="fas fa-credit-card"></i>
+                                <div class="icon-glow"></div>
+                            </div>
+                            <div class="payment-status coming-soon" data-tooltip="Estimado: Q1 2025">
+                                <i class="fas fa-clock"></i>
+                                <span>Próximamente</span>
+                            </div>
+                        </div>
+                        <div class="payment-card__content">
+                            <h3 class="payment-title">Tarjeta de Crédito/Débito</h3>
+                            <p class="payment-description">
+                                Pago con tarjeta disponible pronto con tecnología 3D Secure para mayor seguridad
+                            </p>
+                            <div class="payment-details">
+                                <div class="detail-item" data-tooltip="Compatibilidad con principales tarjetas">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <span>Visa y Mastercard</span>
+                                </div>
+                                <div class="detail-item" data-tooltip="Pagos desde dispositivos móviles">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>Pago móvil</span>
+                                </div>
+                                <div class="detail-item" data-tooltip="Integración con Stripe en desarrollo">
+                                    <i class="fas fa-cog"></i>
+                                    <span>En desarrollo</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-card__actions">
+                            <button class="btn-payment btn-secondary" onclick="notifyWhenReady()">
+                                <i class="fas fa-bell"></i>
+                                Notificarme
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Structure Section -->
+        <section class="payment-structure">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">
+                        Estructura de <span class="text-gradient">Pago</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Proceso de pago transparente y equilibrado para ambas partes
+                    </p>
+                </div>
+
+                <div class="payment-timeline">
+                    <div class="timeline-progress">
+                        <div class="progress-line"></div>
+                        <div class="progress-circle active" data-step="1">50%</div>
+                        <div class="progress-circle" data-step="2">50%</div>
+                    </div>
+
+                    <div class="payment-phases">
+                        <!-- Fase 1: Inicio -->
+                        <div class="payment-phase" data-aos="fade-up" data-aos-delay="100">
+                            <div class="phase-icon" data-tooltip="Primera fase del proyecto">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <div class="phase-content">
+                                <div class="phase-header">
+                                    <h3 class="phase-title">50% AL INICIO</h3>
+                                    <div class="phase-amount" data-tooltip="Rango según complejidad del proyecto">€500 - €7,500</div>
+                                </div>
+                                <p class="phase-description">
+                                    Pago inicial para comenzar el desarrollo de tu proyecto y asegurar los recursos
+                                </p>
+                                <div class="phase-includes">
+                                    <h4>Incluye:</h4>
+                                    <ul>
+                                        <li data-tooltip="Reunión detallada para definir objetivos"><i class="fas fa-check"></i> Análisis de requerimientos</li>
+                                        <li data-tooltip="Mockups y wireframes del proyecto"><i class="fas fa-check"></i> Diseño y planificación</li>
+                                        <li data-tooltip="Configuración de servidores y herramientas"><i class="fas fa-check"></i> Configuración inicial</li>
+                                        <li data-tooltip="Especificaciones técnicas completas"><i class="fas fa-check"></i> Documentación técnica</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-timing" data-tooltip="Momento de realizar el primer pago">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Antes de iniciar el proyecto</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fase 2: Entrega -->
+                        <div class="payment-phase" data-aos="fade-up" data-aos-delay="200">
+                            <div class="phase-icon" data-tooltip="Fase final del proyecto">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="phase-content">
+                                <div class="phase-header">
+                                    <h3 class="phase-title">50% EN LA ENTREGA</h3>
+                                    <div class="phase-amount" data-tooltip="Pago final según presupuesto acordado">€500 - €7,500</div>
+                                </div>
+                                <p class="phase-description">
+                                    Pago final al completar y aprobar el proyecto satisfactoriamente
+                                </p>
+                                <div class="phase-includes">
+                                    <h4>Incluye:</h4>
+                                    <ul>
+                                        <li data-tooltip="Proyecto terminado y funcional"><i class="fas fa-check"></i> Entrega completa</li>
+                                        <li data-tooltip="Pruebas exhaustivas y correcciones"><i class="fas fa-check"></i> Testing y revisiones</li>
+                                        <li data-tooltip="Manual de usuario y documentación"><i class="fas fa-check"></i> Documentación final</li>
+                                        <li data-tooltip="Sesión de training para usar el sistema"><i class="fas fa-check"></i> Capacitación básica</li>
+                                    </ul>
+                                </div>
+                                <div class="phase-timing" data-tooltip="Momento de realizar el pago final">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <span>Al aprobar el proyecto final</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Conditions Section -->
+        <section class="additional-conditions">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">
+                        Condiciones <span class="text-gradient">Adicionales</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Términos claros y justos para una colaboración exitosa
+                    </p>
+                </div>
+
+                <div class="conditions-grid">
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="condition-icon" data-tooltip="Revisiones de contenido, diseño y funcionalidad">
+                            <i class="fas fa-redo-alt"></i>
+                        </div>
+                        <h3 class="condition-title">Revisiones Incluidas</h3>
+                        <div class="condition-value" data-tooltip="Tres rondas completas de correcciones">3 Rondas</div>
+                        <p class="condition-description">
+                            Tres rondas de revisiones incluidas sin costo adicional para perfectar tu proyecto
+                        </p>
+                    </div>
+
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="condition-icon" data-tooltip="Soporte técnico completo incluido">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="condition-title">Soporte Post-Entrega</h3>
+                        <div class="condition-value" data-tooltip="Un mes completo de soporte gratuito">30 Días</div>
+                        <p class="condition-description">
+                            Soporte técnico gratuito durante 30 días después de la entrega por email y chat
+                        </p>
+                    </div>
+
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="condition-icon" data-tooltip="Ajustes menores sin costo extra">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="condition-title">Modificaciones Menores</h3>
+                        <div class="condition-value" data-tooltip="Cambios pequeños incluidos">Sin Costo</div>
+                        <p class="condition-description">
+                            Pequeños ajustes y correcciones sin costo adicional durante el soporte
+                        </p>
+                    </div>
+
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="condition-icon" data-tooltip="Garantía total de satisfacción">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="condition-title">Garantía de Satisfacción</h3>
+                        <div class="condition-value" data-tooltip="Garantía completa o devolución">100%</div>
+                        <p class="condition-description">
+                            Garantía completa de satisfacción o devolución del dinero en los primeros 7 días
+                        </p>
+                    </div>
+
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="condition-icon" data-tooltip="Comunicación rápida y eficiente">
+                            <i class="fas fa-reply"></i>
+                        </div>
+                        <h3 class="condition-title">Tiempo de Respuesta</h3>
+                        <div class="condition-value" data-tooltip="Respuesta rápida garantizada">24-48h</div>
+                        <p class="condition-description">
+                            Respuesta garantizada en menos de 48 horas laborables por email o chat
+                        </p>
+                    </div>
+
+                    <div class="condition-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="condition-icon" data-tooltip="Código fuente completo incluido">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="condition-title">Código Fuente</h3>
+                        <div class="condition-value" data-tooltip="Propiedad completa del código">Incluido</div>
+                        <p class="condition-description">
+                            Código fuente completo y documentación técnica incluida para total transparencia
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security & Guarantees Section -->
+        <section class="security-guarantees">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">
+                        Seguridad y <span class="text-gradient">Garantías</span>
+                    </h2>
+                    <p class="section-subtitle">
+                        Tu tranquilidad es nuestra prioridad
+                    </p>
+                </div>
+
+                <div class="security-grid">
+                    <div class="security-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="security-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="security-title">Cifrado SSL</h3>
+                        <p class="security-description">
+                            Todas las transacciones están protegidas con cifrado SSL de 256 bits
+                        </p>
+                    </div>
+
+                    <div class="security-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="security-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3 class="security-title">Contrato Legal</h3>
+                        <p class="security-description">
+                            Contrato detallado que protege los derechos de ambas partes
+                        </p>
+                    </div>
+
+                    <div class="security-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="security-icon">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <h3 class="security-title">Política de Devolución</h3>
+                        <p class="security-description">
+                            Devolución del 100% si no quedas satisfecho en los primeros 7 días
+                        </p>
+                    </div>
+
+                    <div class="security-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="security-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3 class="security-title">Protección de Datos</h3>
+                        <p class="security-description">
+                            Cumplimiento total con GDPR y protección de datos personales
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="payment-cta">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2 class="cta-title">
+                        ¿Listo para comenzar tu proyecto?
+                    </h2>
+                    <p class="cta-description">
+                        Solicita tu presupuesto personalizado y comienza hoy mismo
+                    </p>
+                    
+                    <div class="cta-buttons">
+                        <a href="servicios.html" class="btn-cta btn-primary">
+                            <i class="fas fa-calculator"></i>
+                            Solicitar Presupuesto
+                        </a>
+                        <a href="contacto.html" class="btn-cta btn-secondary">
+                            <i class="fas fa-user-tie"></i>
+                            Contactar Asesor
+                        </a>
+                    </div>
+                    
+                    <div class="cta-info">
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <span>Respuesta en 24h</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-gift"></i>
+                            <span>Consulta gratuita</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-handshake"></i>
+                            <span>Sin compromisos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h1 class="loading-text">SoftCronw</h1>
+                <div class="loading-spinner"></div>
+            </div>
+            <p class="loading-subtitle">Cargando métodos de pago...</p>
+        </div>
+    </div>
+    
+    <!-- Chatbot SoftCronw Unificado -->
+    <div id="softcronw-chatbot" class="chatbot-container">
+        <!-- Chatbot Toggle Button -->
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Abrir chat">
+            <div class="toggle-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="toggle-badge">
+                <span class="badge-text">¿Necesitas ayuda?</span>
+                <small class="badge-subtitle">Pregunta a nuestro asistente IA</small>
+            </div>
+            <div class="notification-dot" id="notification-dot"></div>
+        </button>
+
+        <!-- Chatbot Widget -->
+        <div class="chatbot-widget hidden" id="chatbot-widget">
+            <!-- Header -->
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <img src="images/chatbot-avatar.png" alt="SoftCronw Assistant" onerror="this.style.display='none'">
+                    <div class="avatar-fallback">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                <div class="chatbot-info">
+                    <h4 class="chatbot-name">Sofia</h4>
+                    <p class="chatbot-title">Asistente Digital de SoftCronw</p>
+                    <div class="status-indicator">
+                        <span class="status-dot online"></span>
+                        <span class="status-text">En línea</span>
+                    </div>
+                </div>
+                <div class="chatbot-controls">
+                    <button class="control-btn minimize" id="chatbot-minimize" aria-label="Minimizar chat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="control-btn close" id="chatbot-close" aria-label="Cerrar chat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="typing-indicator hidden" id="typing-indicator">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="typing-text">Sofia está escribiendo...</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions" id="quick-actions">
+                <button class="quick-btn" data-action="services">💻 Servicios</button>
+                <button class="quick-btn" data-action="pricing">💰 Precios</button>
+                <button class="quick-btn" data-action="quote">📋 Presupuesto</button>
+                <button class="quick-btn" data-action="contact">📞 Contacto</button>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chatbot-input">
+                <div class="input-wrapper">
+                    <textarea 
+                        class="message-input" 
+                        id="message-input" 
+                        placeholder="Escribe tu mensaje..."
+                        rows="1"
+                        maxlength="500"
+                    ></textarea>
+                    <div class="input-actions">
+                        <button class="attachment-btn" id="attachment-btn" aria-label="Adjuntar archivo">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="send-btn" id="send-btn" aria-label="Enviar mensaje">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-suggestions" id="input-suggestions">
+                    <span class="suggestion" data-text="¿Cuánto cuesta una página web?">💰 Precios</span>
+                    <span class="suggestion" data-text="¿Qué servicios ofrecen?">🔧 Servicios</span>
+                    <span class="suggestion" data-text="Necesito una tienda online">🛒 E-commerce</span>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="chatbot-footer">
+                <div class="footer-options">
+                    <button class="footer-btn" id="voice-btn" aria-label="Activar voz">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="footer-btn" id="emoji-btn" aria-label="Emojis">
+                        <i class="fas fa-smile"></i>
+                    </button>
+                    <button class="footer-btn" id="clear-btn" aria-label="Limpiar chat">
+                        <i class="fas fa-broom"></i>
+                    </button>
+                </div>
+                <div class="footer-branding">
+                    <span>Powered by <strong>SoftCronw AI</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Preview (cuando está minimizado) -->
+        <div class="chatbot-preview hidden" id="chatbot-preview">
+            <div class="preview-header">
+                <span class="preview-title">Sofia - SoftCronw</span>
+                <button class="preview-close" id="preview-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="preview-messages" id="preview-messages">
+                <div class="preview-message">
+                    <span>👋 ¡Hola! ¿En qué puedo ayudarte?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bank Details Modal -->
+    <div id="bank-modal" class="modal">
+        <div class="modal-overlay" onclick="closeBankModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Datos Bancarios</h3>
+                <button class="modal-close" onclick="closeBankModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="bank-info">
+                    <div class="bank-detail">
+                        <label>Titular:</label>
+                        <span>SoftCronw S.L.</span>
+                    </div>
+                    <div class="bank-detail">
+                        <label>Banco:</label>
+                        <span>Banco Santander</span>
+                    </div>
+                    <div class="bank-detail">
+                        <label>IBAN:</label>
+                        <span>ES91 0049 0001 5025 1234 5678</span>
+                        <button class="copy-btn" onclick="copyToClipboard('ES91 0049 0001 5025 1234 5678')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="bank-detail">
+                        <label>BIC/SWIFT:</label>
+                        <span>BSCHESMM</span>
+                        <button class="copy-btn" onclick="copyToClipboard('BSCHESMM')">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="bank-detail">
+                        <label>Concepto:</label>
+                        <span>Proyecto [Número de Proyecto]</span>
+                    </div>
+                </div>
+                <div class="modal-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Por favor, incluye el número de proyecto en el concepto para identificar tu pago correctamente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3 class="footer__logo">SoftCronw</h3>
+                    <p class="footer__description">
+                        Transformamos ideas en soluciones digitales exitosas.
+                    </p>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="servicios.html">Desarrollo Web</a></li>
+                            <li><a href="servicios.html">Diseño UI/UX</a></li>
+                            <li><a href="servicios.html">E-commerce</a></li>
+                            <li><a href="servicios.html">Apps Móviles</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="pagos.html">Métodos de Pago</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> info@softcronw.com</li>
+                            <li><i class="fas fa-phone"></i> +34 600 000 000</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 SoftCronw. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Sistema Unificado de Librerías -->
+    <script src="js/libraries-unified.js"></script>
+    
+    <!-- SoftCronw Core Scripts -->
+    <script src="js/loading-manager.js"></script>
+    <script src="js/chatbot-core.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/payments.js"></script>
+    
+    <script>
+        // Inicializar cuando las librerías estén cargadas
+        document.addEventListener('librariesLoaded', function() {
+            // Add body class for futuristic mode
+            document.body.classList.add('futuristic-nav');
+        });
+    </script>
+</body>
+</html> 

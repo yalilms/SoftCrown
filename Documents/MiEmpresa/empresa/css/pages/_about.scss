@@ -1,0 +1,1230 @@
+//
+// _about.scss
+// Estilos específicos para la página "Sobre Nosotros"
+// Siguiendo metodología BEM y sistema de diseño de SoftCronw
+//
+
+// ================================
+// HERO SECTION - ABOUT
+// ================================
+
+.hero-about {
+  min-height: 100vh;
+  position: relative;
+  @include flex-center();
+  background: $gradient-hero;
+  overflow: hidden;
+  
+  // BEM Element: Background
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  // BEM Element: Hero shapes
+  .hero-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+      
+      &.shape-1 {
+        width: 300px;
+        height: 300px;
+        background: $color-primary-light;
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      
+      &.shape-2 {
+        width: 200px;
+        height: 200px;
+        background: $color-secondary;
+        top: 60%;
+        right: 10%;
+        animation-delay: 2s;
+      }
+      
+      &.shape-3 {
+        width: 150px;
+        height: 150px;
+        background: $color-accent;
+        bottom: 20%;
+        left: 30%;
+        animation-delay: 4s;
+      }
+      
+      &.shape-4 {
+        width: 100px;
+        height: 100px;
+        background: $color-primary;
+        top: 30%;
+        right: 30%;
+        animation-delay: 1s;
+      }
+    }
+  }
+  
+  // BEM Element: Hero particles
+  .hero-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  // BEM Element: Hero content
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: $color-white;
+    max-width: 600px;
+    
+    .hero-badge {
+      @include flexbox(row, center, center);
+      background: rgba($color-white, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba($color-white, 0.2);
+      border-radius: $border-radius-full;
+      padding: $spacing-2 $spacing-4;
+      margin-bottom: $spacing-6;
+      display: inline-flex;
+      
+      i {
+        margin-right: $spacing-2;
+        color: $color-accent;
+      }
+    }
+    
+    .hero-title {
+      font-size: $font-size-5xl;
+      font-weight: $font-weight-bold;
+      line-height: $line-height-tight;
+      margin-bottom: $spacing-6;
+      
+      @include respond-below(md) {
+        font-size: $font-size-4xl;
+      }
+      
+      .title-line {
+        display: block;
+        
+        &.highlight-animated {
+          background: linear-gradient(90deg, $color-accent, $color-secondary);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: gradient-shift 3s ease-in-out infinite;
+        }
+      }
+    }
+    
+    .hero-subtitle {
+      font-size: $font-size-xl;
+      line-height: $line-height-relaxed;
+      margin-bottom: $spacing-8;
+      opacity: 0.9;
+      
+      @include respond-below(md) {
+        font-size: $font-size-lg;
+      }
+    }
+    
+    .hero-stats {
+      @include flexbox(row, center, center);
+      gap: $spacing-8;
+      margin-bottom: $spacing-8;
+      
+      @include respond-below(md) {
+        flex-direction: column;
+        gap: $spacing-4;
+      }
+      
+      .stat-item {
+        text-align: center;
+        
+        .stat-number {
+          font-size: $font-size-4xl;
+          font-weight: $font-weight-bold;
+          color: $color-accent;
+          display: block;
+          line-height: 1;
+        }
+        
+        .stat-label {
+          font-size: $font-size-sm;
+          opacity: 0.8;
+          text-transform: uppercase;
+          letter-spacing: $letter-spacing-wide;
+        }
+      }
+    }
+    
+    .hero-buttons {
+      @include flexbox(row, center, center);
+      gap: $spacing-4;
+      
+      @include respond-below(md) {
+        flex-direction: column;
+        gap: $spacing-3;
+      }
+    }
+  }
+  
+  // BEM Element: Hero visual
+  .hero-visual {
+    position: relative;
+    z-index: 3;
+    
+    .team-showcase {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      
+      @include respond-below(md) {
+        width: 300px;
+        height: 300px;
+      }
+    }
+    
+    .team-circle {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      
+      .team-member {
+        position: absolute;
+        @include flex-center();
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: rgba($color-white, 0.1);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba($color-white, 0.2);
+        animation: orbit 20s linear infinite;
+        
+        &.member-1 {
+          top: 20%;
+          left: 20%;
+        }
+        
+        &.member-2 {
+          bottom: 20%;
+          right: 20%;
+          animation-direction: reverse;
+        }
+        
+        .member-avatar {
+          position: relative;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: $gradient-primary;
+          @include flex-center();
+          color: $color-white;
+          font-size: $font-size-2xl;
+          
+          .member-ring {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            border: 2px solid $color-accent;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+          }
+        }
+        
+        .member-info {
+          position: absolute;
+          bottom: -40px;
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+          white-space: nowrap;
+          
+          .member-name {
+            display: block;
+            font-weight: $font-weight-semibold;
+            font-size: $font-size-sm;
+            color: $color-white;
+          }
+          
+          .member-role {
+            display: block;
+            font-size: $font-size-xs;
+            color: $color-accent;
+          }
+        }
+      }
+      
+      .team-center {
+        @include absolute-center();
+        
+        .center-logo {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: $gradient-accent;
+          @include flex-center();
+          color: $color-white;
+          font-size: $font-size-xl;
+          font-weight: $font-weight-bold;
+          
+          .logo-pulse {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: calc(100% + 40px);
+            height: calc(100% + 40px);
+            border: 3px solid $color-white;
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ================================
+// TIMELINE SECTION
+// ================================
+
+.timeline-section {
+  padding: $spacing-20 0;
+  background: $color-background-light;
+  
+  .timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: $color-gray-300;
+      transform: translateX(-50%);
+      
+      @include respond-below(md) {
+        left: 30px;
+      }
+      
+      .timeline-progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0%;
+        background: $gradient-primary;
+        transition: height 0.3s ease;
+      }
+    }
+  }
+  
+  .timeline-item {
+    position: relative;
+    margin-bottom: $spacing-12;
+    
+    &.timeline-left {
+      .timeline-content {
+        margin-right: calc(50% + 60px);
+        text-align: right;
+        
+        @include respond-below(md) {
+          margin-right: 0;
+          margin-left: 60px;
+          text-align: left;
+        }
+      }
+    }
+    
+    &.timeline-right {
+      .timeline-content {
+        margin-left: calc(50% + 60px);
+        text-align: left;
+        
+        @include respond-below(md) {
+          margin-left: 60px;
+          text-align: left;
+        }
+      }
+    }
+    
+    .timeline-content {
+      background: $color-white;
+      padding: $spacing-6;
+      border-radius: $border-radius-lg;
+      box-shadow: $shadow-md;
+      position: relative;
+      @include transition();
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 30px;
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+      }
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-lg;
+      }
+      
+      .timeline-year {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        color: $color-primary;
+        margin-bottom: $spacing-2;
+      }
+      
+      .timeline-title {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-semibold;
+        color: $color-text;
+        margin-bottom: $spacing-3;
+      }
+      
+      .timeline-description {
+        font-size: $font-size-base;
+        color: $color-text-muted;
+        line-height: $line-height-relaxed;
+      }
+      
+      .timeline-icon {
+        position: absolute;
+        left: 50%;
+        top: 20px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        background: $gradient-primary;
+        border-radius: 50%;
+        @include flex-center();
+        color: $color-white;
+        font-size: $font-size-xl;
+        z-index: 2;
+        
+        @include respond-below(md) {
+          left: -90px;
+        }
+      }
+    }
+    
+    // Timeline arrows
+    .timeline-left .timeline-content::before {
+      right: -30px;
+      border-left-color: $color-white;
+      
+      @include respond-below(md) {
+        left: -30px;
+        right: auto;
+        border-left-color: transparent;
+        border-right-color: $color-white;
+      }
+    }
+    
+    .timeline-right .timeline-content::before {
+      left: -30px;
+      border-right-color: $color-white;
+      
+      @include respond-below(md) {
+        border-right-color: $color-white;
+      }
+    }
+  }
+}
+
+// ================================
+// MISSION & VISION SECTION
+// ================================
+
+.mission-vision-section {
+  padding: $spacing-20 0;
+  background: $color-white;
+  
+  .mission-card,
+  .vision-card {
+    height: 100%;
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    overflow: hidden;
+    @include transition();
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: $shadow-xl;
+    }
+    
+    .card-header {
+      padding: $spacing-8 $spacing-6 $spacing-4;
+      text-align: center;
+      position: relative;
+      
+      .card-icon {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin: 0 auto $spacing-4;
+        border-radius: 50%;
+        @include flex-center();
+        font-size: $font-size-2xl;
+        color: $color-white;
+        
+        .icon-glow {
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          width: calc(100% + 20px);
+          height: calc(100% + 20px);
+          border-radius: 50%;
+          opacity: 0.3;
+          animation: pulse 2s ease-in-out infinite;
+        }
+      }
+      
+      .card-title {
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        margin: 0;
+      }
+    }
+    
+    .card-content {
+      padding: 0 $spacing-6 $spacing-8;
+      
+      p {
+        font-size: $font-size-base;
+        color: $color-text-muted;
+        line-height: $line-height-relaxed;
+        margin-bottom: $spacing-6;
+      }
+      
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+          @include flexbox(row, flex-start, center);
+          margin-bottom: $spacing-3;
+          font-size: $font-size-sm;
+          color: $color-text-muted;
+          
+          i {
+            margin-right: $spacing-3;
+            color: $color-primary;
+            font-size: $font-size-base;
+          }
+        }
+      }
+    }
+  }
+  
+  .mission-card {
+    .card-header .card-icon {
+      background: $gradient-primary;
+      
+      .icon-glow {
+        background: $color-primary;
+      }
+    }
+  }
+  
+  .vision-card {
+    .card-header .card-icon {
+      background: $gradient-secondary;
+      
+      .icon-glow {
+        background: $color-secondary;
+      }
+    }
+  }
+}
+
+// ================================
+// TEAM SECTION
+// ================================
+
+.team-section {
+  padding: $spacing-20 0;
+  background: $color-background-light;
+  
+  .team-card {
+    height: 100%;
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    overflow: hidden;
+    @include transition();
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: $shadow-xl;
+    }
+    
+    .team-photo {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      
+      .photo-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        
+        .photo-placeholder {
+          width: 100%;
+          height: 100%;
+          background: $gradient-primary;
+          @include flex-center();
+          color: $color-white;
+          font-size: $font-size-5xl;
+        }
+        
+        .photo-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba($color-primary, 0.9);
+          @include flex-center();
+          opacity: 0;
+          @include transition();
+          
+          .overlay-content {
+            text-align: center;
+            color: $color-white;
+            padding: $spacing-4;
+            
+            .team-quote {
+              font-size: $font-size-lg;
+              font-style: italic;
+              margin: 0;
+              line-height: $line-height-relaxed;
+            }
+          }
+        }
+        
+        &:hover .photo-overlay {
+          opacity: 1;
+        }
+      }
+    }
+    
+    .team-info {
+      padding: $spacing-6;
+      
+      .team-name {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        margin-bottom: $spacing-2;
+      }
+      
+      .team-role {
+        font-size: $font-size-sm;
+        color: $color-primary;
+        text-transform: uppercase;
+        letter-spacing: $letter-spacing-wide;
+        margin-bottom: $spacing-4;
+      }
+      
+      .team-description {
+        font-size: $font-size-base;
+        color: $color-text-muted;
+        line-height: $line-height-relaxed;
+        margin-bottom: $spacing-6;
+      }
+      
+      .team-skills {
+        margin-bottom: $spacing-6;
+        
+        h4 {
+          font-size: $font-size-base;
+          font-weight: $font-weight-semibold;
+          color: $color-text;
+          margin-bottom: $spacing-4;
+        }
+        
+        .skill-item {
+          margin-bottom: $spacing-3;
+          
+          .skill-name {
+            display: block;
+            font-size: $font-size-sm;
+            color: $color-text;
+            margin-bottom: $spacing-2;
+          }
+          
+          .skill-bar {
+            height: 8px;
+            background: $color-gray-200;
+            border-radius: $border-radius-sm;
+            overflow: hidden;
+            
+            .skill-progress {
+              height: 100%;
+              background: $gradient-primary;
+              border-radius: $border-radius-sm;
+              width: 0%;
+              @include transition(width, $duration-slow);
+            }
+          }
+        }
+      }
+      
+      .team-social {
+        @include flexbox(row, center, center);
+        gap: $spacing-3;
+        
+        .social-link {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: $color-gray-100;
+          @include flex-center();
+          color: $color-text-muted;
+          @include transition();
+          
+          &:hover {
+            background: $color-primary;
+            color: $color-white;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ================================
+// VALUES SECTION
+// ================================
+
+.values-section {
+  padding: $spacing-20 0;
+  background: $color-white;
+  
+  .value-card {
+    height: 100%;
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    padding: $spacing-8 $spacing-6;
+    text-align: center;
+    @include transition();
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: $shadow-xl;
+      
+      .value-icon {
+        transform: scale(1.1);
+      }
+    }
+    
+    .value-icon {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto $spacing-6;
+      border-radius: 50%;
+      background: $gradient-primary;
+      @include flex-center();
+      color: $color-white;
+      font-size: $font-size-2xl;
+      @include transition();
+      
+      .icon-glow {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        border-radius: 50%;
+        background: $color-primary;
+        opacity: 0.3;
+        animation: pulse 2s ease-in-out infinite;
+      }
+    }
+    
+    .value-title {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $color-text;
+      margin-bottom: $spacing-4;
+    }
+    
+    .value-description {
+      font-size: $font-size-base;
+      color: $color-text-muted;
+      line-height: $line-height-relaxed;
+      margin: 0;
+    }
+  }
+}
+
+// ================================
+// PAYMENT METHODS SECTION
+// ================================
+
+.payment-methods-section {
+  padding: $spacing-20 0;
+  background: $color-background-light;
+  
+  .payment-card {
+    height: 100%;
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    overflow: hidden;
+    @include transition();
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: $shadow-xl;
+    }
+    
+    &.available {
+      .payment-header {
+        background: linear-gradient(135deg, rgba($color-success, 0.1), rgba($color-success, 0.05));
+      }
+      
+      .payment-status .status-badge {
+        background: $color-success;
+        color: $color-white;
+      }
+    }
+    
+    &.coming-soon {
+      .payment-header {
+        background: linear-gradient(135deg, rgba($color-warning, 0.1), rgba($color-warning, 0.05));
+      }
+      
+      .payment-status .status-badge {
+        background: $color-warning;
+        color: $color-white;
+      }
+    }
+    
+    .payment-header {
+      padding: $spacing-6;
+      text-align: center;
+      border-bottom: 1px solid $color-gray-200;
+      
+      .payment-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto $spacing-4;
+        border-radius: 50%;
+        background: $gradient-primary;
+        @include flex-center();
+        color: $color-white;
+        font-size: $font-size-xl;
+      }
+      
+      .payment-title {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        margin-bottom: $spacing-3;
+      }
+      
+      .payment-status {
+        .status-badge {
+          display: inline-block;
+          padding: $spacing-1 $spacing-3;
+          border-radius: $border-radius-full;
+          font-size: $font-size-xs;
+          font-weight: $font-weight-medium;
+          text-transform: uppercase;
+          letter-spacing: $letter-spacing-wide;
+        }
+      }
+    }
+    
+    .payment-content {
+      padding: $spacing-6;
+      
+      .payment-description {
+        font-size: $font-size-base;
+        color: $color-text-muted;
+        line-height: $line-height-relaxed;
+        margin-bottom: $spacing-6;
+      }
+      
+      .payment-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+          @include flexbox(row, flex-start, center);
+          margin-bottom: $spacing-3;
+          font-size: $font-size-sm;
+          color: $color-text-muted;
+          
+          i {
+            margin-right: $spacing-3;
+            color: $color-primary;
+            font-size: $font-size-base;
+          }
+        }
+      }
+    }
+  }
+  
+  .payment-structure {
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    padding: $spacing-8;
+    text-align: center;
+    
+    .structure-title {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      color: $color-text;
+      margin-bottom: $spacing-8;
+    }
+    
+    .structure-timeline {
+      @include flexbox(row, space-between, center);
+      max-width: 800px;
+      margin: 0 auto;
+      
+      @include respond-below(md) {
+        flex-direction: column;
+        gap: $spacing-6;
+      }
+      
+      .timeline-step {
+        text-align: center;
+        flex: 1;
+        
+        .step-number {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: $gradient-primary;
+          @include flex-center();
+          color: $color-white;
+          font-size: $font-size-xl;
+          font-weight: $font-weight-bold;
+          margin: 0 auto $spacing-4;
+        }
+        
+        .step-content {
+          h4 {
+            font-size: $font-size-lg;
+            font-weight: $font-weight-semibold;
+            color: $color-text;
+            margin-bottom: $spacing-2;
+          }
+          
+          p {
+            font-size: $font-size-sm;
+            color: $color-text-muted;
+            line-height: $line-height-relaxed;
+            margin: 0;
+          }
+        }
+      }
+      
+      .timeline-arrow {
+        color: $color-primary;
+        font-size: $font-size-xl;
+        margin: 0 $spacing-4;
+        
+        @include respond-below(md) {
+          transform: rotate(90deg);
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+// ================================
+// GUARANTEES SECTION
+// ================================
+
+.guarantees-section {
+  padding: $spacing-20 0;
+  background: $color-white;
+  
+  .guarantee-card {
+    height: 100%;
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-md;
+    padding: $spacing-8 $spacing-6;
+    text-align: center;
+    @include transition();
+    
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: $shadow-xl;
+      
+      .guarantee-icon {
+        transform: scale(1.1);
+      }
+    }
+    
+    .guarantee-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto $spacing-6;
+      border-radius: 50%;
+      background: $gradient-secondary;
+      @include flex-center();
+      color: $color-white;
+      font-size: $font-size-2xl;
+      @include transition();
+    }
+    
+    .guarantee-title {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: $color-text;
+      margin-bottom: $spacing-4;
+    }
+    
+    .guarantee-description {
+      font-size: $font-size-base;
+      color: $color-text-muted;
+      line-height: $line-height-relaxed;
+      margin: 0;
+    }
+  }
+}
+
+// ================================
+// CALCULATOR SECTION
+// ================================
+
+.calculator-section {
+  padding: $spacing-20 0;
+  background: $color-background-light;
+  
+  .calculator-container {
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    padding: $spacing-8;
+    
+    .calculator-form {
+      .form-group {
+        margin-bottom: $spacing-6;
+        
+        label {
+          display: block;
+          font-size: $font-size-base;
+          font-weight: $font-weight-medium;
+          color: $color-text;
+          margin-bottom: $spacing-3;
+        }
+        
+        .form-select {
+          width: 100%;
+          padding: $spacing-3 $spacing-4;
+          border: 2px solid $color-gray-300;
+          border-radius: $border-radius-md;
+          font-size: $font-size-base;
+          background: $color-white;
+          @include transition();
+          
+          &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+          }
+        }
+        
+        .extras-grid {
+          @include grid(2, $spacing-4);
+          
+          @include respond-below(md) {
+            grid-template-columns: 1fr;
+          }
+          
+          .extra-item {
+            @include flexbox(row, flex-start, center);
+            
+            input[type="checkbox"] {
+              margin-right: $spacing-3;
+              width: 18px;
+              height: 18px;
+              accent-color: $color-primary;
+            }
+            
+            label {
+              font-size: $font-size-sm;
+              color: $color-text-muted;
+              margin: 0;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      
+      .calculator-result {
+        background: $color-background-light;
+        border-radius: $border-radius-md;
+        padding: $spacing-6;
+        text-align: center;
+        margin-bottom: $spacing-6;
+        
+        h3 {
+          font-size: $font-size-lg;
+          font-weight: $font-weight-semibold;
+          color: $color-text;
+          margin-bottom: $spacing-4;
+        }
+        
+        .price-display {
+          margin-bottom: $spacing-4;
+          
+          .price-amount {
+            font-size: $font-size-4xl;
+            font-weight: $font-weight-bold;
+            color: $color-primary;
+          }
+          
+          .price-label {
+            font-size: $font-size-xl;
+            color: $color-text-muted;
+            margin-left: $spacing-2;
+          }
+        }
+        
+        .price-note {
+          font-size: $font-size-sm;
+          color: $color-text-muted;
+          margin: 0;
+        }
+      }
+      
+      .calculator-actions {
+        text-align: center;
+      }
+    }
+  }
+}
+
+// ================================
+// ANIMATIONS
+// ================================
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.7; }
+}
+
+// ================================
+// RESPONSIVE ADJUSTMENTS
+// ================================
+
+@include respond-below(lg) {
+  .hero-about {
+    .hero-content .hero-title {
+      font-size: $font-size-4xl;
+    }
+    
+    .hero-visual .team-showcase {
+      width: 350px;
+      height: 350px;
+    }
+  }
+  
+  .timeline-section {
+    .timeline-container .timeline-line {
+      left: 30px;
+    }
+    
+    .timeline-item {
+      &.timeline-left,
+      &.timeline-right {
+        .timeline-content {
+          margin-left: 60px;
+          margin-right: 0;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@include respond-below(md) {
+  .hero-about {
+    .hero-content {
+      .hero-title {
+        font-size: $font-size-3xl;
+      }
+      
+      .hero-stats {
+        flex-direction: column;
+        gap: $spacing-4;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
+    }
+    
+    .hero-visual .team-showcase {
+      width: 280px;
+      height: 280px;
+    }
+  }
+  
+  .payment-methods-section {
+    .payment-structure .structure-timeline {
+      flex-direction: column;
+      gap: $spacing-6;
+      
+      .timeline-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+} 

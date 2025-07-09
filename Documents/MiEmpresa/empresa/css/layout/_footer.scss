@@ -1,0 +1,154 @@
+//
+// Footer Layout Styles
+// Estilos para el pie de página
+//
+
+.footer {
+  background: linear-gradient(135deg, $color-dark 0%, darken($color-dark, 10%) 100%);
+  color: $color-white;
+  padding: $spacing-12 0 $spacing-6;
+  margin-top: auto;
+  
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: $spacing-8;
+    margin-bottom: $spacing-8;
+  }
+  
+  &__brand {
+    .footer__logo {
+      font-size: 1.75rem;
+      font-weight: $font-weight-bold;
+      color: $color-white;
+      margin-bottom: $spacing-4;
+    }
+    
+    .footer__description {
+      color: rgba($color-white, 0.8);
+      line-height: 1.6;
+      margin-bottom: $spacing-6;
+    }
+  }
+  
+  &__social {
+    display: flex;
+    gap: $spacing-3;
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba($color-white, 0.1);
+      border-radius: 50%;
+      color: $color-white;
+      text-decoration: none;
+      transition: all $transition-base;
+      
+      &:hover {
+        background: $color-primary;
+        transform: translateY(-2px);
+      }
+    }
+  }
+  
+  &__links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-6;
+  }
+  
+  &__column {
+    h4 {
+      color: $color-white;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-4;
+      font-size: 1.125rem;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: $spacing-2;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      
+      a {
+        color: rgba($color-white, 0.8);
+        text-decoration: none;
+        transition: color $transition-base;
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+        
+        &:hover {
+          color: $color-white;
+        }
+        
+        i {
+          width: 16px;
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+  
+  &__bottom {
+    padding-top: $spacing-6;
+    border-top: 1px solid rgba($color-white, 0.1);
+    text-align: center;
+    color: rgba($color-white, 0.6);
+    font-size: 0.875rem;
+  }
+}
+
+// ================================
+// RESPONSIVE FOOTER
+// ================================
+
+@include respond-to('tablet') {
+  .footer {
+    padding: $spacing-10 0 $spacing-4;
+    
+    &__content {
+      grid-template-columns: 1fr;
+      gap: $spacing-6;
+    }
+    
+    &__links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@include respond-to('mobile') {
+  .footer {
+    padding: $spacing-8 0 $spacing-4;
+    
+    &__content {
+      gap: $spacing-4;
+    }
+    
+    &__links {
+      grid-template-columns: 1fr;
+      gap: $spacing-4;
+    }
+    
+    &__social {
+      justify-content: center;
+      
+      .social-link {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+} 

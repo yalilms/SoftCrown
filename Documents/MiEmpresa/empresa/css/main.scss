@@ -1,0 +1,311 @@
+//
+// main.scss
+// Archivo principal de estilos para SoftCronw
+// Importa toda la arquitectura SCSS en orden de dependencias
+//
+
+// ================================
+// 1. ABSTRACTS
+// Variables, mixins, functions y placeholders
+// Estos no generan CSS por sí solos
+// ================================
+
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/placeholders';
+
+// ================================
+// 2. VENDORS
+// Librerías de terceros
+// Se importan antes que nuestros estilos base
+// ================================
+
+@import 'vendors/bootstrap';
+@import 'vendors/aos';
+
+// ================================
+// 3. BASE
+// Estilos fundamentales del proyecto
+// Reset, tipografía y elementos base
+// ================================
+
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// ================================
+// 4. LAYOUT
+// Estructura principal del sitio
+// Header, footer, grid, sidebar
+// ================================
+
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+
+// ================================
+// 5. COMPONENTS
+// Componentes reutilizables
+// Botones, tarjetas, formularios, etc.
+// ================================
+
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/forms';
+@import 'components/navigation';
+@import 'components/modal';
+@import 'components/chatbot';
+@import 'components/loader';
+@import 'components/spectacular';
+
+// ================================
+// 6. PAGES
+// Estilos específicos por página
+// Solo los estilos únicos de cada página
+// ================================
+
+@import 'pages/home';
+@import 'pages/services';
+@import 'pages/about';
+@import 'pages/portfolio';
+@import 'pages/contact';
+
+// ================================
+// 7. THEMES
+// Temas y variaciones de color
+// Sistema de theming dinámico
+// ================================
+
+@import 'themes/default';
+@import 'themes/dark';
+
+// ================================
+// UTILITIES & HELPERS
+// Clases utilitarias que pueden override
+// Se importan al final para mayor especificidad
+// ================================
+
+// Spacing utilities
+.mt-auto { margin-top: auto !important; }
+.mb-auto { margin-bottom: auto !important; }
+.ml-auto { margin-left: auto !important; }
+.mr-auto { margin-right: auto !important; }
+
+// Display utilities
+.d-none { display: none !important; }
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-grid { display: grid !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+
+// Position utilities
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+.position-sticky { position: sticky !important; }
+
+// Responsive display utilities
+@each $breakpoint, $value in $breakpoints {
+  @include respond-to($breakpoint) {
+    .d-#{$breakpoint}-none { display: none !important; }
+    .d-#{$breakpoint}-block { display: block !important; }
+    .d-#{$breakpoint}-flex { display: flex !important; }
+    .d-#{$breakpoint}-grid { display: grid !important; }
+  }
+}
+
+// Visibility utilities
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+// Overflow utilities
+.overflow-hidden { overflow: hidden !important; }
+.overflow-auto { overflow: auto !important; }
+.overflow-scroll { overflow: scroll !important; }
+
+// Z-index utilities
+@each $name, $value in $z-indexes {
+  .z-#{$name} { z-index: $value !important; }
+}
+
+// ================================
+// PRINT STYLES
+// Estilos específicos para impresión
+// ================================
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  // Forzar colores para impresión
+  .print-force-color {
+    color: black !important;
+    background: white !important;
+  }
+}
+
+// ================================
+// DEBUG UTILITIES
+// Solo para desarrollo - remover en producción
+// ================================
+
+@if $enable-css-custom-properties {
+  .debug-grid {
+    background-image: 
+      linear-gradient(rgba($color-primary, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba($color-primary, 0.1) 1px, transparent 1px);
+    background-size: $spacing-4 $spacing-4;
+  }
+  
+  .debug-outline * {
+    outline: 1px solid rgba($color-error, 0.5) !important;
+  }
+}
+
+// ================================
+// MODERN CSS FEATURES
+// Utilizando características CSS modernas
+// ================================
+
+// CSS Grid areas utility
+.grid-area-1 { grid-area: area1; }
+.grid-area-2 { grid-area: area2; }
+.grid-area-3 { grid-area: area3; }
+.grid-area-4 { grid-area: area4; }
+
+// Container queries (futuro)
+@supports (container-type: inline-size) {
+  .container-query {
+    container-type: inline-size;
+  }
+}
+
+// Scroll snap utilities
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+}
+
+.scroll-snap-y {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.scroll-snap-start { scroll-snap-align: start; }
+.scroll-snap-center { scroll-snap-align: center; }
+.scroll-snap-end { scroll-snap-align: end; }
+
+// ================================
+// PERFORMANCE OPTIMIZATIONS
+// ================================
+
+// Will-change utilities para animaciones
+.will-change-transform { will-change: transform; }
+.will-change-opacity { will-change: opacity; }
+.will-change-scroll { will-change: scroll-position; }
+
+// Contain utilities para optimización
+.contain-layout { contain: layout; }
+.contain-style { contain: style; }
+.contain-paint { contain: paint; }
+.contain-size { contain: size; }
+
+// ================================
+// ACCESSIBILITY UTILITIES
+// ================================
+
+// Screen reader only
+.sr-only {
+  @extend %visually-hidden;
+}
+
+// Focus utilities
+.focus-ring:focus {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+.focus-ring-inset:focus {
+  outline: 2px solid $color-primary;
+  outline-offset: -2px;
+}
+
+// Skip links
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  
+  &:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: $spacing-2 $spacing-4;
+    background: $color-primary;
+    color: $color-white;
+    text-decoration: none;
+    z-index: z-index('tooltip');
+  }
+}
+
+// ================================
+// ANIMATION UTILITIES
+// ================================
+
+// Animation delays
+.animate-delay-75 { animation-delay: 75ms; }
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-150 { animation-delay: 150ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-700 { animation-delay: 700ms; }
+.animate-delay-1000 { animation-delay: 1000ms; }
+
+// Common animations
+.animate-fade-in { @extend %fade-in; }
+.animate-slide-up { @extend %slide-up; }
+.animate-float { @extend %float-animation; }
+.animate-pulse { @extend %pulse-animation; }
+
+// ================================
+// FINAL COMMENTS
+// ================================
+
+/*
+ * SoftCronw CSS Architecture
+ * ========================
+ * 
+ * Esta arquitectura sigue las mejores prácticas de CSS moderno:
+ * 
+ * 1. Metodología BEM para nomenclatura consistente
+ * 2. SCSS para características avanzadas y modularidad
+ * 3. Sistema de variables completo y escalable
+ * 4. Mixins reutilizables para código DRY
+ * 5. Estructura modular para mantenimiento fácil
+ * 6. Responsive design con mobile-first approach
+ * 7. Accesibilidad integrada desde el diseño
+ * 8. Optimizaciones de rendimiento
+ * 9. Soporte para temas múltiples
+ * 10. Utilidades para desarrollo y debugging
+ * 
+ * Mantenimiento:
+ * - Agregar nuevos componentes en /components/
+ * - Estilos específicos de página en /pages/
+ * - Variables globales en /abstracts/_variables.scss
+ * - Mixins reutilizables en /abstracts/_mixins.scss
+ * 
+ * Compilación:
+ * sass css/main.scss css/styles.css --style=compressed --source-map
+ */ 

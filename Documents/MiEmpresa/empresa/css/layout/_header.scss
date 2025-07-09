@@ -1,0 +1,740 @@
+//
+// _header.scss
+// Header y navegación principal para SoftCronw
+// Metodología BEM con glassmorphism y responsive design
+//
+
+// ================================
+// HEADER BASE - BLOQUE BEM
+// ================================
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  background: $header-bg;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba($color-white, 0.1);
+  box-shadow: $header-shadow;
+  z-index: z-index('header');
+  transition: $transition-all;
+  
+  // BEM Modifier: Transparent header (for hero sections)
+  &--transparent {
+    background: transparent;
+    border-bottom: 1px solid rgba($color-white, 0.2);
+    box-shadow: none;
+    
+    &.scrolled {
+      background: $header-bg;
+      box-shadow: $header-shadow;
+      border-bottom: 1px solid rgba($color-white, 0.1);
+    }
+  }
+  
+  // BEM Modifier: Dark header
+  &--dark {
+    background: rgba($color-gray-900, 0.95);
+    border-bottom: 1px solid rgba($color-gray-800, 0.8);
+    
+    .header__logo,
+    .nav__link {
+      color: $color-white;
+    }
+    
+    .nav__link:hover {
+      color: $color-primary-light;
+    }
+  }
+  
+  // BEM Modifier: Solid header (no transparency)
+  &--solid {
+    background: $color-white;
+    backdrop-filter: none;
+    border-bottom: 1px solid $color-gray-200;
+  }
+  
+  // BEM Element: Header container
+  &__container {
+    @extend %container;
+    height: 100%;
+    @include flex-between();
+    align-items: center;
+  }
+  
+  // BEM Element: Logo section
+  &__logo {
+    @include flexbox(row, flex-start, center);
+    gap: $spacing-3;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-gray-900;
+    text-decoration: none;
+    transition: $transition-colors;
+    
+    &:hover {
+      color: $color-primary;
+      text-decoration: none;
+    }
+    
+    // Logo image
+    img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+    
+    // Logo text
+    &-text {
+      font-family: $font-family-primary;
+      @include text-gradient($color-primary, $color-secondary);
+    }
+  }
+  
+  // BEM Element: Navigation section
+  &__nav {
+    flex: 1;
+    @include flexbox(row, center, center);
+    
+    @include respond-below('lg') {
+      display: none;
+    }
+  }
+  
+  // BEM Element: Actions section (buttons, user menu)
+  &__actions {
+    @include flexbox(row, flex-end, center);
+    gap: $spacing-4;
+  }
+  
+  // BEM Element: Mobile menu toggle
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-2;
+    border-radius: $border-radius-md;
+    transition: $transition-colors;
+    
+    @include respond-below('lg') {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    &:hover {
+      background: rgba($color-gray-500, 0.1);
+    }
+    
+    // Hamburger icon
+    .hamburger {
+      width: 24px;
+      height: 18px;
+      position: relative;
+      
+      span {
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        background: currentColor;
+        border-radius: 1px;
+        transition: $transition-all;
+        
+        &:nth-child(1) { top: 0; }
+        &:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        &:nth-child(3) { bottom: 0; }
+      }
+    }
+    
+    // Active state (X icon)
+    &.active {
+      .hamburger span {
+        &:nth-child(1) {
+          top: 50%;
+          transform: translateY(-50%) rotate(45deg);
+        }
+        
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        
+        &:nth-child(3) {
+          bottom: 50%;
+          transform: translateY(50%) rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+// ================================
+// NAVIGATION - BLOQUE BEM
+// ================================
+
+.nav {
+  // BEM Element: Navigation list
+  &__list {
+    @include flexbox(row, center, center);
+    gap: $spacing-8;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  // BEM Element: Navigation item
+  &__item {
+    position: relative;
+    
+    // BEM Modifier: Item with dropdown
+    &--has-dropdown {
+      &:hover .nav__dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  // BEM Element: Navigation link
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    padding: $spacing-2 $spacing-3;
+    font-weight: $font-weight-medium;
+    color: $color-gray-700;
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: $transition-all;
+    position: relative;
+    
+    &:hover {
+      color: $color-primary;
+      background: rgba($color-primary, 0.1);
+      text-decoration: none;
+    }
+    
+    // Active state
+    &--active {
+      color: $color-primary;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 6px;
+        height: 6px;
+        background: $color-primary;
+        border-radius: 50%;
+      }
+    }
+    
+    // CTA link style
+    &--cta {
+      @extend .btn;
+      @extend .btn--primary;
+      margin-left: $spacing-4;
+    }
+    
+    // Icon in link
+    .icon {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+  }
+  
+  // BEM Element: Dropdown menu
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: rgba($color-white, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba($color-gray-200, 0.8);
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    padding: $spacing-3;
+    margin-top: $spacing-2;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: $transition-all;
+    z-index: z-index('dropdown');
+    
+    // Dropdown links
+    .nav__link {
+      display: block;
+      padding: $spacing-3;
+      border-radius: $border-radius-md;
+      
+      &:hover {
+        background: rgba($color-primary, 0.1);
+      }
+      
+      &::after {
+        display: none; // Remove active indicator in dropdown
+      }
+    }
+    
+    // Dropdown separator
+    &-separator {
+      height: 1px;
+      background: $color-gray-200;
+      margin: $spacing-2 0;
+    }
+    
+    // Dropdown header
+    &-header {
+      font-size: $font-size-sm;
+      font-weight: $font-weight-semibold;
+      color: $color-gray-500;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-wide;
+      padding: $spacing-2 $spacing-3;
+      margin-bottom: $spacing-1;
+    }
+  }
+}
+
+// ================================
+// MOBILE NAVIGATION - BLOQUE BEM
+// ================================
+
+.mobile-nav {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($color-white, 0.95);
+  backdrop-filter: blur(20px);
+  transform: translateX(100%);
+  transition: transform $duration-base $ease-out;
+  z-index: z-index('navigation');
+  overflow-y: auto;
+  
+  // BEM Modifier: Active mobile nav
+  &--active {
+    transform: translateX(0);
+  }
+  
+  // BEM Element: Mobile nav container
+  &__container {
+    padding: $spacing-6;
+  }
+  
+  // BEM Element: Mobile nav list
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  // BEM Element: Mobile nav item
+  &__item {
+    margin-bottom: $spacing-1;
+    
+    // BEM Modifier: Has submenu
+    &--has-submenu {
+      .mobile-nav__toggle {
+        display: flex;
+      }
+    }
+  }
+  
+  // BEM Element: Mobile nav link
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-4;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    color: $color-gray-700;
+    text-decoration: none;
+    border-radius: $border-radius-lg;
+    transition: $transition-colors;
+    
+    &:hover {
+      background: rgba($color-primary, 0.1);
+      color: $color-primary;
+      text-decoration: none;
+    }
+    
+    // Active mobile link
+    &--active {
+      background: rgba($color-primary, 0.1);
+      color: $color-primary;
+    }
+    
+    // CTA mobile link
+    &--cta {
+      background: $gradient-primary;
+      color: $color-white;
+      margin-top: $spacing-4;
+      justify-content: center;
+      
+      &:hover {
+        background: $gradient-primary;
+        transform: translateY(-2px);
+      }
+    }
+  }
+  
+  // BEM Element: Submenu toggle
+  &__toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: $spacing-1;
+    cursor: pointer;
+    
+    .icon {
+      width: 16px;
+      height: 16px;
+      transition: transform $duration-base;
+    }
+    
+    &.active .icon {
+      transform: rotate(180deg);
+    }
+  }
+  
+  // BEM Element: Submenu
+  &__submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $duration-base $ease-out;
+    
+    &.active {
+      max-height: 500px;
+    }
+    
+    .mobile-nav__link {
+      padding-left: $spacing-8;
+      font-size: $font-size-base;
+      font-weight: $font-weight-regular;
+    }
+  }
+  
+  // BEM Element: Mobile nav footer
+  &__footer {
+    margin-top: $spacing-8;
+    padding-top: $spacing-6;
+    border-top: 1px solid $color-gray-200;
+    
+    .social-links {
+      @include flexbox(row, center, center);
+      gap: $spacing-4;
+      margin-bottom: $spacing-4;
+      
+      a {
+        @include flexbox(row, center, center);
+        width: 40px;
+        height: 40px;
+        background: rgba($color-primary, 0.1);
+        border-radius: 50%;
+        color: $color-primary;
+        transition: $transition-all;
+        
+        &:hover {
+          background: $color-primary;
+          color: $color-white;
+          transform: scale(1.1);
+        }
+      }
+    }
+    
+    .contact-info {
+      text-align: center;
+      font-size: $font-size-sm;
+      color: $color-gray-600;
+    }
+  }
+}
+
+// ================================
+// USER MENU - BLOQUE BEM
+// ================================
+
+.user-menu {
+  position: relative;
+  
+  // BEM Element: User trigger button
+  &__trigger {
+    @include flexbox(row, center, center);
+    gap: $spacing-2;
+    padding: $spacing-2;
+    background: none;
+    border: none;
+    border-radius: $border-radius-full;
+    cursor: pointer;
+    transition: $transition-colors;
+    
+    &:hover {
+      background: rgba($color-gray-500, 0.1);
+    }
+    
+    // User avatar
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid $color-gray-200;
+    }
+    
+    // User name
+    .user-name {
+      font-weight: $font-weight-medium;
+      color: $color-gray-700;
+      
+      @include respond-below('md') {
+        display: none;
+      }
+    }
+    
+    // Dropdown arrow
+    .icon {
+      width: 16px;
+      height: 16px;
+      color: $color-gray-500;
+      transition: transform $duration-base;
+    }
+    
+    &.active .icon {
+      transform: rotate(180deg);
+    }
+  }
+  
+  // BEM Element: User dropdown
+  &__dropdown {
+    @extend .nav__dropdown;
+    right: 0;
+    left: auto;
+    min-width: 250px;
+    
+    // User info section
+    .user-info {
+      padding: $spacing-4;
+      border-bottom: 1px solid $color-gray-200;
+      margin-bottom: $spacing-2;
+      
+      .user-name {
+        font-weight: $font-weight-semibold;
+        color: $color-gray-900;
+        margin-bottom: $spacing-1;
+      }
+      
+      .user-email {
+        font-size: $font-size-sm;
+        color: $color-gray-600;
+      }
+    }
+    
+    // Menu items
+    .menu-item {
+      @include flexbox(row, flex-start, center);
+      gap: $spacing-3;
+      padding: $spacing-3;
+      color: $color-gray-700;
+      text-decoration: none;
+      border-radius: $border-radius-md;
+      transition: $transition-colors;
+      
+      &:hover {
+        background: rgba($color-gray-500, 0.1);
+        text-decoration: none;
+      }
+      
+      .icon {
+        width: 18px;
+        height: 18px;
+        color: $color-gray-500;
+      }
+      
+      // Logout item
+      &--logout {
+        color: $color-error;
+        
+        .icon {
+          color: $color-error;
+        }
+      }
+    }
+  }
+}
+
+// ================================
+// SEARCH BAR - BLOQUE BEM
+// ================================
+
+.search-bar {
+  position: relative;
+  
+  // BEM Element: Search input
+  &__input {
+    width: 300px;
+    padding: $spacing-3 $spacing-4 $spacing-3 $spacing-10;
+    border: 1px solid $color-gray-300;
+    border-radius: $border-radius-full;
+    background: rgba($color-white, 0.9);
+    font-size: $font-size-sm;
+    transition: $transition-all;
+    
+    &:focus {
+      width: 400px;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+    
+    &::placeholder {
+      color: $color-gray-400;
+    }
+    
+    @include respond-below('lg') {
+      width: 250px;
+      
+      &:focus {
+        width: 300px;
+      }
+    }
+    
+    @include respond-below('md') {
+      width: 200px;
+      
+      &:focus {
+        width: 250px;
+      }
+    }
+  }
+  
+  // BEM Element: Search icon
+  &__icon {
+    position: absolute;
+    left: $spacing-3;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: $color-gray-400;
+    pointer-events: none;
+  }
+  
+  // BEM Element: Search results dropdown
+  &__results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $color-white;
+    border: 1px solid $color-gray-200;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
+    margin-top: $spacing-2;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: z-index('dropdown');
+    
+    // Result item
+    .result-item {
+      padding: $spacing-3 $spacing-4;
+      border-bottom: 1px solid $color-gray-100;
+      cursor: pointer;
+      transition: $transition-colors;
+      
+      &:hover {
+        background: $color-gray-50;
+      }
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .result-title {
+        font-weight: $font-weight-medium;
+        color: $color-gray-900;
+        margin-bottom: $spacing-1;
+      }
+      
+      .result-description {
+        font-size: $font-size-sm;
+        color: $color-gray-600;
+      }
+    }
+    
+    // No results
+    .no-results {
+      padding: $spacing-6 $spacing-4;
+      text-align: center;
+      color: $color-gray-500;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// ================================
+// RESPONSIVE BEHAVIOR
+// ================================
+
+@include respond-below('lg') {
+  .header {
+    &__nav {
+      display: none;
+    }
+    
+    &__toggle {
+      display: flex;
+    }
+  }
+  
+  .search-bar {
+    display: none; // Hide in mobile, show in mobile nav
+  }
+}
+
+// ================================
+// ACCESSIBILITY
+// ================================
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .header {
+    border-bottom: 2px solid currentColor;
+  }
+  
+  .nav__link,
+  .mobile-nav__link {
+    border: 1px solid transparent;
+    
+    &:focus {
+      border-color: currentColor;
+    }
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .nav__dropdown,
+  .mobile-nav,
+  .user-menu__dropdown {
+    transition: none;
+  }
+  
+  .nav__link,
+  .mobile-nav__link {
+    &:hover {
+      transform: none;
+    }
+  }
+} 

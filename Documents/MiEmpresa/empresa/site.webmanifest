@@ -1,0 +1,110 @@
+{
+    "name": "SoftCronw - Desarrollo Web Low-Cost Premium",
+    "short_name": "SoftCronw",
+    "description": "Desarrollo web low-cost premium. Páginas web profesionales desde 299€. Diseño moderno, SEO optimizado, responsive.",
+    "lang": "es-ES",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "theme_color": "#007bff",
+    "background_color": "#000000",
+    "categories": ["business", "productivity", "technology"],
+    "icons": [
+        {
+            "src": "images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable any"
+        },
+        {
+            "src": "images/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "images/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "images/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Servicios",
+            "short_name": "Servicios",
+            "description": "Ver nuestros servicios de desarrollo web",
+            "url": "/servicios.html",
+            "icons": [
+                {
+                    "src": "images/shortcut-services.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Contacto",
+            "short_name": "Contacto",
+            "description": "Contacta con nosotros",
+            "url": "/contacto.html",
+            "icons": [
+                {
+                    "src": "images/shortcut-contact.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Portfolio",
+            "short_name": "Portfolio",
+            "description": "Ver nuestros proyectos",
+            "url": "/portfolio.html",
+            "icons": [
+                {
+                    "src": "images/shortcut-portfolio.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "images/screenshot-desktop.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "SoftCronw en Desktop"
+        },
+        {
+            "src": "images/screenshot-mobile.png",
+            "sizes": "375x812",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "SoftCronw en Mobile"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "edge_side_panel": {
+        "preferred_width": 400
+    },
+    "launch_handler": {
+        "client_mode": "navigate-existing"
+    }
+} 

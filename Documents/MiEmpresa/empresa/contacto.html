@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con SoftCronw - Formulario avanzado, chatbot IA, calculadora de presupuesto, FAQ y consultoría gratuita.">
+    <meta name="keywords" content="contacto SoftCronw, formulario contacto, chatbot, calculadora presupuesto, consultoría web">
+    <meta name="author" content="SoftCronw">
+    <meta name="robots" content="index, follow">
+    <title>Contacto Avanzado - SoftCronw | Formulario, Chatbot & Calculadora</title>
+    
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Vendors CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h1 class="loading-text">SoftCronw</h1>
+                <div class="loading-spinner"></div>
+            </div>
+            <p class="loading-subtitle">Cargando formularios...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <a href="index.html" class="nav__logo">
+                    <span class="logo-text">SoftCronw</span>
+                </a>
+                
+                <button class="hamburger" aria-label="Toggle navigation">
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay">
+        <nav class="nav-menu">
+            <ul class="nav-menu__list">
+                <li class="nav-menu__item">
+                    <a href="index.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-home"></i>
+                        <span class="nav-menu__text">Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="servicios.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-code"></i>
+                        <span class="nav-menu__text">Servicios</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="sobre-nosotros.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-users"></i>
+                        <span class="nav-menu__text">Sobre Nosotros</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="portfolio.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-briefcase"></i>
+                        <span class="nav-menu__text">Portfolio</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="contacto.html" class="nav-menu__link nav-menu__link--active">
+                        <i class="nav-menu__icon fas fa-envelope"></i>
+                        <span class="nav-menu__text">Contacto</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content" data-aos="fade-up">
+                        <nav aria-label="breadcrumb" class="hero-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                                <li class="breadcrumb-item active">Contacto</li>
+                            </ol>
+                        </nav>
+                        
+                        <h1 class="hero-title">
+                            <span class="title-line">Hablemos</span>
+                            <span class="title-line title-line--highlight">de tu</span>
+                            <span class="title-line">Proyecto</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Estamos aquí para convertir tus ideas en realidad digital. Consultoría gratuita, presupuesto personalizado y soporte completo.
+                        </p>
+                        
+                        <div class="hero-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <span class="feature-title">Consultoría Gratuita</span>
+                                    <span class="feature-desc">30 min de asesoría sin costo</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-calculator"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <span class="feature-title">Calculadora Inteligente</span>
+                                    <span class="feature-desc">Presupuesto en tiempo real</span>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <span class="feature-title">Asistente IA</span>
+                                    <span class="feature-desc">Respuestas inmediatas 24/7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-contact-preview" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">Llámanos</span>
+                                    <span class="method-value">+34 900 123 456</span>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">Escríbenos</span>
+                                    <span class="method-value">hello@softcronw.com</span>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="method-content">
+                                    <span class="method-label">Visítanos</span>
+                                    <span class="method-value">Madrid, España</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header text-center" data-aos="fade-up">
+                        <h2 class="section-title">Formulario de Contacto Avanzado</h2>
+                        <p class="section-description">
+                            Completa el formulario y recibe una respuesta personalizada en menos de 24 horas
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form-container" data-aos="fade-up" data-aos-delay="200">
+                        <form class="contact-form" id="contactForm" novalidate>
+                            <div class="form-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                                <div class="progress-text">
+                                    <span id="progressText">Completado: 0%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section active" data-section="personal">
+                                <h3 class="form-section-title">
+                                    <i class="fas fa-user"></i>
+                                    Información Personal
+                                </h3>
+                                
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                                            <label for="nombre">Nombre *</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Tus apellidos" required>
+                                            <label for="apellidos">Apellidos *</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" class="form-control" id="email" name="email" placeholder="tu@email.com" required>
+                                            <label for="email">Email *</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="+34 600 000 000">
+                                            <label for="telefono">Teléfono</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
+                                            <label for="empresa">Empresa</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary btn-next" data-next="project">
+                                        <span>Siguiente: Proyecto</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section" data-section="project">
+                                <h3 class="form-section-title">
+                                    <i class="fas fa-project-diagram"></i>
+                                    Detalles del Proyecto
+                                </h3>
+                                
+                                <div class="row g-4">
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <select class="form-control form-select" id="servicio" name="servicio" required>
+                                                <option value="">Selecciona un servicio</option>
+                                                <option value="desarrollo-web">Desarrollo Web Personalizado</option>
+                                                <option value="ecommerce">Tienda Online / E-commerce</option>
+                                                <option value="diseno-uxui">Diseño UX/UI Profesional</option>
+                                                <option value="aplicacion-web">Aplicación Web Avanzada</option>
+                                                <option value="seo-marketing">SEO & Marketing Digital</option>
+                                                <option value="mantenimiento">Mantenimiento y Soporte</option>
+                                                <option value="consultoria">Consultoría Digital</option>
+                                                <option value="otro">Otro (especificar en mensaje)</option>
+                                            </select>
+                                            <label for="servicio">Tipo de Servicio *</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <select class="form-control form-select" id="presupuesto" name="presupuesto">
+                                                <option value="">Selecciona un rango</option>
+                                                <option value="500-1500">500€ - 1.500€</option>
+                                                <option value="1500-3000">1.500€ - 3.000€</option>
+                                                <option value="3000-5000">3.000€ - 5.000€</option>
+                                                <option value="5000-10000">5.000€ - 10.000€</option>
+                                                <option value="10000-20000">10.000€ - 20.000€</option>
+                                                <option value="20000+">Más de 20.000€</option>
+                                            </select>
+                                            <label for="presupuesto">Presupuesto Aproximado</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <select class="form-control form-select" id="timeline" name="timeline">
+                                                <option value="">¿Cuándo necesitas el proyecto?</option>
+                                                <option value="urgente">Urgente (1-2 semanas)</option>
+                                                <option value="1-mes">En 1 mes</option>
+                                                <option value="2-3-meses">En 2-3 meses</option>
+                                                <option value="flexible">Flexible</option>
+                                            </select>
+                                            <label for="timeline">Timeline del Proyecto</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Describe tu proyecto..." style="height: 120px" required></textarea>
+                                            <label for="mensaje">Describe tu proyecto *</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                        <div class="character-count">
+                                            <span id="charCount">0</span> / 500 caracteres
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-outline-primary btn-prev" data-prev="personal">
+                                        <i class="fas fa-arrow-left"></i>
+                                        <span>Anterior</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-next" data-next="verification">
+                                        <span>Siguiente: Verificación</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section" data-section="verification">
+                                <h3 class="form-section-title">
+                                    <i class="fas fa-shield-alt"></i>
+                                    Verificación y Envío
+                                </h3>
+                                
+                                <div class="form-summary">
+                                    <h4>Resumen de tu solicitud:</h4>
+                                    <div class="summary-content" id="formSummary">
+                                        <!-- Summary will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                                
+                                <div class="captcha-container">
+                                    <div class="custom-captcha">
+                                        <div class="captcha-question" id="captchaQuestion">
+                                            ¿Cuánto es <span class="captcha-numbers">5 + 3</span>?
+                                        </div>
+                                        <div class="form-floating">
+                                            <input type="number" class="form-control" id="captchaAnswer" name="captchaAnswer" placeholder="Respuesta" required>
+                                            <label for="captchaAnswer">Tu respuesta *</label>
+                                            <div class="form-validation">
+                                                <i class="fas fa-check-circle form-valid"></i>
+                                                <i class="fas fa-exclamation-circle form-invalid"></i>
+                                                <span class="validation-message"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-agreements">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="privacy" name="privacy" required>
+                                        <label class="form-check-label" for="privacy">
+                                            Acepto la <a href="#" class="link-primary">Política de Privacidad</a> y el tratamiento de mis datos personales *
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="marketing" name="marketing">
+                                        <label class="form-check-label" for="marketing">
+                                            Deseo recibir información comercial y newsletters de SoftCronw
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-outline-primary btn-prev" data-prev="project">
+                                        <i class="fas fa-arrow-left"></i>
+                                        <span>Anterior</span>
+                                    </button>
+                                    <button type="submit" class="btn btn-success btn-submit">
+                                        <span class="btn-text">Enviar Solicitud</span>
+                                        <span class="btn-loading">
+                                            <i class="fas fa-spinner fa-spin"></i>
+                                            Enviando...
+                                        </span>
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header text-center" data-aos="fade-up">
+                        <h2 class="section-title">Información de Contacto</h2>
+                        <p class="section-description">
+                            Múltiples formas de ponerte en contacto con nosotros
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Oficina Principal</h3>
+                            <p class="card-text">
+                                Calle Serrano, 123<br>
+                                28006 Madrid, España<br>
+                                Planta 4, Oficina 402
+                            </p>
+                            <div class="card-actions">
+                                <a href="#map-section" class="btn btn-outline-primary btn-sm">
+                                    <i class="fas fa-directions"></i>
+                                    Ver en Mapa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Teléfono</h3>
+                            <p class="card-text">
+                                <a href="tel:+34900123456" class="phone-link">+34 900 123 456</a><br>
+                                <small>Lun - Vie: 9:00 - 18:00</small><br>
+                                <small>Sáb: 10:00 - 14:00</small>
+                            </p>
+                            <div class="card-actions">
+                                <a href="tel:+34900123456" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-phone"></i>
+                                    Llamar Ahora
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Email</h3>
+                            <p class="card-text">
+                                <a href="mailto:hello@softcronw.com" class="email-link">hello@softcronw.com</a><br>
+                                <small>Respuesta en menos de 24h</small><br>
+                                <small>Soporte técnico disponible</small>
+                            </p>
+                            <div class="card-actions">
+                                <a href="mailto:hello@softcronw.com" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-envelope"></i>
+                                    Escribir Email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="social-contact" data-aos="fade-up">
+                        <h3 class="social-title">Síguenos en Redes Sociales</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link linkedin" data-platform="linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span class="social-text">LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link twitter" data-platform="twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span class="social-text">Twitter</span>
+                            </a>
+                            <a href="#" class="social-link facebook" data-platform="facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span class="social-text">Facebook</span>
+                            </a>
+                            <a href="#" class="social-link instagram" data-platform="instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span class="social-text">Instagram</span>
+                            </a>
+                            <a href="#" class="social-link github" data-platform="github">
+                                <i class="fab fa-github"></i>
+                                <span class="social-text">GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="map-section" id="map-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header text-center" data-aos="fade-up">
+                        <h2 class="section-title">Nuestra Ubicación</h2>
+                        <p class="section-description">
+                            Visítanos en nuestra oficina en el corazón de Madrid
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map-container" data-aos="fade-up" data-aos-delay="200">
+            <div id="google-map" class="google-map">
+                <!-- Map will be loaded here -->
+            </div>
+            <div class="map-overlay">
+                <div class="map-info">
+                    <div class="info-card">
+                        <h4>SoftCronw</h4>
+                        <p>Calle Serrano, 123<br>28006 Madrid, España</p>
+                        <div class="info-actions">
+                            <a href="https://goo.gl/maps/example" target="_blank" class="btn btn-primary btn-sm">
+                                <i class="fas fa-directions"></i>
+                                Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header text-center" data-aos="fade-up">
+                        <h2 class="section-title">Preguntas Frecuentes</h2>
+                        <p class="section-description">
+                            Respuestas a las dudas más comunes sobre nuestros servicios
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-search" data-aos="fade-up" data-aos-delay="100">
+                        <div class="search-container">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="faqSearch" placeholder="Buscar en preguntas frecuentes..." class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="faq-accordion" data-aos="fade-up" data-aos-delay="200">
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item" data-tags="precio presupuesto costo">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        <i class="fas fa-euro-sign"></i>
+                                        ¿Cuánto cuesta desarrollar una página web?
+                                    </button>
+                                </h3>
+                                <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>El precio de una página web depende de varios factores como la complejidad, funcionalidades y diseño. Nuestros proyectos van desde:</p>
+                                        <ul>
+                                            <li><strong>Web básica:</strong> 500€ - 1.500€</li>
+                                            <li><strong>Web profesional:</strong> 1.500€ - 5.000€</li>
+                                            <li><strong>E-commerce:</strong> 3.000€ - 10.000€</li>
+                                            <li><strong>Aplicación web:</strong> 5.000€ - 20.000€+</li>
+                                        </ul>
+                                        <p>Ofrecemos presupuestos gratuitos y personalizados. Usa nuestra calculadora para obtener una estimación inmediata.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" data-tags="tiempo desarrollo entrega">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        <i class="fas fa-clock"></i>
+                                        ¿Cuánto tiempo tarda el desarrollo?
+                                    </button>
+                                </h3>
+                                <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Los tiempos de desarrollo varían según la complejidad del proyecto:</p>
+                                        <ul>
+                                            <li><strong>Landing page:</strong> 1-2 semanas</li>
+                                            <li><strong>Web corporativa:</strong> 3-6 semanas</li>
+                                            <li><strong>Tienda online:</strong> 6-10 semanas</li>
+                                            <li><strong>Aplicación web:</strong> 8-16 semanas</li>
+                                        </ul>
+                                        <p>Trabajamos con metodología ágil y te mantenemos informado del progreso semanalmente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" data-tags="mantenimiento soporte actualizaciones">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        <i class="fas fa-tools"></i>
+                                        ¿Ofrecen mantenimiento y soporte?
+                                    </button>
+                                </h3>
+                                <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Sí, ofrecemos diferentes planes de mantenimiento:</p>
+                                        <ul>
+                                            <li><strong>Básico:</strong> Actualizaciones de seguridad y backups</li>
+                                            <li><strong>Estándar:</strong> Incluye cambios menores de contenido</li>
+                                            <li><strong>Premium:</strong> Soporte completo y nuevas funcionalidades</li>
+                                        </ul>
+                                        <p>Todos los proyectos incluyen 30 días de soporte gratuito tras la entrega.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" data-tags="tecnologias programacion frameworks">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                        <i class="fas fa-code"></i>
+                                        ¿Qué tecnologías utilizan?
+                                    </button>
+                                </h3>
+                                <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Trabajamos con las tecnologías más modernas y eficientes:</p>
+                                        <ul>
+                                            <li><strong>Frontend:</strong> React, Vue.js, Angular, HTML5, CSS3, JavaScript</li>
+                                            <li><strong>Backend:</strong> Node.js, PHP, Python, Laravel</li>
+                                            <li><strong>Bases de datos:</strong> MySQL, PostgreSQL, MongoDB</li>
+                                            <li><strong>CMS:</strong> WordPress, Drupal, custom solutions</li>
+                                        </ul>
+                                        <p>Elegimos la tecnología más adecuada según las necesidades de cada proyecto.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" data-tags="proceso metodologia desarrollo agil">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                        <i class="fas fa-project-diagram"></i>
+                                        ¿Cómo es el proceso de desarrollo?
+                                    </button>
+                                </h3>
+                                <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Seguimos una metodología ágil con estas fases:</p>
+                                        <ol>
+                                            <li><strong>Análisis:</strong> Entendemos tus necesidades y objetivos</li>
+                                            <li><strong>Diseño:</strong> Creamos mockups y prototipos</li>
+                                            <li><strong>Desarrollo:</strong> Programamos con entregas semanales</li>
+                                            <li><strong>Testing:</strong> Pruebas exhaustivas de funcionalidad</li>
+                                            <li><strong>Lanzamiento:</strong> Puesta en marcha y capacitación</li>
+                                        </ol>
+                                        <p>Te mantenemos informado en cada etapa del proceso.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item" data-tags="hosting dominio alojamiento">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                        <i class="fas fa-server"></i>
+                                        ¿Incluyen hosting y dominio?
+                                    </button>
+                                </h3>
+                                <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Sí, ofrecemos soluciones completas de hosting:</p>
+                                        <ul>
+                                            <li><strong>Registro de dominio</strong> gratuito el primer año</li>
+                                            <li><strong>Hosting premium</strong> optimizado para velocidad</li>
+                                            <li><strong>SSL certificado</strong> incluido</li>
+                                            <li><strong>Backups automáticos</strong> diarios</li>
+                                            <li><strong>CDN global</strong> para mejor rendimiento</li>
+                                        </ul>
+                                        <p>También podemos trabajar con tu proveedor actual si lo prefieres.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budget Calculator Section -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header text-center" data-aos="fade-up">
+                        <h2 class="section-title">Calculadora de Presupuesto</h2>
+                        <p class="section-description">
+                            Obtén una estimación instantánea del costo de tu proyecto
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="calculator-container" data-aos="fade-up" data-aos-delay="200">
+                        <div class="calculator-form" id="budgetCalculator">
+                            <div class="calculator-progress">
+                                <div class="progress-steps">
+                                    <div class="step active" data-step="1">
+                                        <div class="step-number">1</div>
+                                        <div class="step-label">Tipo de Proyecto</div>
+                                    </div>
+                                    <div class="step" data-step="2">
+                                        <div class="step-number">2</div>
+                                        <div class="step-label">Características</div>
+                                    </div>
+                                    <div class="step" data-step="3">
+                                        <div class="step-number">3</div>
+                                        <div class="step-label">Detalles</div>
+                                    </div>
+                                    <div class="step" data-step="4">
+                                        <div class="step-number">4</div>
+                                        <div class="step-label">Resultado</div>
+                                    </div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 25%"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 1: Project Type -->
+                            <div class="calculator-step active" data-step="1">
+                                <h3 class="step-title">¿Qué tipo de proyecto necesitas?</h3>
+                                <div class="project-types">
+                                    <div class="project-type" data-type="landing" data-base-price="800">
+                                        <div class="type-icon">
+                                            <i class="fas fa-file-alt"></i>
+                                        </div>
+                                        <div class="type-content">
+                                            <h4>Landing Page</h4>
+                                            <p>Página única optimizada para conversión</p>
+                                            <span class="base-price">Desde 800€</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="project-type" data-type="corporate" data-base-price="2500">
+                                        <div class="type-icon">
+                                            <i class="fas fa-building"></i>
+                                        </div>
+                                        <div class="type-content">
+                                            <h4>Web Corporativa</h4>
+                                            <p>Sitio web profesional multi-página</p>
+                                            <span class="base-price">Desde 2.500€</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="project-type" data-type="ecommerce" data-base-price="4500">
+                                        <div class="type-icon">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                        <div class="type-content">
+                                            <h4>Tienda Online</h4>
+                                            <p>E-commerce completo con catálogo</p>
+                                            <span class="base-price">Desde 4.500€</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="project-type" data-type="webapp" data-base-price="8000">
+                                        <div class="type-icon">
+                                            <i class="fas fa-laptop-code"></i>
+                                        </div>
+                                        <div class="type-content">
+                                            <h4>Aplicación Web</h4>
+                                            <p>Software personalizado avanzado</p>
+                                            <span class="base-price">Desde 8.000€</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 2: Features -->
+                            <div class="calculator-step" data-step="2">
+                                <h3 class="step-title">¿Qué características necesitas?</h3>
+                                <div class="features-grid">
+                                    <div class="feature-option" data-feature="responsive" data-price="0">
+                                        <div class="feature-checkbox">
+                                            <input type="checkbox" id="responsive" checked disabled>
+                                            <label for="responsive">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                Diseño Responsive
+                                            </label>
+                                        </div>
+                                        <span class="feature-price">Incluido</span>
+                                    </div>
+                                    
+                                    <div class="feature-option" data-feature="cms" data-price="500">
+                                        <div class="feature-checkbox">
+                                            <input type="checkbox" id="cms">
+                                            <label for="cms">
+                                                <i class="fas fa-edit"></i>
+                                                Sistema de Gestión (CMS)
+                                            </label>
+                                        </div>
+                                        <span class="feature-price">+500€</span>
+                                    </div>
+                                    
+                                    <div class="feature-option" data-feature="multilang" data-price="800">
+                                        <div class="feature-checkbox">
+                                            <input type="checkbox" id="multilang">
+                                            <label for="multilang">
+                                                <i class="fas fa-globe"></i>
+                                                Multi-idioma
+                                            </label>
+                                        </div>
+                                        <span class="feature-price">+800€</span>
+                                    </div>
+                                    
+                                    <div class="feature-option" data-feature="blog" data-price="400">
+                                        <div class="feature-checkbox">
+                                            <input type="checkbox" id="blog">
+                                            <label for="blog">
+                                                <i class="fas fa-blog"></i>
+                                                Blog Integrado
+                                            </label>
+                                        </div>
+                                        <span class="feature-price">+400€</span>
+                                    </div>
+                                    
+                                    <div class="feature-option" data-feature="seo" data-price="600">
+                                        <div class="feature-checkbox">
+                                            <input type="checkbox" id="seo">
+                                            <label for="seo">
+                                                <i class="fas fa-search"></i>
+                                                Optimización SEO
+                                            </label>
+                                        </div>
+                                        <span class="feature-price">+600€</span>
+                                    </div>
+                                    
+                                    <div class="feature-option" data-feature="analytics" data-price="300">
+                                        <div class="feature-checkbox">
+                                            <input type="checkbox" id="analytics">
+                                            <label for="analytics">
+                                                <i class="fas fa-chart-bar"></i>
+                                                Google Analytics
+                                            </label>
+                                        </div>
+                                        <span class="feature-price">+300€</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 3: Details -->
+                            <div class="calculator-step" data-step="3">
+                                <h3 class="step-title">Detalles adicionales</h3>
+                                <div class="details-form">
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Número de páginas aproximado</label>
+                                            <select class="form-select" id="pageCount" data-multiplier="pages">
+                                                <option value="1">1-3 páginas</option>
+                                                <option value="1.2" selected>4-8 páginas</option>
+                                                <option value="1.5">9-15 páginas</option>
+                                                <option value="2">16-30 páginas</option>
+                                                <option value="2.5">Más de 30 páginas</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <label class="form-label">Nivel de diseño</label>
+                                            <select class="form-select" id="designLevel" data-multiplier="design">
+                                                <option value="1">Estándar</option>
+                                                <option value="1.3" selected>Premium</option>
+                                                <option value="1.6">Luxury (diseño único)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <label class="form-label">Urgencia del proyecto</label>
+                                            <select class="form-select" id="urgency" data-multiplier="urgency">
+                                                <option value="1" selected>Normal (4-8 semanas)</option>
+                                                <option value="1.3">Rápido (2-4 semanas)</option>
+                                                <option value="1.8">Express (1-2 semanas)</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <label class="form-label">Integraciones externas</label>
+                                            <select class="form-select" id="integrations" data-price="integration">
+                                                <option value="0">Ninguna</option>
+                                                <option value="500">CRM/ERP básico</option>
+                                                <option value="1000">Múltiples APIs</option>
+                                                <option value="1500">Integraciones complejas</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 4: Result -->
+                            <div class="calculator-step" data-step="4">
+                                <div class="calculator-result">
+                                    <div class="result-header">
+                                        <h3>Tu Presupuesto Estimado</h3>
+                                        <div class="result-price" id="finalPrice">
+                                            <span class="currency">€</span>
+                                            <span class="amount">0</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="result-breakdown" id="priceBreakdown">
+                                        <!-- Price breakdown will be populated by JavaScript -->
+                                    </div>
+                                    
+                                    <div class="result-disclaimer">
+                                        <p><i class="fas fa-info-circle"></i> Este es un presupuesto estimado. El precio final puede variar según los requisitos específicos del proyecto.</p>
+                                    </div>
+                                    
+                                    <div class="result-actions">
+                                        <button type="button" class="btn btn-primary btn-lg" id="sendBudget">
+                                            <i class="fas fa-envelope"></i>
+                                            Solicitar Presupuesto Oficial
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary btn-lg" id="restartCalculator">
+                                            <i class="fas fa-redo"></i>
+                                            Calcular Nuevo Proyecto
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="calculator-navigation">
+                                <button type="button" class="btn btn-outline-primary btn-prev" id="calcPrev" style="display: none;">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Anterior
+                                </button>
+                                <button type="button" class="btn btn-primary btn-next" id="calcNext">
+                                    Siguiente
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h1 class="loading-text">SoftCronw</h1>
+                <div class="loading-spinner"></div>
+            </div>
+            <p class="loading-subtitle">Cargando formularios...</p>
+        </div>
+    </div>
+
+    <!-- Chatbot SoftCronw Unificado -->
+    <div id="softcronw-chatbot" class="chatbot-container">
+        <!-- Chatbot Toggle Button -->
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Abrir chat">
+            <div class="toggle-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="toggle-badge">
+                <span class="badge-text">¿Necesitas ayuda?</span>
+                <small class="badge-subtitle">Pregunta a nuestro asistente IA</small>
+            </div>
+            <div class="notification-dot" id="notification-dot"></div>
+        </button>
+
+        <!-- Chatbot Widget -->
+        <div class="chatbot-widget hidden" id="chatbot-widget">
+            <!-- Header -->
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <img src="images/chatbot-avatar.png" alt="SoftCronw Assistant" onerror="this.style.display='none'">
+                    <div class="avatar-fallback">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                <div class="chatbot-info">
+                    <h4 class="chatbot-name">Sofia</h4>
+                    <p class="chatbot-title">Asistente Digital de SoftCronw</p>
+                    <div class="status-indicator">
+                        <span class="status-dot online"></span>
+                        <span class="status-text">En línea</span>
+                    </div>
+                </div>
+                <div class="chatbot-controls">
+                    <button class="control-btn minimize" id="chatbot-minimize" aria-label="Minimizar chat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="control-btn close" id="chatbot-close" aria-label="Cerrar chat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="typing-indicator hidden" id="typing-indicator">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="typing-text">Sofia está escribiendo...</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions" id="quick-actions">
+                <button class="quick-btn" data-action="services">💻 Servicios</button>
+                <button class="quick-btn" data-action="pricing">💰 Precios</button>
+                <button class="quick-btn" data-action="quote">📋 Presupuesto</button>
+                <button class="quick-btn" data-action="contact">📞 Contacto</button>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chatbot-input">
+                <div class="input-wrapper">
+                    <textarea 
+                        class="message-input" 
+                        id="message-input" 
+                        placeholder="Escribe tu mensaje..."
+                        rows="1"
+                        maxlength="500"
+                    ></textarea>
+                    <div class="input-actions">
+                        <button class="attachment-btn" id="attachment-btn" aria-label="Adjuntar archivo">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="send-btn" id="send-btn" aria-label="Enviar mensaje">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-suggestions" id="input-suggestions">
+                    <span class="suggestion" data-text="¿Cuánto cuesta una página web?">💰 Precios</span>
+                    <span class="suggestion" data-text="¿Qué servicios ofrecen?">🔧 Servicios</span>
+                    <span class="suggestion" data-text="Necesito una tienda online">🛒 E-commerce</span>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="chatbot-footer">
+                <div class="footer-options">
+                    <button class="footer-btn" id="voice-btn" aria-label="Activar voz">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="footer-btn" id="emoji-btn" aria-label="Emojis">
+                        <i class="fas fa-smile"></i>
+                    </button>
+                    <button class="footer-btn" id="clear-btn" aria-label="Limpiar chat">
+                        <i class="fas fa-broom"></i>
+                    </button>
+                </div>
+                <div class="footer-branding">
+                    <span>Powered by <strong>SoftCronw AI</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Preview (cuando está minimizado) -->
+        <div class="chatbot-preview hidden" id="chatbot-preview">
+            <div class="preview-header">
+                <span class="preview-title">Sofia - SoftCronw</span>
+                <button class="preview-close" id="preview-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="preview-messages" id="preview-messages">
+                <div class="preview-message">
+                    <span>👋 ¡Hola! ¿En qué puedo ayudarte?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="footer-brand">
+                        <h3 class="footer-logo">SoftCronw</h3>
+                        <p class="footer-description">
+                            Transformamos ideas en experiencias digitales extraordinarias. Tu socio tecnológico de confianza.
+                        </p>
+                        <div class="footer-contact-quick">
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:+34900123456">+34 900 123 456</a>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:hello@softcronw.com">hello@softcronw.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Servicios</h4>
+                    <ul class="footer-links">
+                        <li><a href="servicios.html">Desarrollo Web</a></li>
+                        <li><a href="servicios.html">Diseño UX/UI</a></li>
+                        <li><a href="servicios.html">E-commerce</a></li>
+                        <li><a href="servicios.html">SEO & Marketing</a></li>
+                        <li><a href="servicios.html">Mantenimiento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carreras</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Soporte</h4>
+                    <ul class="footer-links">
+                        <li><a href="#faq-section">FAQ</a></li>
+                        <li><a href="#">Centro de Ayuda</a></li>
+                        <li><a href="#">Documentación</a></li>
+                        <li><a href="contacto.html">Soporte Técnico</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos de Servicio</a></li>
+                        <li><a href="#">Política de Cookies</a></li>
+                        <li><a href="#">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="copyright">© 2024 SoftCronw. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="footer-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success/Error Modals -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <div class="modal-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>¡Mensaje Enviado!</h4>
+                    <p>Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos en menos de 24 horas.</p>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Perfecto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="errorModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <div class="modal-icon error">
+                        <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                </div>
+                <div class="modal-body text-center">
+                    <h4>Error al Enviar</h4>
+                    <p>Ha ocurrido un error al enviar tu mensaje. Por favor, inténtalo de nuevo o contáctanos directamente.</p>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cerrar</button>
+                        <a href="tel:+34900123456" class="btn btn-primary">Llamar Ahora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Sistema Unificado de Librerías -->
+    <script src="js/libraries-unified.js"></script>
+    
+    <!-- SoftCronw Core Scripts -->
+    <script src="js/loading-manager.js"></script>
+    <script src="js/chatbot-core.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html> 

@@ -1,0 +1,517 @@
+//
+// _buttons.scss
+// Sistema de botones para SoftCronw
+// Metodología BEM con variantes, tamaños y estados
+//
+
+// ================================
+// BUTTON BASE - BLOQUE BEM
+// ================================
+
+.btn {
+  // Base button styles
+  @extend %button-base;
+  
+  // BEM Modifier: Estados por defecto
+  &:hover:not(:disabled) {
+    @extend %button-hover-effect;
+  }
+  
+  // BEM Modifier: Estado disabled
+  &--disabled,
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  
+  // BEM Modifier: Loading state
+  &--loading {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: btn-spin 1s linear infinite;
+    }
+  }
+  
+  // BEM Element: Icon inside button
+  &__icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
+    
+    // BEM Modifier: Icon position
+    &--left {
+      margin-right: $spacing-2;
+    }
+    
+    &--right {
+      margin-left: $spacing-2;
+    }
+    
+    &--only {
+      margin: 0;
+    }
+  }
+  
+  // BEM Element: Text inside button
+  &__text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// ================================
+// BUTTON VARIANTS - MODIFICADORES BEM
+// ================================
+
+// BEM Modifier: Primary button
+.btn--primary {
+  @include button-primary();
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, 
+      shade($color-primary, 10%), 
+      shade($color-primary-light, 10%)
+    );
+  }
+  
+  &:active {
+    background: linear-gradient(135deg, 
+      shade($color-primary, 20%), 
+      shade($color-primary-light, 20%)
+    );
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+  }
+}
+
+// BEM Modifier: Secondary button
+.btn--secondary {
+  @include button-secondary();
+  
+  &:hover:not(:disabled) {
+    background: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+  }
+  
+  &:active {
+    background: shade($color-primary, 10%);
+    border-color: shade($color-primary, 10%);
+  }
+}
+
+// BEM Modifier: Outline button
+.btn--outline {
+  @extend %button-base;
+  background: transparent;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  
+  &:hover:not(:disabled) {
+    background: rgba($color-primary, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  &:active {
+    background: rgba($color-primary, 0.2);
+    transform: translateY(0);
+  }
+}
+
+// BEM Modifier: Ghost button
+.btn--ghost {
+  @extend %button-base;
+  background: transparent;
+  color: $color-gray-700;
+  border: none;
+  box-shadow: none;
+  
+  &:hover:not(:disabled) {
+    background: rgba($color-gray-500, 0.1);
+    color: $color-primary;
+  }
+  
+  &:active {
+    background: rgba($color-gray-500, 0.2);
+  }
+}
+
+// BEM Modifier: Link button
+.btn--link {
+  @extend %button-base;
+  background: transparent;
+  color: $color-primary;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  text-decoration: underline;
+  
+  &:hover:not(:disabled) {
+    color: shade($color-primary, 15%);
+    text-decoration: none;
+    transform: none;
+  }
+}
+
+// BEM Modifier: Success button
+.btn--success {
+  @extend %button-base;
+  background: $gradient-secondary;
+  color: $color-white;
+  box-shadow: 0 10px 30px rgba($color-success, 0.3);
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, 
+      shade($color-success, 10%), 
+      shade($color-secondary-light, 10%)
+    );
+    box-shadow: 0 15px 35px rgba($color-success, 0.4);
+  }
+}
+
+// BEM Modifier: Warning button
+.btn--warning {
+  @extend %button-base;
+  background: $gradient-accent;
+  color: $color-white;
+  box-shadow: 0 10px 30px rgba($color-warning, 0.3);
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, 
+      shade($color-warning, 10%), 
+      shade($color-accent-light, 10%)
+    );
+    box-shadow: 0 15px 35px rgba($color-warning, 0.4);
+  }
+}
+
+// BEM Modifier: Danger button
+.btn--danger {
+  @extend %button-base;
+  background: linear-gradient(135deg, $color-error, lighten($color-error, 10%));
+  color: $color-white;
+  box-shadow: 0 10px 30px rgba($color-error, 0.3);
+  
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, 
+      shade($color-error, 10%), 
+      shade($color-error, 5%)
+    );
+    box-shadow: 0 15px 35px rgba($color-error, 0.4);
+  }
+}
+
+// BEM Modifier: Glass button (glassmorphism)
+.btn--glass {
+  @include button-glass();
+  
+  &:hover:not(:disabled) {
+    background: rgba($color-white, 0.2);
+    backdrop-filter: blur(25px);
+  }
+}
+
+// ================================
+// BUTTON SIZES - MODIFICADORES BEM
+// ================================
+
+// BEM Modifier: Extra small button
+.btn--xs {
+  padding: $spacing-1 $spacing-3;
+  font-size: $font-size-xs;
+  border-radius: $border-radius-md;
+  
+  .btn__icon {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+// BEM Modifier: Small button
+.btn--sm {
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-sm;
+  border-radius: $border-radius-md;
+  
+  .btn__icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// BEM Modifier: Large button
+.btn--lg {
+  padding: $spacing-4 $spacing-8;
+  font-size: $font-size-lg;
+  border-radius: $border-radius-xl;
+  
+  .btn__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// BEM Modifier: Extra large button
+.btn--xl {
+  padding: $spacing-5 $spacing-10;
+  font-size: $font-size-xl;
+  border-radius: $border-radius-2xl;
+  font-weight: $font-weight-bold;
+  
+  .btn__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// ================================
+// BUTTON SHAPES - MODIFICADORES BEM
+// ================================
+
+// BEM Modifier: Square button
+.btn--square {
+  aspect-ratio: 1;
+  padding: $spacing-3;
+  
+  .btn__icon {
+    margin: 0;
+  }
+}
+
+// BEM Modifier: Circle button
+.btn--circle {
+  @extend .btn--square;
+  border-radius: 50%;
+}
+
+// BEM Modifier: Rounded button
+.btn--rounded {
+  border-radius: $border-radius-full;
+}
+
+// BEM Modifier: Sharp button (no border radius)
+.btn--sharp {
+  border-radius: 0;
+}
+
+// ================================
+// BUTTON GROUPS - BLOQUE BEM
+// ================================
+
+.btn-group {
+  display: inline-flex;
+  gap: 0;
+  
+  // BEM Element: Button inside group
+  .btn {
+    border-radius: 0;
+    margin: 0;
+    
+    &:first-child {
+      border-top-left-radius: $button-border-radius;
+      border-bottom-left-radius: $button-border-radius;
+    }
+    
+    &:last-child {
+      border-top-right-radius: $button-border-radius;
+      border-bottom-right-radius: $button-border-radius;
+    }
+    
+    &:not(:first-child) {
+      border-left: 1px solid rgba($color-white, 0.2);
+    }
+  }
+  
+  // BEM Modifier: Vertical group
+  &--vertical {
+    flex-direction: column;
+    
+    .btn {
+      &:first-child {
+        border-radius: $button-border-radius $button-border-radius 0 0;
+      }
+      
+      &:last-child {
+        border-radius: 0 0 $button-border-radius $button-border-radius;
+      }
+      
+      &:not(:first-child) {
+        border-left: none;
+        border-top: 1px solid rgba($color-white, 0.2);
+      }
+    }
+  }
+  
+  // BEM Modifier: Separated group
+  &--separated {
+    gap: $spacing-2;
+    
+    .btn {
+      border-radius: $button-border-radius;
+      
+      &:not(:first-child) {
+        border-left: none;
+        border-top: none;
+      }
+    }
+  }
+}
+
+// ================================
+// FLOATING ACTION BUTTON - BLOQUE BEM
+// ================================
+
+.fab {
+  @extend %button-base;
+  position: fixed;
+  bottom: $spacing-6;
+  right: $spacing-6;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: $gradient-primary;
+  color: $color-white;
+  box-shadow: $shadow-lg;
+  z-index: z-index('fixed');
+  padding: 0;
+  
+  &:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: $shadow-xl;
+  }
+  
+  // BEM Element: Icon inside FAB
+  .fab__icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+  
+  // BEM Modifier: Mini FAB
+  &--mini {
+    width: 40px;
+    height: 40px;
+    
+    .fab__icon {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  // BEM Modifier: Extended FAB
+  &--extended {
+    width: auto;
+    padding: 0 $spacing-4;
+    border-radius: $border-radius-full;
+    
+    .fab__icon {
+      margin-right: $spacing-2;
+    }
+  }
+}
+
+// ================================
+// ANIMATIONS
+// ================================
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Button press animation
+.btn--animated {
+  &:active {
+    animation: btn-press 0.1s ease-in-out;
+  }
+}
+
+@keyframes btn-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+// ================================
+// RESPONSIVE BUTTONS
+// ================================
+
+// Mobile optimizations
+@include respond-below('sm') {
+  .btn {
+    min-height: 44px; // Touch target size
+    
+    // BEM Modifier: Full width on mobile
+    &--mobile-full {
+      width: 100%;
+    }
+  }
+  
+  .btn-group--mobile-stack {
+    flex-direction: column;
+    width: 100%;
+    
+    .btn {
+      border-radius: $button-border-radius;
+      margin-bottom: $spacing-2;
+      
+      &:not(:first-child) {
+        border-left: none;
+        border-top: none;
+      }
+    }
+  }
+  
+  .fab {
+    bottom: $spacing-4;
+    right: $spacing-4;
+  }
+}
+
+// ================================
+// ACCESSIBILITY
+// ================================
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+  }
+  
+  .btn--ghost,
+  .btn--link {
+    border: 1px solid currentColor;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .fab {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+  
+  .btn--loading::after {
+    animation: none;
+  }
+} 

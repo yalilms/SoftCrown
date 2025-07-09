@@ -1,0 +1,251 @@
+//
+// Sidebar Layout Styles
+// Estilos para barras laterales y menús off-canvas
+//
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  background: $color-white;
+  box-shadow: $shadow-xl;
+  z-index: z-index('sidebar');
+  transition: transform $transition-base;
+  overflow-y: auto;
+  
+  &.active {
+    transform: translateX(300px);
+  }
+  
+  &__header {
+    padding: $spacing-6;
+    border-bottom: 1px solid $color-border;
+    
+    .sidebar__logo {
+      font-size: 1.5rem;
+      font-weight: $font-weight-bold;
+      color: $color-primary;
+    }
+  }
+  
+  &__nav {
+    padding: $spacing-4 0;
+  }
+  
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  &__item {
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-border;
+    }
+  }
+  
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    padding: $spacing-4 $spacing-6;
+    color: $color-text;
+    text-decoration: none;
+    transition: all $transition-base;
+    
+    &:hover {
+      background: $color-background-light;
+      color: $color-primary;
+    }
+    
+    &--active {
+      background: rgba($color-primary, 0.1);
+      color: $color-primary;
+      border-right: 3px solid $color-primary;
+    }
+    
+    i {
+      width: 20px;
+      font-size: 1.125rem;
+    }
+  }
+  
+  &__submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: $color-background-light;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $transition-base;
+    
+    &.active {
+      max-height: 300px;
+    }
+    
+    .sidebar__link {
+      padding-left: $spacing-12;
+      font-size: 0.9rem;
+      
+      &:hover {
+        background: rgba($color-primary, 0.05);
+      }
+    }
+  }
+  
+  &__toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: $spacing-2;
+    transition: transform $transition-base;
+    
+    &.active {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// Sidebar overlay
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color-dark, 0.5);
+  z-index: z-index('overlay');
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-base;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// ================================
+// SIDEBAR VARIANTS
+// ================================
+
+.sidebar--right {
+  left: auto;
+  right: -300px;
+  
+  &.active {
+    transform: translateX(-300px);
+  }
+}
+
+.sidebar--wide {
+  width: 400px;
+  left: -400px;
+  
+  &.active {
+    transform: translateX(400px);
+  }
+  
+  &.sidebar--right {
+    right: -400px;
+    
+    &.active {
+      transform: translateX(-400px);
+    }
+  }
+}
+
+.sidebar--mini {
+  width: 80px;
+  left: -80px;
+  
+  &.active {
+    transform: translateX(80px);
+  }
+  
+  .sidebar__link {
+    justify-content: center;
+    padding: $spacing-4;
+    
+    span {
+      display: none;
+    }
+  }
+  
+  .sidebar__submenu {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 200px;
+    box-shadow: $shadow-lg;
+    background: $color-white;
+    border-radius: 0 $border-radius-md $border-radius-md 0;
+  }
+}
+
+// ================================
+// RESPONSIVE SIDEBAR
+// ================================
+
+@include respond-to('tablet') {
+  .sidebar {
+    width: 280px;
+    left: -280px;
+    
+    &.active {
+      transform: translateX(280px);
+    }
+    
+    &--wide {
+      width: 320px;
+      left: -320px;
+      
+      &.active {
+        transform: translateX(320px);
+      }
+    }
+  }
+}
+
+@include respond-to('mobile') {
+  .sidebar {
+    width: 100%;
+    left: -100%;
+    
+    &.active {
+      transform: translateX(100%);
+    }
+    
+    &--right {
+      right: -100%;
+      
+      &.active {
+        transform: translateX(-100%);
+      }
+    }
+    
+    &--wide {
+      width: 100%;
+      left: -100%;
+      
+      &.active {
+        transform: translateX(100%);
+      }
+      
+      &.sidebar--right {
+        right: -100%;
+        
+        &.active {
+          transform: translateX(-100%);
+        }
+      }
+    }
+    
+    &__link {
+      padding: $spacing-4;
+      font-size: 1.125rem;
+    }
+  }
+} 

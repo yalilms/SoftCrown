@@ -1,0 +1,574 @@
+//
+// _grid.scss
+// Sistema de grid moderno para SoftCronw
+// CSS Grid + Flexbox con metodología BEM
+//
+
+// ================================
+// CONTAINER SYSTEM - BLOQUE BEM
+// ================================
+
+.container {
+  @extend %container;
+  
+  // BEM Modifier: Container sizes
+  &--xs {
+    max-width: 480px;
+  }
+  
+  &--sm {
+    max-width: map-get($container-max-widths, sm);
+  }
+  
+  &--md {
+    max-width: map-get($container-max-widths, md);
+  }
+  
+  &--lg {
+    max-width: map-get($container-max-widths, lg);
+  }
+  
+  &--xl {
+    max-width: map-get($container-max-widths, xl);
+  }
+  
+  &--2xl {
+    max-width: map-get($container-max-widths, 2xl);
+  }
+  
+  // BEM Modifier: Fluid container
+  &--fluid {
+    max-width: none;
+    width: 100%;
+  }
+  
+  // BEM Modifier: No padding container
+  &--no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// ================================
+// CSS GRID SYSTEM - BLOQUE BEM
+// ================================
+
+.grid {
+  display: grid;
+  gap: $grid-gutter-width;
+  
+  // BEM Modifier: Grid columns
+  &--1 { grid-template-columns: 1fr; }
+  &--2 { grid-template-columns: repeat(2, 1fr); }
+  &--3 { grid-template-columns: repeat(3, 1fr); }
+  &--4 { grid-template-columns: repeat(4, 1fr); }
+  &--5 { grid-template-columns: repeat(5, 1fr); }
+  &--6 { grid-template-columns: repeat(6, 1fr); }
+  &--7 { grid-template-columns: repeat(7, 1fr); }
+  &--8 { grid-template-columns: repeat(8, 1fr); }
+  &--9 { grid-template-columns: repeat(9, 1fr); }
+  &--10 { grid-template-columns: repeat(10, 1fr); }
+  &--11 { grid-template-columns: repeat(11, 1fr); }
+  &--12 { grid-template-columns: repeat(12, 1fr); }
+  
+  // BEM Modifier: Auto-fit columns
+  &--auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  &--auto-fit-sm {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  
+  &--auto-fit-lg {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  &--auto-fit-xl {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+  
+  // BEM Modifier: Auto-fill columns
+  &--auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  // BEM Modifier: Gap sizes
+  &--gap-0 { gap: 0; }
+  &--gap-1 { gap: $spacing-1; }
+  &--gap-2 { gap: $spacing-2; }
+  &--gap-3 { gap: $spacing-3; }
+  &--gap-4 { gap: $spacing-4; }
+  &--gap-5 { gap: $spacing-5; }
+  &--gap-6 { gap: $spacing-6; }
+  &--gap-8 { gap: $spacing-8; }
+  &--gap-10 { gap: $spacing-10; }
+  &--gap-12 { gap: $spacing-12; }
+  
+  // BEM Modifier: Dense grid
+  &--dense {
+    grid-auto-flow: dense;
+  }
+  
+  // BEM Modifier: Centered items
+  &--center {
+    place-items: center;
+  }
+  
+  // BEM Modifier: Align items
+  &--align-start { align-items: start; }
+  &--align-center { align-items: center; }
+  &--align-end { align-items: end; }
+  &--align-stretch { align-items: stretch; }
+  
+  // BEM Modifier: Justify items
+  &--justify-start { justify-items: start; }
+  &--justify-center { justify-items: center; }
+  &--justify-end { justify-items: end; }
+  &--justify-stretch { justify-items: stretch; }
+}
+
+// ================================
+// GRID ITEMS - BLOQUE BEM
+// ================================
+
+.grid-item {
+  // BEM Modifier: Column span
+  &--span-1 { grid-column: span 1; }
+  &--span-2 { grid-column: span 2; }
+  &--span-3 { grid-column: span 3; }
+  &--span-4 { grid-column: span 4; }
+  &--span-5 { grid-column: span 5; }
+  &--span-6 { grid-column: span 6; }
+  &--span-7 { grid-column: span 7; }
+  &--span-8 { grid-column: span 8; }
+  &--span-9 { grid-column: span 9; }
+  &--span-10 { grid-column: span 10; }
+  &--span-11 { grid-column: span 11; }
+  &--span-12 { grid-column: span 12; }
+  &--span-full { grid-column: 1 / -1; }
+  
+  // BEM Modifier: Row span
+  &--row-span-1 { grid-row: span 1; }
+  &--row-span-2 { grid-row: span 2; }
+  &--row-span-3 { grid-row: span 3; }
+  &--row-span-4 { grid-row: span 4; }
+  &--row-span-5 { grid-row: span 5; }
+  &--row-span-6 { grid-row: span 6; }
+  &--row-span-full { grid-row: 1 / -1; }
+  
+  // BEM Modifier: Column start/end
+  &--col-start-1 { grid-column-start: 1; }
+  &--col-start-2 { grid-column-start: 2; }
+  &--col-start-3 { grid-column-start: 3; }
+  &--col-start-4 { grid-column-start: 4; }
+  &--col-start-5 { grid-column-start: 5; }
+  &--col-start-6 { grid-column-start: 6; }
+  &--col-start-7 { grid-column-start: 7; }
+  &--col-start-8 { grid-column-start: 8; }
+  &--col-start-9 { grid-column-start: 9; }
+  &--col-start-10 { grid-column-start: 10; }
+  &--col-start-11 { grid-column-start: 11; }
+  &--col-start-12 { grid-column-start: 12; }
+  
+  &--col-end-1 { grid-column-end: 1; }
+  &--col-end-2 { grid-column-end: 2; }
+  &--col-end-3 { grid-column-end: 3; }
+  &--col-end-4 { grid-column-end: 4; }
+  &--col-end-5 { grid-column-end: 5; }
+  &--col-end-6 { grid-column-end: 6; }
+  &--col-end-7 { grid-column-end: 7; }
+  &--col-end-8 { grid-column-end: 8; }
+  &--col-end-9 { grid-column-end: 9; }
+  &--col-end-10 { grid-column-end: 10; }
+  &--col-end-11 { grid-column-end: 11; }
+  &--col-end-12 { grid-column-end: 12; }
+  &--col-end-13 { grid-column-end: 13; }
+  
+  // BEM Modifier: Self alignment
+  &--self-start { align-self: start; }
+  &--self-center { align-self: center; }
+  &--self-end { align-self: end; }
+  &--self-stretch { align-self: stretch; }
+  
+  // BEM Modifier: Self justification
+  &--justify-self-start { justify-self: start; }
+  &--justify-self-center { justify-self: center; }
+  &--justify-self-end { justify-self: end; }
+  &--justify-self-stretch { justify-self: stretch; }
+}
+
+// ================================
+// FLEXBOX GRID SYSTEM - BLOQUE BEM
+// ================================
+
+.flex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -#{$grid-gutter-width / 2};
+  
+  // BEM Element: Flex grid item
+  &__item {
+    padding: $grid-gutter-width / 2;
+    flex: 1 0 auto;
+  }
+  
+  // BEM Modifier: No wrap
+  &--no-wrap {
+    flex-wrap: nowrap;
+  }
+  
+  // BEM Modifier: Direction
+  &--column {
+    flex-direction: column;
+  }
+  
+  &--row-reverse {
+    flex-direction: row-reverse;
+  }
+  
+  &--column-reverse {
+    flex-direction: column-reverse;
+  }
+  
+  // BEM Modifier: Justify content
+  &--justify-start { justify-content: flex-start; }
+  &--justify-center { justify-content: center; }
+  &--justify-end { justify-content: flex-end; }
+  &--justify-between { justify-content: space-between; }
+  &--justify-around { justify-content: space-around; }
+  &--justify-evenly { justify-content: space-evenly; }
+  
+  // BEM Modifier: Align items
+  &--align-start { align-items: flex-start; }
+  &--align-center { align-items: center; }
+  &--align-end { align-items: flex-end; }
+  &--align-baseline { align-items: baseline; }
+  &--align-stretch { align-items: stretch; }
+  
+  // BEM Modifier: Gap sizes
+  &--gap-0 { margin: 0; .flex-grid__item { padding: 0; } }
+  &--gap-1 { margin: -#{$spacing-1 / 2}; .flex-grid__item { padding: $spacing-1 / 2; } }
+  &--gap-2 { margin: -#{$spacing-2 / 2}; .flex-grid__item { padding: $spacing-2 / 2; } }
+  &--gap-3 { margin: -#{$spacing-3 / 2}; .flex-grid__item { padding: $spacing-3 / 2; } }
+  &--gap-4 { margin: -#{$spacing-4 / 2}; .flex-grid__item { padding: $spacing-4 / 2; } }
+  &--gap-6 { margin: -#{$spacing-6 / 2}; .flex-grid__item { padding: $spacing-6 / 2; } }
+  &--gap-8 { margin: -#{$spacing-8 / 2}; .flex-grid__item { padding: $spacing-8 / 2; } }
+}
+
+// ================================
+// FLEX ITEM UTILITIES
+// ================================
+
+.flex-item {
+  // BEM Modifier: Flex basis
+  &--1 { flex: 0 0 8.333333%; }
+  &--2 { flex: 0 0 16.666667%; }
+  &--3 { flex: 0 0 25%; }
+  &--4 { flex: 0 0 33.333333%; }
+  &--5 { flex: 0 0 41.666667%; }
+  &--6 { flex: 0 0 50%; }
+  &--7 { flex: 0 0 58.333333%; }
+  &--8 { flex: 0 0 66.666667%; }
+  &--9 { flex: 0 0 75%; }
+  &--10 { flex: 0 0 83.333333%; }
+  &--11 { flex: 0 0 91.666667%; }
+  &--12 { flex: 0 0 100%; }
+  
+  // BEM Modifier: Flex grow/shrink
+  &--grow { flex-grow: 1; }
+  &--grow-0 { flex-grow: 0; }
+  &--shrink { flex-shrink: 1; }
+  &--shrink-0 { flex-shrink: 0; }
+  
+  // BEM Modifier: Auto width
+  &--auto { flex: 0 0 auto; }
+  &--fill { flex: 1 1 auto; }
+}
+
+// ================================
+// MASONRY GRID - BLOQUE BEM
+// ================================
+
+.masonry {
+  column-count: 3;
+  column-gap: $grid-gutter-width;
+  column-fill: balance;
+  
+  // BEM Element: Masonry item
+  &__item {
+    break-inside: avoid;
+    margin-bottom: $grid-gutter-width;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  // BEM Modifier: Column count
+  &--1 { column-count: 1; }
+  &--2 { column-count: 2; }
+  &--3 { column-count: 3; }
+  &--4 { column-count: 4; }
+  &--5 { column-count: 5; }
+  &--6 { column-count: 6; }
+  
+  // BEM Modifier: Gap sizes
+  &--gap-0 { column-gap: 0; .masonry__item { margin-bottom: 0; } }
+  &--gap-2 { column-gap: $spacing-2; .masonry__item { margin-bottom: $spacing-2; } }
+  &--gap-4 { column-gap: $spacing-4; .masonry__item { margin-bottom: $spacing-4; } }
+  &--gap-6 { column-gap: $spacing-6; .masonry__item { margin-bottom: $spacing-6; } }
+  &--gap-8 { column-gap: $spacing-8; .masonry__item { margin-bottom: $spacing-8; } }
+}
+
+// ================================
+// SPECIAL GRID LAYOUTS
+// ================================
+
+// Holy Grail Layout
+.layout-holy-grail {
+  display: grid;
+  grid-template-areas: 
+    "header header header"
+    "sidebar main aside"
+    "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 250px 1fr 250px;
+  min-height: 100vh;
+  gap: $grid-gutter-width;
+  
+  // BEM Element: Layout sections
+  &__header { grid-area: header; }
+  &__sidebar { grid-area: sidebar; }
+  &__main { grid-area: main; }
+  &__aside { grid-area: aside; }
+  &__footer { grid-area: footer; }
+  
+  // BEM Modifier: No sidebars
+  &--no-sidebars {
+    grid-template-areas: 
+      "header"
+      "main"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+  
+  // BEM Modifier: Left sidebar only
+  &--left-only {
+    grid-template-areas: 
+      "header header"
+      "sidebar main"
+      "footer footer";
+    grid-template-columns: 250px 1fr;
+  }
+  
+  // BEM Modifier: Right sidebar only
+  &--right-only {
+    grid-template-areas: 
+      "header header"
+      "main aside"
+      "footer footer";
+    grid-template-columns: 1fr 250px;
+  }
+}
+
+// Dashboard Layout
+.layout-dashboard {
+  display: grid;
+  grid-template-areas: 
+    "sidebar header"
+    "sidebar main";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  
+  // BEM Element: Dashboard sections
+  &__sidebar { 
+    grid-area: sidebar; 
+    background: $color-gray-900;
+    color: $color-white;
+  }
+  &__header { 
+    grid-area: header; 
+    background: $color-white;
+    border-bottom: 1px solid $color-gray-200;
+  }
+  &__main { 
+    grid-area: main; 
+    padding: $spacing-6;
+    background: $color-gray-50;
+  }
+  
+  // BEM Modifier: Collapsed sidebar
+  &--collapsed {
+    grid-template-columns: 80px 1fr;
+  }
+}
+
+// ================================
+// RESPONSIVE GRID SYSTEM
+// ================================
+
+// Generate responsive grid classes
+@each $breakpoint, $value in $breakpoints {
+  @include respond-to($breakpoint) {
+    // Responsive grid columns
+    .grid {
+      &--#{$breakpoint}-1 { grid-template-columns: 1fr; }
+      &--#{$breakpoint}-2 { grid-template-columns: repeat(2, 1fr); }
+      &--#{$breakpoint}-3 { grid-template-columns: repeat(3, 1fr); }
+      &--#{$breakpoint}-4 { grid-template-columns: repeat(4, 1fr); }
+      &--#{$breakpoint}-5 { grid-template-columns: repeat(5, 1fr); }
+      &--#{$breakpoint}-6 { grid-template-columns: repeat(6, 1fr); }
+      &--#{$breakpoint}-12 { grid-template-columns: repeat(12, 1fr); }
+    }
+    
+    // Responsive grid items
+    .grid-item {
+      &--#{$breakpoint}-span-1 { grid-column: span 1; }
+      &--#{$breakpoint}-span-2 { grid-column: span 2; }
+      &--#{$breakpoint}-span-3 { grid-column: span 3; }
+      &--#{$breakpoint}-span-4 { grid-column: span 4; }
+      &--#{$breakpoint}-span-5 { grid-column: span 5; }
+      &--#{$breakpoint}-span-6 { grid-column: span 6; }
+      &--#{$breakpoint}-span-12 { grid-column: span 12; }
+      &--#{$breakpoint}-span-full { grid-column: 1 / -1; }
+    }
+    
+    // Responsive flex items
+    .flex-item {
+      &--#{$breakpoint}-1 { flex: 0 0 8.333333%; }
+      &--#{$breakpoint}-2 { flex: 0 0 16.666667%; }
+      &--#{$breakpoint}-3 { flex: 0 0 25%; }
+      &--#{$breakpoint}-4 { flex: 0 0 33.333333%; }
+      &--#{$breakpoint}-6 { flex: 0 0 50%; }
+      &--#{$breakpoint}-8 { flex: 0 0 66.666667%; }
+      &--#{$breakpoint}-12 { flex: 0 0 100%; }
+      &--#{$breakpoint}-auto { flex: 0 0 auto; }
+      &--#{$breakpoint}-fill { flex: 1 1 auto; }
+    }
+    
+    // Responsive masonry
+    .masonry {
+      &--#{$breakpoint}-1 { column-count: 1; }
+      &--#{$breakpoint}-2 { column-count: 2; }
+      &--#{$breakpoint}-3 { column-count: 3; }
+      &--#{$breakpoint}-4 { column-count: 4; }
+    }
+  }
+}
+
+// ================================
+// MOBILE SPECIFIC ADJUSTMENTS
+// ================================
+
+@include respond-below('md') {
+  .layout-holy-grail {
+    grid-template-areas: 
+      "header"
+      "main"
+      "sidebar"
+      "aside"
+      "footer";
+    grid-template-columns: 1fr;
+    
+    &__sidebar,
+    &__aside {
+      order: 3;
+    }
+  }
+  
+  .layout-dashboard {
+    grid-template-areas: 
+      "header"
+      "main";
+    grid-template-columns: 1fr;
+    
+    &__sidebar {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 280px;
+      height: 100vh;
+      z-index: z-index('navigation');
+      transition: transform $duration-base;
+      
+      &.active {
+        transform: translateX(280px);
+      }
+    }
+  }
+  
+  .masonry {
+    column-count: 1;
+    
+    &--sm-2 { column-count: 2; }
+  }
+}
+
+// ================================
+// UTILITY CLASSES
+// ================================
+
+// Hide/show on specific breakpoints
+@each $breakpoint, $value in $breakpoints {
+  @include respond-to($breakpoint) {
+    .hide-#{$breakpoint} { display: none !important; }
+    .show-#{$breakpoint} { display: block !important; }
+  }
+  
+  @include respond-below($breakpoint) {
+    .hide-#{$breakpoint}-down { display: none !important; }
+    .show-#{$breakpoint}-down { display: block !important; }
+  }
+}
+
+// Order utilities
+.order-first { order: -1; }
+.order-last { order: 999; }
+.order-none { order: 0; }
+
+@for $i from 1 through 12 {
+  .order-#{$i} { order: $i; }
+}
+
+// Responsive order
+@each $breakpoint, $value in $breakpoints {
+  @include respond-to($breakpoint) {
+    .order-#{$breakpoint}-first { order: -1; }
+    .order-#{$breakpoint}-last { order: 999; }
+    .order-#{$breakpoint}-none { order: 0; }
+    
+    @for $i from 1 through 12 {
+      .order-#{$breakpoint}-#{$i} { order: $i; }
+    }
+  }
+}
+
+// ================================
+// PRINT GRID ADJUSTMENTS
+// ================================
+
+@media print {
+  .grid,
+  .flex-grid {
+    gap: $spacing-2 !important;
+  }
+  
+  .grid-item,
+  .flex-item {
+    &--span-full,
+    &--12 {
+      grid-column: 1 / -1 !important;
+      flex: 0 0 100% !important;
+    }
+  }
+  
+  .layout-holy-grail,
+  .layout-dashboard {
+    display: block !important;
+    
+    > * {
+      display: block !important;
+      width: 100% !important;
+    }
+  }
+} 

@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - SoftCronw | Desarrollo Web Profesional</title>
+    <meta name="description" content="Servicios de desarrollo web, diseño UI/UX, aplicaciones móviles y consultoría digital. Precios competitivos y soluciones profesionales.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Futuristic Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <a href="index.html" class="nav__logo">SoftCronw</a>
+                
+                <!-- Futuristic Hamburger Menu -->
+                <button class="hamburger" aria-label="Toggle navigation">
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Futuristic Navigation Overlay -->
+    <div class="nav-overlay">
+        <nav class="nav-menu">
+            <ul class="nav-menu__list">
+                <li class="nav-menu__item">
+                    <a href="index.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-home"></i>
+                        <span class="nav-menu__text">Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="servicios.html" class="nav-menu__link nav-menu__link--active">
+                        <i class="nav-menu__icon fas fa-code"></i>
+                        <span class="nav-menu__text">Servicios</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="sobre-nosotros.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-users"></i>
+                        <span class="nav-menu__text">Sobre Nosotros</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="portfolio.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-briefcase"></i>
+                        <span class="nav-menu__text">Portfolio</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="contacto.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-envelope"></i>
+                        <span class="nav-menu__text">Contacto</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Page Indicators -->
+            <div class="nav-indicator">
+                <span class="nav-indicator__dot" data-page="inicio"></span>
+                <span class="nav-indicator__dot nav-indicator__dot--active" data-page="servicios"></span>
+                <span class="nav-indicator__dot" data-page="nosotros"></span>
+                <span class="nav-indicator__dot" data-page="portfolio"></span>
+                <span class="nav-indicator__dot" data-page="contacto"></span>
+            </div>
+        </nav>
+    </div>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="services-hero">
+            <div class="container">
+                <div class="services-hero__content" data-aos="fade-up">
+                    <h1 class="services-hero__title">
+                        Servicios <span class="text-gradient">Profesionales</span>
+                    </h1>
+                    <p class="services-hero__subtitle">
+                        Transformamos ideas en soluciones digitales exitosas. 
+                        Desde desarrollo web hasta estrategias digitales completas.
+                    </p>
+                    
+                    <div class="services-hero__stats">
+                        <div class="stat" data-aos="fade-up" data-aos-delay="100">
+                            <span class="stat__number">150+</span>
+                            <span class="stat__label">Proyectos Completados</span>
+                        </div>
+                        <div class="stat" data-aos="fade-up" data-aos-delay="200">
+                            <span class="stat__number">98%</span>
+                            <span class="stat__label">Satisfacción Cliente</span>
+                        </div>
+                        <div class="stat" data-aos="fade-up" data-aos-delay="300">
+                            <span class="stat__number">24/7</span>
+                            <span class="stat__label">Soporte Técnico</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="services-hero__bg">
+                <div class="floating-elements">
+                    <div class="floating-element floating-element--1"></div>
+                    <div class="floating-element floating-element--2"></div>
+                    <div class="floating-element floating-element--3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="services-filters">
+            <div class="container">
+                <div class="filters" data-aos="fade-up">
+                    <button class="filter-btn filter-btn--active" data-filter="all">
+                        <i class="fas fa-th"></i>
+                        Todos los Servicios
+                    </button>
+                    <button class="filter-btn" data-filter="desarrollo">
+                        <i class="fas fa-code"></i>
+                        Desarrollo
+                    </button>
+                    <button class="filter-btn" data-filter="diseno">
+                        <i class="fas fa-paint-brush"></i>
+                        Diseño
+                    </button>
+                    <button class="filter-btn" data-filter="marketing">
+                        <i class="fas fa-chart-line"></i>
+                        Marketing
+                    </button>
+                    <button class="filter-btn" data-filter="soporte">
+                        <i class="fas fa-headset"></i>
+                        Soporte
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid Spectacular -->
+        <section class="services-grid-spectacular">
+            <div class="container">
+                <div class="services-grid__container">
+                    
+                    <!-- 1. Desarrollo Web Frontend/Backend -->
+                    <div class="service-card-3d" data-category="desarrollo" data-aos="flip-left" data-aos-delay="100">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__badge">Más Popular</div>
+                                <div class="service-card__icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <h3 class="service-card__title">Desarrollo Web</h3>
+                                <p class="service-card__subtitle">Frontend & Backend</p>
+                                <p class="service-card__preview">Sitios web modernos y aplicaciones escalables</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">€899</span>
+                                    <span class="price-period">/proyecto</span>
+                                </div>
+                                <div class="service-card__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-text">(4.9/5)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Desarrollo Web Completo</h3>
+                                <ul class="service-features">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>React/Vue.js Frontend</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Node.js/PHP Backend</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Base de Datos MySQL/MongoDB</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>API REST/GraphQL</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Hosting y Dominio 1 año</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>SSL y Seguridad</span>
+                                    </li>
+                                </ul>
+                                <div class="service-card__actions">
+                                    <button class="btn-service btn-details" onclick="openServiceModal('desarrollo-web')">
+                                        <i class="fas fa-info-circle"></i>
+                                        Ver Detalles
+                                    </button>
+                                    <button class="btn-service btn-quote" onclick="openQuoteModal('desarrollo-web')">
+                                        <i class="fas fa-calculator"></i>
+                                        Cotizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Diseño Web UI/UX -->
+                    <div class="service-card-3d" data-category="diseno" data-aos="flip-left" data-aos-delay="150">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-palette"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <h3 class="service-card__title">Diseño Web UI/UX</h3>
+                                <p class="service-card__subtitle">Experiencias Únicas</p>
+                                <p class="service-card__preview">Interfaces atractivas y funcionales</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">€599</span>
+                                    <span class="price-period">/proyecto</span>
+                                </div>
+                                <div class="service-card__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-text">(4.8/5)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Diseño UI/UX Profesional</h3>
+                                <ul class="service-features">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Wireframes y Prototipos</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Diseño Responsive</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Sistema de Diseño</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Figma/Adobe XD</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Testing de Usabilidad</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Guía de Marca</span>
+                                    </li>
+                                </ul>
+                                <div class="service-card__actions">
+                                    <button class="btn-service btn-details" onclick="openServiceModal('diseno-uiux')">
+                                        <i class="fas fa-info-circle"></i>
+                                        Ver Detalles
+                                    </button>
+                                    <button class="btn-service btn-quote" onclick="openQuoteModal('diseno-uiux')">
+                                        <i class="fas fa-calculator"></i>
+                                        Cotizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Mantenimiento Web -->
+                    <div class="service-card-3d" data-category="soporte" data-aos="flip-left" data-aos-delay="200">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-tools"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <h3 class="service-card__title">Mantenimiento Web</h3>
+                                <p class="service-card__subtitle">Siempre Actualizado</p>
+                                <p class="service-card__preview">Mantenimiento y actualizaciones continuas</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">€99</span>
+                                    <span class="price-period">/mes</span>
+                                </div>
+                                <div class="service-card__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-text">(5.0/5)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Mantenimiento Completo</h3>
+                                <ul class="service-features">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Actualizaciones de Seguridad</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Backups Automáticos</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Monitoreo 24/7</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Optimización de Velocidad</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Corrección de Errores</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Reportes Mensuales</span>
+                                    </li>
+                                </ul>
+                                <div class="service-card__actions">
+                                    <button class="btn-service btn-details" onclick="openServiceModal('mantenimiento')">
+                                        <i class="fas fa-info-circle"></i>
+                                        Ver Detalles
+                                    </button>
+                                    <button class="btn-service btn-quote" onclick="openQuoteModal('mantenimiento')">
+                                        <i class="fas fa-calculator"></i>
+                                        Cotizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Soporte Técnico -->
+                    <div class="service-card-3d" data-category="soporte" data-aos="flip-left" data-aos-delay="250">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-headset"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <h3 class="service-card__title">Soporte Técnico</h3>
+                                <p class="service-card__subtitle">24/7 Disponible</p>
+                                <p class="service-card__preview">Asistencia técnica cuando la necesites</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">€199</span>
+                                    <span class="price-period">/mes</span>
+                                </div>
+                                <div class="service-card__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-text">(4.9/5)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Soporte Premium 24/7</h3>
+                                <ul class="service-features">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Chat en Vivo 24/7</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Respuesta < 2 horas</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Resolución Urgente</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Acceso Remoto</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Videollamadas Técnicas</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Base de Conocimientos</span>
+                                    </li>
+                                </ul>
+                                <div class="service-card__actions">
+                                    <button class="btn-service btn-details" onclick="openServiceModal('soporte')">
+                                        <i class="fas fa-info-circle"></i>
+                                        Ver Detalles
+                                    </button>
+                                    <button class="btn-service btn-quote" onclick="openQuoteModal('soporte')">
+                                        <i class="fas fa-calculator"></i>
+                                        Cotizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Optimización SEO -->
+                    <div class="service-card-3d" data-category="marketing" data-aos="flip-left" data-aos-delay="300">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-search"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <h3 class="service-card__title">Optimización SEO</h3>
+                                <p class="service-card__subtitle">Top en Google</p>
+                                <p class="service-card__preview">Posicionamiento web efectivo</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">€399</span>
+                                    <span class="price-period">/mes</span>
+                                </div>
+                                <div class="service-card__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-text">(4.8/5)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">SEO Profesional</h3>
+                                <ul class="service-features">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Auditoría SEO Completa</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Optimización On-Page</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Investigación Keywords</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Link Building Estratégico</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Reportes Mensuales</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Google Analytics Setup</span>
+                                    </li>
+                                </ul>
+                                <div class="service-card__actions">
+                                    <button class="btn-service btn-details" onclick="openServiceModal('seo')">
+                                        <i class="fas fa-info-circle"></i>
+                                        Ver Detalles
+                                    </button>
+                                    <button class="btn-service btn-quote" onclick="openQuoteModal('seo')">
+                                        <i class="fas fa-calculator"></i>
+                                        Cotizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Desarrollo E-commerce -->
+                    <div class="service-card-3d" data-category="desarrollo" data-aos="flip-left" data-aos-delay="350">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__badge badge-hot">🔥 Tendencia</div>
+                                <div class="service-card__icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <h3 class="service-card__title">E-commerce</h3>
+                                <p class="service-card__subtitle">Tienda Online</p>
+                                <p class="service-card__preview">Tiendas online que venden</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">€1,299</span>
+                                    <span class="price-period">/proyecto</span>
+                                </div>
+                                <div class="service-card__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-text">(4.9/5)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">E-commerce Completo</h3>
+                                <ul class="service-features">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>WooCommerce/Shopify</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Pasarelas de Pago</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Gestión de Inventario</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Panel de Administración</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Certificado SSL</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Email Marketing Setup</span>
+                                    </li>
+                                </ul>
+                                <div class="service-card__actions">
+                                    <button class="btn-service btn-details" onclick="openServiceModal('ecommerce')">
+                                        <i class="fas fa-info-circle"></i>
+                                        Ver Detalles
+                                    </button>
+                                    <button class="btn-service btn-quote" onclick="openQuoteModal('ecommerce')">
+                                        <i class="fas fa-calculator"></i>
+                                        Cotizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Aplicaciones Móviles -->
+                    <div class="service-card-3d" data-category="desarrollo" data-aos="flip-left" data-aos-delay="400">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <h3 class="service-card__title">Apps Móviles</h3>
+                                <p class="service-card__subtitle">iOS & Android</p>
+                                <p class="service-card__preview">Aplicaciones nativas y multiplataforma</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">€1,899</span>
+                                    <span class="price-period">/proyecto</span>
+                                </div>
+                                <div class="service-card__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-text">(4.8/5)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Apps Profesionales</h3>
+                                <ul class="service-features">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>React Native/Flutter</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>iOS & Android</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Push Notifications</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>App Store Publishing</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Analytics Integrado</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Backend API</span>
+                                    </li>
+                                </ul>
+                                <div class="service-card__actions">
+                                    <button class="btn-service btn-details" onclick="openServiceModal('apps-moviles')">
+                                        <i class="fas fa-info-circle"></i>
+                                        Ver Detalles
+                                    </button>
+                                    <button class="btn-service btn-quote" onclick="openQuoteModal('apps-moviles')">
+                                        <i class="fas fa-calculator"></i>
+                                        Cotizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Consultoría Digital -->
+                    <div class="service-card-3d" data-category="marketing" data-aos="flip-left" data-aos-delay="450">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-chart-line"></i>
+                                    <div class="icon-glow"></div>
+                                </div>
+                                <h3 class="service-card__title">Consultoría Digital</h3>
+                                <p class="service-card__subtitle">Estrategia Completa</p>
+                                <p class="service-card__preview">Transformación digital estratégica</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">€299</span>
+                                    <span class="price-period">/sesión</span>
+                                </div>
+                                <div class="service-card__rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="rating-text">(5.0/5)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Consultoría Estratégica</h3>
+                                <ul class="service-features">
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Auditoría Digital</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Estrategia de Crecimiento</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Plan de Tecnología</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Análisis de Competencia</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Roadmap de Implementación</span>
+                                    </li>
+                                    <li class="feature-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>ROI & Métricas</span>
+                                    </li>
+                                </ul>
+                                <div class="service-card__actions">
+                                    <button class="btn-service btn-details" onclick="openServiceModal('consultoria')">
+                                        <i class="fas fa-info-circle"></i>
+                                        Ver Detalles
+                                    </button>
+                                    <button class="btn-service btn-quote" onclick="openQuoteModal('consultoria')">
+                                        <i class="fas fa-calculator"></i>
+                                        Cotizar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Diseño UI/UX</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Investigación de Usuario</li>
+                                    <li><i class="fas fa-check"></i> Wireframes y Prototipos</li>
+                                    <li><i class="fas fa-check"></i> Diseño Visual</li>
+                                    <li><i class="fas fa-check"></i> Sistema de Diseño</li>
+                                    <li><i class="fas fa-check"></i> Testing de Usabilidad</li>
+                                </ul>
+                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('diseno-uiux')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mantenimiento Web -->
+                    <div class="service-card" data-category="soporte" data-aos="flip-left" data-aos-delay="300">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <h3 class="service-card__title">Mantenimiento Web</h3>
+                                <p class="service-card__preview">Mantén tu sitio siempre actualizado</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">$199</span>
+                                    <span class="price-period">/mes</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Mantenimiento Web</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Actualizaciones de Seguridad</li>
+                                    <li><i class="fas fa-check"></i> Backups Automáticos</li>
+                                    <li><i class="fas fa-check"></i> Monitoreo 24/7</li>
+                                    <li><i class="fas fa-check"></i> Optimización Performance</li>
+                                    <li><i class="fas fa-check"></i> Soporte Técnico</li>
+                                </ul>
+                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('mantenimiento')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soporte Técnico -->
+                    <div class="service-card" data-category="soporte" data-aos="flip-left" data-aos-delay="400">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h3 class="service-card__title">Soporte Técnico</h3>
+                                <p class="service-card__preview">Asistencia especializada 24/7</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">$99</span>
+                                    <span class="price-period">/mes</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Soporte Técnico</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Respuesta en 2 horas</li>
+                                    <li><i class="fas fa-check"></i> Chat en Vivo</li>
+                                    <li><i class="fas fa-check"></i> Soporte Remoto</li>
+                                    <li><i class="fas fa-check"></i> Resolución de Incidencias</li>
+                                    <li><i class="fas fa-check"></i> Capacitación de Usuario</li>
+                                </ul>
+                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('soporte-tecnico')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Optimización SEO -->
+                    <div class="service-card" data-category="marketing" data-aos="flip-left" data-aos-delay="500">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <h3 class="service-card__title">Optimización SEO</h3>
+                                <p class="service-card__preview">Mejora tu posicionamiento</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">$399</span>
+                                    <span class="price-period">/mes</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Optimización SEO</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Auditoría SEO Completa</li>
+                                    <li><i class="fas fa-check"></i> Optimización On-Page</li>
+                                    <li><i class="fas fa-check"></i> Link Building</li>
+                                    <li><i class="fas fa-check"></i> Content Marketing</li>
+                                    <li><i class="fas fa-check"></i> Reportes Mensuales</li>
+                                </ul>
+                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('seo')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- E-commerce -->
+                    <div class="service-card" data-category="desarrollo" data-aos="flip-left" data-aos-delay="600">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h3 class="service-card__title">E-commerce</h3>
+                                <p class="service-card__preview">Tiendas online profesionales</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">$1,299</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">E-commerce</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Plataforma Personalizada</li>
+                                    <li><i class="fas fa-check"></i> Pasarelas de Pago</li>
+                                    <li><i class="fas fa-check"></i> Gestión de Inventario</li>
+                                    <li><i class="fas fa-check"></i> Panel Administrativo</li>
+                                    <li><i class="fas fa-check"></i> Integración con APIs</li>
+                                </ul>
+                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('ecommerce')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aplicaciones Móviles -->
+                    <div class="service-card" data-category="desarrollo" data-aos="flip-left" data-aos-delay="700">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h3 class="service-card__title">Apps Móviles</h3>
+                                <p class="service-card__preview">iOS y Android nativas</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">$1,899</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Apps Móviles</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Desarrollo Nativo</li>
+                                    <li><i class="fas fa-check"></i> UI/UX Optimizada</li>
+                                    <li><i class="fas fa-check"></i> Integración con APIs</li>
+                                    <li><i class="fas fa-check"></i> Publicación en Stores</li>
+                                    <li><i class="fas fa-check"></i> Soporte Post-Launch</li>
+                                </ul>
+                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('apps-moviles')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consultoría Digital -->
+                    <div class="service-card" data-category="marketing" data-aos="flip-left" data-aos-delay="800">
+                        <div class="service-card__inner">
+                            <div class="service-card__front">
+                                <div class="service-card__icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <h3 class="service-card__title">Consultoría Digital</h3>
+                                <p class="service-card__preview">Estrategias digitales exitosas</p>
+                                <div class="service-card__price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">$299</span>
+                                    <span class="price-period">/hora</span>
+                                </div>
+                            </div>
+                            
+                            <div class="service-card__back">
+                                <h3 class="service-card__title">Consultoría Digital</h3>
+                                <ul class="service-features">
+                                    <li><i class="fas fa-check"></i> Análisis de Mercado</li>
+                                    <li><i class="fas fa-check"></i> Estrategia Digital</li>
+                                    <li><i class="fas fa-check"></i> Transformación Digital</li>
+                                    <li><i class="fas fa-check"></i> Optimización de Procesos</li>
+                                    <li><i class="fas fa-check"></i> Plan de Implementación</li>
+                                </ul>
+                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('consultoria')">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Timeline Spectacular -->
+        <section class="process-timeline-spectacular">
+            <div class="container">
+                <div class="section-header-timeline" data-aos="fade-up">
+                    <div class="section-badge-timeline">🚀 Metodología Probada</div>
+                    <h2 class="section-title-timeline">
+                        Nuestro <span class="gradient-text-timeline">Proceso</span> de Trabajo
+                    </h2>
+                    <p class="section-description-timeline">
+                        Metodología estructurada para garantizar el éxito de tu proyecto digital
+                    </p>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-item-spectacular" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-icon-spectacular">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="timeline-content-spectacular">
+                            <div class="timeline-card">
+                                <div class="timeline-step">Paso 01</div>
+                                <h3 class="timeline-title">Análisis y Estrategia</h3>
+                                <p class="timeline-description">
+                                    Realizamos un análisis profundo de tus necesidades, objetivos y audiencia 
+                                    para crear una estrategia digital personalizada.
+                                </p>
+                                <ul class="timeline-features">
+                                    <li><i class="fas fa-check"></i> Análisis de requerimientos</li>
+                                    <li><i class="fas fa-check"></i> Investigación de mercado</li>
+                                    <li><i class="fas fa-check"></i> Definición de objetivos</li>
+                                    <li><i class="fas fa-check"></i> Planificación estratégica</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-spectacular" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-icon-spectacular">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <div class="timeline-content-spectacular">
+                            <div class="timeline-card">
+                                <div class="timeline-step">Paso 02</div>
+                                <h3 class="timeline-title">Diseño y Prototipado</h3>
+                                <p class="timeline-description">
+                                    Creamos wireframes, mockups y prototipos interactivos para visualizar 
+                                    y validar el diseño antes del desarrollo.
+                                </p>
+                                <ul class="timeline-features">
+                                    <li><i class="fas fa-check"></i> Wireframes detallados</li>
+                                    <li><i class="fas fa-check"></i> Diseño UI/UX</li>
+                                    <li><i class="fas fa-check"></i> Prototipos interactivos</li>
+                                    <li><i class="fas fa-check"></i> Validación con cliente</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-spectacular" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-icon-spectacular">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="timeline-content-spectacular">
+                            <div class="timeline-card">
+                                <div class="timeline-step">Paso 03</div>
+                                <h3 class="timeline-title">Desarrollo Técnico</h3>
+                                <p class="timeline-description">
+                                    Implementamos la solución utilizando las últimas tecnologías y mejores 
+                                    prácticas de desarrollo moderno.
+                                </p>
+                                <ul class="timeline-features">
+                                    <li><i class="fas fa-check"></i> Código limpio y escalable</li>
+                                    <li><i class="fas fa-check"></i> Tecnologías modernas</li>
+                                    <li><i class="fas fa-check"></i> Responsive design</li>
+                                    <li><i class="fas fa-check"></i> Optimización de rendimiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-spectacular" data-aos="fade-up" data-aos-delay="400">
+                        <div class="timeline-icon-spectacular">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <div class="timeline-content-spectacular">
+                            <div class="timeline-card">
+                                <div class="timeline-step">Paso 04</div>
+                                <h3 class="timeline-title">Testing y QA</h3>
+                                <p class="timeline-description">
+                                    Realizamos pruebas exhaustivas en múltiples dispositivos y navegadores 
+                                    para garantizar la máxima calidad.
+                                </p>
+                                <ul class="timeline-features">
+                                    <li><i class="fas fa-check"></i> Testing cross-browser</li>
+                                    <li><i class="fas fa-check"></i> Pruebas responsive</li>
+                                    <li><i class="fas fa-check"></i> Testing de rendimiento</li>
+                                    <li><i class="fas fa-check"></i> Auditoría de seguridad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item-spectacular" data-aos="fade-up" data-aos-delay="500">
+                        <div class="timeline-icon-spectacular">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="timeline-content-spectacular">
+                            <div class="timeline-card">
+                                <div class="timeline-step">Paso 05</div>
+                                <h3 class="timeline-title">Lanzamiento y Soporte</h3>
+                                <p class="timeline-description">
+                                    Desplegamos tu proyecto y proporcionamos soporte continuo para asegurar 
+                                    su funcionamiento óptimo.
+                                </p>
+                                <ul class="timeline-features">
+                                    <li><i class="fas fa-check"></i> Deploy profesional</li>
+                                    <li><i class="fas fa-check"></i> Configuración SSL</li>
+                                    <li><i class="fas fa-check"></i> Monitoreo 24/7</li>
+                                    <li><i class="fas fa-check"></i> Soporte post-lanzamiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Price Calculator Spectacular -->
+        <section class="price-calculator-spectacular">
+            <div class="container">
+                <div class="section-header-calc" data-aos="fade-up">
+                    <div class="section-badge-calc">💰 Presupuesto Inteligente</div>
+                    <h2 class="section-title-calc">
+                        <span class="gradient-text-calc">Calculadora</span> Avanzada
+                    </h2>
+                    <p class="section-description-calc">
+                        Obtén una estimación personalizada en tiempo real para tu proyecto
+                    </p>
+                </div>
+
+                <div class="calculator-container" data-aos="fade-up" data-aos-delay="200">
+                    <form class="calculator-form" id="calculator-form-spectacular">
+                        
+                        <!-- Services Selection -->
+                        <div class="form-section">
+                            <h3 class="section-title-form">
+                                <i class="fas fa-cogs"></i>
+                                ¿Qué servicios necesitas?
+                            </h3>
+                            <div class="options-grid">
+                                <div class="option-card" data-service="desarrollo-web" data-price="899">
+                                    <div class="option-header">
+                                        <div class="option-checkbox"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-laptop-code"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">Desarrollo Web</div>
+                                            <div class="option-price">€899</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Sitio web completo con frontend y backend moderno
+                                    </div>
+                                </div>
+                                
+                                <div class="option-card" data-service="diseno-uiux" data-price="599">
+                                    <div class="option-header">
+                                        <div class="option-checkbox"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-palette"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">Diseño UI/UX</div>
+                                            <div class="option-price">€599</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Diseño de interfaz y experiencia de usuario profesional
+                                    </div>
+                                </div>
+                                
+                                <div class="option-card" data-service="ecommerce" data-price="1299">
+                                    <div class="option-header">
+                                        <div class="option-checkbox"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">E-commerce</div>
+                                            <div class="option-price">€1,299</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Tienda online completa con gestión de productos
+                                    </div>
+                                </div>
+                                
+                                <div class="option-card" data-service="app-movil" data-price="1899">
+                                    <div class="option-header">
+                                        <div class="option-checkbox"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-mobile-alt"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">App Móvil</div>
+                                            <div class="option-price">€1,899</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Aplicación nativa iOS y Android
+                                    </div>
+                                </div>
+                                
+                                <div class="option-card" data-service="seo" data-price="399">
+                                    <div class="option-header">
+                                        <div class="option-checkbox"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">SEO Optimization</div>
+                                            <div class="option-price">€399/mes</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Posicionamiento web y optimización SEO
+                                    </div>
+                                </div>
+                                
+                                <div class="option-card" data-service="mantenimiento" data-price="99">
+                                    <div class="option-header">
+                                        <div class="option-checkbox"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-tools"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">Mantenimiento</div>
+                                            <div class="option-price">€99/mes</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Mantenimiento y actualizaciones continuas
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Complexity -->
+                        <div class="form-section">
+                            <h3 class="section-title-form">
+                                <i class="fas fa-layer-group"></i>
+                                Complejidad del Proyecto
+                            </h3>
+                            <div class="range-input">
+                                <div class="range-label">
+                                    <span class="range-title">Nivel de Complejidad</span>
+                                    <span class="range-value" id="complexity-value">Medio (1.2x)</span>
+                                </div>
+                                <input type="range" class="range-slider" id="complexity-range" min="0.8" max="2.0" step="0.1" value="1.2">
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline -->
+                        <div class="form-section">
+                            <h3 class="section-title-form">
+                                <i class="fas fa-clock"></i>
+                                Timeline del Proyecto
+                            </h3>
+                            <div class="options-grid">
+                                <div class="option-card timeline-option" data-timeline="urgente" data-multiplier="1.5">
+                                    <div class="option-header">
+                                        <div class="option-checkbox"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-bolt"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">Urgente</div>
+                                            <div class="option-price">1-2 semanas (+50%)</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Entrega rápida con prioridad máxima
+                                    </div>
+                                </div>
+                                
+                                <div class="option-card timeline-option selected" data-timeline="normal" data-multiplier="1.0">
+                                    <div class="option-header">
+                                        <div class="option-checkbox checked"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">Normal</div>
+                                            <div class="option-price">3-4 semanas (Precio base)</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Timeline estándar con calidad garantizada
+                                    </div>
+                                </div>
+                                
+                                <div class="option-card timeline-option" data-timeline="flexible" data-multiplier="0.8">
+                                    <div class="option-header">
+                                        <div class="option-checkbox"></div>
+                                        <div class="option-icon">
+                                            <i class="fas fa-hourglass-half"></i>
+                                        </div>
+                                        <div class="option-info">
+                                            <div class="option-title">Flexible</div>
+                                            <div class="option-price">5-8 semanas (-20%)</div>
+                                        </div>
+                                    </div>
+                                    <div class="option-description">
+                                        Sin prisa, mayor atención al detalle
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Result -->
+                        <div class="calculator-result" id="calculator-result">
+                            <div class="result-label">Estimación Total</div>
+                            <div class="result-price" id="total-price">€0</div>
+                            <div class="result-breakdown" id="price-breakdown">
+                                Selecciona los servicios que necesitas
+                            </div>
+                            <div class="result-actions">
+                                <a href="#" class="btn-result btn-primary-result" onclick="requestQuote()">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Solicitar Cotización
+                                </a>
+                                <button type="button" class="btn-result btn-secondary-result" onclick="shareEstimate()">
+                                    <i class="fas fa-share-alt"></i>
+                                    Compartir Estimación
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </section>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="service" value="599" data-service="Diseño UI/UX">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">Diseño UI/UX ($599)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="service" value="1299" data-service="E-commerce">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">E-commerce ($1,299)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="service" value="1899" data-service="App Móvil">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">App Móvil ($1,899)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="calculator-section">
+                            <h3>Características Adicionales</h3>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="feature" value="299" data-feature="SEO Básico">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">SEO Básico (+$299)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="feature" value="199" data-feature="SSL y Seguridad">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">SSL y Seguridad (+$199)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="feature" value="399" data-feature="Panel Admin">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">Panel Admin (+$399)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="feature" value="99" data-feature="Integración Redes">
+                                    <span class="checkmark"></span>
+                                    <span class="label-text">Integración Redes (+$99)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="calculator-result">
+                            <div class="result-display">
+                                <span class="result-label">Estimación Total:</span>
+                                <span class="result-amount" id="total-amount">$0</span>
+                            </div>
+                            <div class="selected-items" id="selected-items"></div>
+                            <button type="button" class="btn btn--primary" onclick="requestQuote()">
+                                Solicitar Cotización
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Spectacular -->
+        <section class="testimonials-spectacular">
+            <div class="container">
+                <div class="section-header-testimonials" data-aos="fade-up">
+                    <div class="section-badge-testimonials">⭐ Testimonios Reales</div>
+                    <h2 class="section-title-testimonials">
+                        Lo que Dicen <span class="gradient-text-testimonials">Nuestros Clientes</span>
+                    </h2>
+                </div>
+
+                <div class="testimonials-slider" data-aos="fade-up" data-aos-delay="200">
+                    
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card active">
+                        <div class="testimonial-quote">
+                            SoftCronw transformó completamente nuestra presencia digital. El e-commerce que desarrollaron 
+                            ha aumentado nuestras ventas en un 300%. Su equipo es profesional, creativo y siempre 
+                            disponible para resolver cualquier duda. ¡Altamente recomendados!
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div class="author-info">
+                                <div class="author-name">María Rodríguez</div>
+                                <div class="author-position">CEO, Fashion Store Online</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            Necesitábamos una aplicación móvil compleja y SoftCronw superó todas nuestras expectativas. 
+                            La app funciona perfectamente en iOS y Android, y el soporte post-lanzamiento ha sido excepcional. 
+                            Definitivamente trabajaremos con ellos en futuros proyectos.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">CL</div>
+                            <div class="author-info">
+                                <div class="author-name">Carlos López</div>
+                                <div class="author-position">CTO, TechStartup Inc.</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            El diseño UI/UX que crearon para nuestro portal corporativo es simplemente impresionante. 
+                            Nuestros usuarios ahora navegan de forma más intuitiva y hemos reducido las consultas de 
+                            soporte en un 60%. SoftCronw realmente entiende lo que necesitan las empresas modernas.
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AG</div>
+                            <div class="author-info">
+                                <div class="author-name">Ana García</div>
+                                <div class="author-position">Directora Marketing, Global Corp</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Dots -->
+                    <div class="testimonials-nav">
+                        <div class="nav-dot active" data-slide="0"></div>
+                        <div class="nav-dot" data-slide="1"></div>
+                        <div class="nav-dot" data-slide="2"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background Effects -->
+            <div class="testimonials-background">
+                <div class="floating-quotes">"</div>
+                <div class="floating-quotes">"</div>
+            </div>
+        </section>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" alt="Carlos Mendoza">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Carlos Mendoza</h4>
+                                    <span>CEO, TechStore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "El diseño UI/UX que crearon para nuestra app es simplemente espectacular. La experiencia de usuario mejoró significativamente y nuestros usuarios están encantados."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=60&h=60&fit=crop&crop=face" alt="Ana López">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Ana López</h4>
+                                    <span>Directora de Producto, InnoApp</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="testimonial-content">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <blockquote>
+                                "Su servicio de mantenimiento web es excepcional. Siempre están disponibles y resuelven cualquier problema al instante. Una inversión que vale la pena."
+                            </blockquote>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Roberto Silva">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Roberto Silva</h4>
+                                    <span>Fundador, EcoVerde</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonials-controls">
+                        <button class="testimonial-btn testimonial-btn--prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="testimonial-dots">
+                            <span class="dot dot--active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
+                        </div>
+                        <button class="testimonial-btn testimonial-btn--next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Quote Form -->
+        <section class="quick-quote" id="cotizar">
+            <div class="container">
+                <div class="quick-quote__content" data-aos="fade-up">
+                    <div class="quick-quote__info">
+                        <h2>¿Listo para comenzar tu proyecto?</h2>
+                        <p>Obtén una cotización personalizada en menos de 24 horas</p>
+                        
+                        <div class="quote-benefits">
+                            <div class="benefit">
+                                <i class="fas fa-clock"></i>
+                                <span>Respuesta en 24h</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>100% Confidencial</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-gift"></i>
+                                <span>Consulta Gratuita</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="quote-form" id="quote-form" data-aos="fade-left" data-aos-delay="200">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Tu nombre completo" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Teléfono (opcional)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <select name="service" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="desarrollo-web">Desarrollo Web</option>
+                                <option value="diseno-uiux">Diseño UI/UX</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="app-movil">App Móvil</option>
+                                <option value="seo">Optimización SEO</option>
+                                <option value="mantenimiento">Mantenimiento Web</option>
+                                <option value="soporte">Soporte Técnico</option>
+                                <option value="consultoria">Consultoría Digital</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select name="budget">
+                                <option value="">Presupuesto estimado</option>
+                                <option value="500-1000">$500 - $1,000</option>
+                                <option value="1000-3000">$1,000 - $3,000</option>
+                                <option value="3000-5000">$3,000 - $5,000</option>
+                                <option value="5000+">$5,000+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Cuéntanos sobre tu proyecto..." rows="4"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn--primary btn--full">
+                            <span class="btn-text">Solicitar Cotización</span>
+                            <span class="btn-loader"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Container for Dynamic Content -->
+    <div id="modal-container"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3 class="footer__logo">SoftCronw</h3>
+                    <p class="footer__description">
+                        Transformamos ideas en soluciones digitales exitosas.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer__links">
+                    <div class="footer__column">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="#desarrollo">Desarrollo Web</a></li>
+                            <li><a href="#diseno">Diseño UI/UX</a></li>
+                            <li><a href="#ecommerce">E-commerce</a></li>
+                            <li><a href="#apps">Apps Móviles</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="sobre-nosotros.html">Nosotros</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer__column">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                info@softcronw.com
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                +1 (555) 123-4567
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                Ciudad, País
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2024 SoftCronw. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h1 class="loading-text">SoftCronw</h1>
+                <div class="loading-spinner"></div>
+            </div>
+            <p class="loading-subtitle">Cargando servicios...</p>
+        </div>
+    </div>
+
+    <!-- Chatbot SoftCronw Unificado -->
+    <div id="softcronw-chatbot" class="chatbot-container">
+        <!-- Chatbot Toggle Button -->
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Abrir chat">
+            <div class="toggle-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="toggle-badge">
+                <span class="badge-text">¿Necesitas ayuda?</span>
+                <small class="badge-subtitle">Pregunta a nuestro asistente IA</small>
+            </div>
+            <div class="notification-dot" id="notification-dot"></div>
+        </button>
+
+        <!-- Chatbot Widget -->
+        <div class="chatbot-widget hidden" id="chatbot-widget">
+            <!-- Header -->
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <img src="images/chatbot-avatar.png" alt="SoftCronw Assistant" onerror="this.style.display='none'">
+                    <div class="avatar-fallback">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                <div class="chatbot-info">
+                    <h4 class="chatbot-name">Sofia</h4>
+                    <p class="chatbot-title">Asistente Digital de SoftCronw</p>
+                    <div class="status-indicator">
+                        <span class="status-dot online"></span>
+                        <span class="status-text">En línea</span>
+                    </div>
+                </div>
+                <div class="chatbot-controls">
+                    <button class="control-btn minimize" id="chatbot-minimize" aria-label="Minimizar chat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="control-btn close" id="chatbot-close" aria-label="Cerrar chat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="typing-indicator hidden" id="typing-indicator">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="typing-text">Sofia está escribiendo...</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions" id="quick-actions">
+                <button class="quick-btn" data-action="services">💻 Servicios</button>
+                <button class="quick-btn" data-action="pricing">💰 Precios</button>
+                <button class="quick-btn" data-action="quote">📋 Presupuesto</button>
+                <button class="quick-btn" data-action="contact">📞 Contacto</button>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chatbot-input">
+                <div class="input-wrapper">
+                    <textarea 
+                        class="message-input" 
+                        id="message-input" 
+                        placeholder="Escribe tu mensaje..."
+                        rows="1"
+                        maxlength="500"
+                    ></textarea>
+                    <div class="input-actions">
+                        <button class="attachment-btn" id="attachment-btn" aria-label="Adjuntar archivo">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="send-btn" id="send-btn" aria-label="Enviar mensaje">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-suggestions" id="input-suggestions">
+                    <span class="suggestion" data-text="¿Cuánto cuesta una página web?">💰 Precios</span>
+                    <span class="suggestion" data-text="¿Qué servicios ofrecen?">🔧 Servicios</span>
+                    <span class="suggestion" data-text="Necesito una tienda online">🛒 E-commerce</span>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="chatbot-footer">
+                <div class="footer-options">
+                    <button class="footer-btn" id="voice-btn" aria-label="Activar voz">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="footer-btn" id="emoji-btn" aria-label="Emojis">
+                        <i class="fas fa-smile"></i>
+                    </button>
+                    <button class="footer-btn" id="clear-btn" aria-label="Limpiar chat">
+                        <i class="fas fa-broom"></i>
+                    </button>
+                </div>
+                <div class="footer-branding">
+                    <span>Powered by <strong>SoftCronw AI</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Preview (cuando está minimizado) -->
+        <div class="chatbot-preview hidden" id="chatbot-preview">
+            <div class="preview-header">
+                <span class="preview-title">Sofia - SoftCronw</span>
+                <button class="preview-close" id="preview-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="preview-messages" id="preview-messages">
+                <div class="preview-message">
+                    <span>👋 ¡Hola! ¿En qué puedo ayudarte?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Sistema Unificado de Librerías -->
+    <script src="js/libraries-unified.js"></script>
+    
+    <!-- SoftCronw Core Scripts -->
+    <script src="js/loading-manager.js"></script>
+    <script src="js/chatbot-core.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/services-spectacular.js"></script>
+    
+    <script>
+        // Inicializar cuando las librerías estén cargadas
+        document.addEventListener('librariesLoaded', function() {
+            // Add body class for futuristic mode
+            document.body.classList.add('futuristic-nav');
+            
+            // Initialize Services Spectacular
+            if (typeof ServiceFilters !== 'undefined') {
+                const serviceFilters = new ServiceFilters();
+                const priceCalculator = new PriceCalculator();
+                const testimonialSlider = new TestimonialSlider();
+                const serviceModals = new ServiceModals();
+                
+                // Make instances globally available
+                window.serviceFilters = serviceFilters;
+                window.priceCalculator = priceCalculator;
+                window.testimonialSlider = testimonialSlider;
+                window.serviceModals = serviceModals;
+            }
+            
+            // Initialize scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.service-card-3d').forEach(card => {
+                observer.observe(card);
+            });
+            
+            console.log('🚀 Services Spectacular initialized successfully');
+        });
+    </script>
+</body>
+</html> 

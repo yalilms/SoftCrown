@@ -1,0 +1,491 @@
+//
+// _typography.scss
+// Sistema tipográfico para SoftCronw
+// Jerarquía visual clara y legible
+//
+
+// ================================
+// FONT LOADING
+// ================================
+
+// Google Fonts import
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// Font display optimization
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-display: swap;
+}
+
+// ================================
+// BASE TYPOGRAPHY
+// ================================
+
+body {
+  font-family: $font-family-secondary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  color: $color-gray-700;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// ================================
+// HEADINGS SYSTEM
+// ================================
+
+// Base heading styles
+%heading-base {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $color-gray-900;
+  margin-bottom: $spacing-4;
+  letter-spacing: $letter-spacing-tight;
+}
+
+// H1 - Hero heading
+h1,
+.h1 {
+  @extend %heading-base;
+  @include responsive-font($font-size-4xl, $font-size-7xl);
+  font-weight: $font-weight-extrabold;
+  letter-spacing: $letter-spacing-tighter;
+  margin-bottom: $spacing-6;
+  
+  @include respond-to('lg') {
+    margin-bottom: $spacing-8;
+  }
+}
+
+// H2 - Section heading
+h2,
+.h2 {
+  @extend %heading-base;
+  @include responsive-font($font-size-3xl, $font-size-5xl);
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-5;
+  
+  @include respond-to('lg') {
+    margin-bottom: $spacing-6;
+  }
+}
+
+// H3 - Subsection heading
+h3,
+.h3 {
+  @extend %heading-base;
+  @include responsive-font($font-size-2xl, $font-size-4xl);
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-4;
+}
+
+// H4 - Component heading
+h4,
+.h4 {
+  @extend %heading-base;
+  @include responsive-font($font-size-xl, $font-size-2xl);
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-3;
+}
+
+// H5 - Small heading
+h5,
+.h5 {
+  @extend %heading-base;
+  @include responsive-font($font-size-lg, $font-size-xl);
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-3;
+}
+
+// H6 - Micro heading
+h6,
+.h6 {
+  @extend %heading-base;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-2;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+// ================================
+// BODY TEXT SYSTEM
+// ================================
+
+// Paragraph styles
+p,
+.paragraph {
+  font-family: $font-family-secondary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  color: $color-gray-700;
+  margin-bottom: $spacing-4;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Lead paragraph
+.lead {
+  @include responsive-font($font-size-lg, $font-size-xl);
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  color: $color-gray-600;
+  margin-bottom: $spacing-6;
+}
+
+// Small text
+small,
+.small {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $color-gray-600;
+}
+
+// Extra small text
+.xs {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $color-gray-500;
+}
+
+// Large text
+.large {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+}
+
+// ================================
+// TEXT UTILITIES
+// ================================
+
+// Font weights
+.font-light { font-weight: $font-weight-light; }
+.font-regular { font-weight: $font-weight-regular; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-semibold { font-weight: $font-weight-semibold; }
+.font-bold { font-weight: $font-weight-bold; }
+.font-extrabold { font-weight: $font-weight-extrabold; }
+.font-black { font-weight: $font-weight-black; }
+
+// Font families
+.font-primary { font-family: $font-family-primary; }
+.font-secondary { font-family: $font-family-secondary; }
+.font-mono { font-family: $font-family-monospace; }
+
+// Text alignment
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+// Text transform
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+.text-normal-case { text-transform: none; }
+
+// Text decoration
+.text-underline { text-decoration: underline; }
+.text-line-through { text-decoration: line-through; }
+.text-no-underline { text-decoration: none; }
+
+// Letter spacing
+.tracking-tighter { letter-spacing: $letter-spacing-tighter; }
+.tracking-tight { letter-spacing: $letter-spacing-tight; }
+.tracking-normal { letter-spacing: $letter-spacing-normal; }
+.tracking-wide { letter-spacing: $letter-spacing-wide; }
+.tracking-wider { letter-spacing: $letter-spacing-wider; }
+.tracking-widest { letter-spacing: $letter-spacing-widest; }
+
+// Line height
+.leading-none { line-height: $line-height-none; }
+.leading-tight { line-height: $line-height-tight; }
+.leading-snug { line-height: $line-height-snug; }
+.leading-normal { line-height: $line-height-normal; }
+.leading-relaxed { line-height: $line-height-relaxed; }
+.leading-loose { line-height: $line-height-loose; }
+
+// ================================
+// COLOR UTILITIES
+// ================================
+
+// Text colors
+.text-primary { color: $color-primary; }
+.text-secondary { color: $color-secondary; }
+.text-accent { color: $color-accent; }
+.text-success { color: $color-success; }
+.text-warning { color: $color-warning; }
+.text-error { color: $color-error; }
+.text-info { color: $color-info; }
+
+// Gray scale text colors
+.text-gray-50 { color: $color-gray-50; }
+.text-gray-100 { color: $color-gray-100; }
+.text-gray-200 { color: $color-gray-200; }
+.text-gray-300 { color: $color-gray-300; }
+.text-gray-400 { color: $color-gray-400; }
+.text-gray-500 { color: $color-gray-500; }
+.text-gray-600 { color: $color-gray-600; }
+.text-gray-700 { color: $color-gray-700; }
+.text-gray-800 { color: $color-gray-800; }
+.text-gray-900 { color: $color-gray-900; }
+.text-white { color: $color-white; }
+.text-black { color: $color-black; }
+
+// Gradient text
+.text-gradient-primary {
+  @include text-gradient($color-primary, $color-primary-light);
+}
+
+.text-gradient-secondary {
+  @include text-gradient($color-secondary, $color-secondary-light);
+}
+
+.text-gradient-accent {
+  @include text-gradient($color-accent, $color-accent-light);
+}
+
+// ================================
+// SPECIAL TYPOGRAPHY
+// ================================
+
+// Display text - Extra large headings
+.display-1 {
+  @include responsive-font($font-size-6xl, $font-size-7xl);
+  font-family: $font-family-primary;
+  font-weight: $font-weight-black;
+  line-height: $line-height-none;
+  letter-spacing: $letter-spacing-tighter;
+  color: $color-gray-900;
+}
+
+.display-2 {
+  @include responsive-font($font-size-5xl, $font-size-6xl);
+  font-family: $font-family-primary;
+  font-weight: $font-weight-extrabold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tighter;
+  color: $color-gray-900;
+}
+
+.display-3 {
+  @include responsive-font($font-size-4xl, $font-size-5xl);
+  font-family: $font-family-primary;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-gray-900;
+}
+
+// Blockquote
+blockquote {
+  border-left: 4px solid $color-primary;
+  padding-left: $spacing-6;
+  margin: $spacing-8 0;
+  font-size: $font-size-lg;
+  font-style: italic;
+  color: $color-gray-600;
+  position: relative;
+  
+  &::before {
+    content: '"';
+    font-size: $font-size-4xl;
+    color: $color-primary;
+    position: absolute;
+    left: -$spacing-2;
+    top: -$spacing-4;
+    font-family: Georgia, serif;
+  }
+  
+  cite {
+    display: block;
+    margin-top: $spacing-4;
+    font-size: $font-size-sm;
+    font-style: normal;
+    color: $color-gray-500;
+    
+    &::before {
+      content: '— ';
+    }
+  }
+}
+
+// Code typography
+code {
+  font-family: $font-family-monospace;
+  font-size: 0.875em;
+  background: $color-gray-100;
+  color: $color-primary;
+  padding: 0.125rem 0.375rem;
+  border-radius: $border-radius-sm;
+  border: 1px solid $color-gray-200;
+}
+
+pre {
+  font-family: $font-family-monospace;
+  font-size: $font-size-sm;
+  background: $color-gray-900;
+  color: $color-gray-100;
+  padding: $spacing-6;
+  border-radius: $border-radius-lg;
+  overflow-x: auto;
+  line-height: $line-height-relaxed;
+  
+  code {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    border: none;
+  }
+}
+
+// ================================
+// TRUNCATION UTILITIES
+// ================================
+
+.truncate {
+  @extend %text-truncate;
+}
+
+.truncate-2 {
+  @include text-truncate-multiline(2);
+}
+
+.truncate-3 {
+  @include text-truncate-multiline(3);
+}
+
+.truncate-4 {
+  @include text-truncate-multiline(4);
+}
+
+// ================================
+// LISTS
+// ================================
+
+// Unordered lists
+ul {
+  &:not([class]) {
+    list-style: none;
+    padding-left: $spacing-6;
+    
+    li {
+      position: relative;
+      margin-bottom: $spacing-2;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        left: -$spacing-6;
+        top: 0.6em;
+        width: 6px;
+        height: 6px;
+        background: $color-primary;
+        border-radius: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+// Ordered lists
+ol {
+  &:not([class]) {
+    list-style: none;
+    counter-reset: custom-counter;
+    padding-left: $spacing-8;
+    
+    li {
+      position: relative;
+      margin-bottom: $spacing-2;
+      counter-increment: custom-counter;
+      
+      &::before {
+        content: counter(custom-counter);
+        position: absolute;
+        left: -$spacing-8;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: $spacing-6;
+        height: $spacing-6;
+        background: $color-primary;
+        color: $color-white;
+        border-radius: 50%;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+// Definition lists
+dl {
+  dt {
+    font-weight: $font-weight-semibold;
+    color: $color-gray-900;
+    margin-bottom: $spacing-2;
+  }
+  
+  dd {
+    margin-bottom: $spacing-4;
+    margin-left: $spacing-4;
+    color: $color-gray-600;
+  }
+}
+
+// ================================
+// RESPONSIVE TYPOGRAPHY
+// ================================
+
+// Mobile typography adjustments
+@include respond-below('sm') {
+  h1, .h1 { font-size: $font-size-3xl; }
+  h2, .h2 { font-size: $font-size-2xl; }
+  h3, .h3 { font-size: $font-size-xl; }
+  h4, .h4 { font-size: $font-size-lg; }
+  
+  .display-1 { font-size: $font-size-4xl; }
+  .display-2 { font-size: $font-size-3xl; }
+  .display-3 { font-size: $font-size-2xl; }
+  
+  .lead { font-size: $font-size-base; }
+}
+
+// ================================
+// ACCESSIBILITY
+// ================================
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  body {
+    color: $color-black;
+  }
+  
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $color-black;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  * {
+    text-shadow: none !important;
+  }
+} 

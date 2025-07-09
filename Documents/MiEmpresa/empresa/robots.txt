@@ -1,0 +1,79 @@
+# Robots.txt para SoftCronw
+# Última actualización: 2024
+
+User-agent: *
+Allow: /
+
+# Archivos y directorios restringidos
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /backup/
+Disallow: /logs/
+Disallow: /config/
+Disallow: /scripts/
+Disallow: /reports/
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /*.log$
+Disallow: /*.tmp$
+Disallow: /*.bak$
+
+# Archivos de configuración
+Disallow: /.htaccess
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /*.scss$
+Disallow: /*.map$
+
+# Archivos temporales y de desarrollo
+Disallow: /ejemplo.html
+Disallow: /webp-usage-examples.html
+Disallow: /*test*
+Disallow: /*demo*
+
+# Permitir acceso a recursos importantes
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /favicon.ico
+Allow: /sitemap.xml
+
+# Páginas principales permitidas
+Allow: /index.html
+Allow: /sobre-nosotros
+Allow: /servicios  
+Allow: /portfolio
+Allow: /contacto
+Allow: /pagos
+
+# Crawling específico para bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Bloquear bots maliciosos
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+# Sitemap
+Sitemap: https://softcronw.com/sitemap.xml 

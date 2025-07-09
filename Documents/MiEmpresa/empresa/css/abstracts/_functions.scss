@@ -1,0 +1,335 @@
+//
+// _functions.scss
+// Funciones utilitarias para SoftCronw
+// Cálculos y utilidades reutilizables
+//
+
+// ================================
+// UNIT FUNCTIONS
+// ================================
+
+// Función para quitar unidades de un valor
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// Función para convertir px a rem
+@function px-to-rem($pixels, $base-font-size: 16px) {
+  @if unitless($pixels) {
+    $pixels: $pixels * 1px;
+  }
+  @if unitless($base-font-size) {
+    $base-font-size: $base-font-size * 1px;
+  }
+  @return $pixels / $base-font-size * 1rem;
+}
+
+// Función para convertir rem a px
+@function rem-to-px($rems, $base-font-size: 16px) {
+  @if unitless($rems) {
+    $rems: $rems * 1rem;
+  }
+  @if unitless($base-font-size) {
+    $base-font-size: $base-font-size * 1px;
+  }
+  @return strip-unit($rems) * $base-font-size;
+}
+
+// ================================
+// COLOR FUNCTIONS
+// ================================
+
+// Función para obtener colores de un mapa
+@function get-color($color-name, $tone: 'base') {
+  $color-map: (
+    'primary': (
+      'light': $color-primary-light,
+      'base': $color-primary,
+      'dark': $color-primary-dark
+    ),
+    'secondary': (
+      'light': $color-secondary-light,
+      'base': $color-secondary,
+      'dark': $color-secondary-dark
+    ),
+    'accent': (
+      'light': $color-accent-light,
+      'base': $color-accent,
+      'dark': $color-accent-dark
+    )
+  );
+  
+  @if map-has-key($color-map, $color-name) {
+    $color-tones: map-get($color-map, $color-name);
+    @if map-has-key($color-tones, $tone) {
+      @return map-get($color-tones, $tone);
+    } @else {
+      @warn "Tone `#{$tone}` not found for color `#{$color-name}`. Available tones: #{map-keys($color-tones)}";
+      @return null;
+    }
+  } @else {
+    @warn "Color `#{$color-name}` not found. Available colors: #{map-keys($color-map)}";
+    @return null;
+  }
+}
+
+// Función para crear variaciones de color más claras
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Función para crear variaciones de color más oscuras
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Función para crear color con opacidad
+@function alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// Función para obtener contraste de color automático
+@function contrast-color($background-color, $light-color: $color-white, $dark-color: $color-black) {
+  $lightness: lightness($background-color);
+  @if $lightness > 50% {
+    @return $dark-color;
+  } @else {
+    @return $light-color;
+  }
+}
+
+// ================================
+// SPACING FUNCTIONS
+// ================================
+
+// Función para obtener espaciado del sistema
+@function spacing($multiplier: 1) {
+  @return $spacing-base * $multiplier;
+}
+
+// Función para obtener espaciado responsivo
+@function responsive-spacing($min-space, $max-space, $min-width: 320px, $max-width: 1200px) {
+  $slope: ($max-space - $min-space) / ($max-width - $min-width);
+  $yAxisIntersection: -$min-width * $slope + $min-space;
+  
+  @return calc(#{$yAxisIntersection} + #{100vw * $slope});
+}
+
+// ================================
+// GRID FUNCTIONS
+// ================================
+
+// Función para calcular anchos de columnas
+@function column-width($columns, $total-columns: $grid-columns, $gutter: $grid-gutter-width) {
+  $column-percentage: percentage($columns / $total-columns);
+  $gutter-offset: ($gutter * ($total-columns - 1) / $total-columns);
+  @return calc(#{$column-percentage} - #{$gutter-offset});
+}
+
+// Función para obtener breakpoint
+@function get-breakpoint($name) {
+  @if map-has-key($breakpoints, $name) {
+    @return map-get($breakpoints, $name);
+  } @else {
+    @warn "Breakpoint `#{$name}` not found. Available breakpoints: #{map-keys($breakpoints)}";
+    @return null;
+  }
+}
+
+// ================================
+// ANIMATION FUNCTIONS
+// ================================
+
+// Función para calcular duración basada en distancia
+@function duration-from-distance($distance, $speed: 1px) {
+  $duration: $distance / $speed;
+  @return #{$duration}ms;
+}
+
+// Función para obtener easing curve
+@function get-easing($name) {
+  $easing-map: (
+    'linear': $ease-linear,
+    'in': $ease-in,
+    'out': $ease-out,
+    'in-out': $ease-in-out,
+    'in-back': $ease-in-back,
+    'out-back': $ease-out-back,
+    'bounce': $ease-bounce
+  );
+  
+  @if map-has-key($easing-map, $name) {
+    @return map-get($easing-map, $name);
+  } @else {
+    @warn "Easing `#{$name}` not found. Available easings: #{map-keys($easing-map)}";
+    @return $ease-in-out;
+  }
+}
+
+// ================================
+// TYPOGRAPHY FUNCTIONS
+// ================================
+
+// Función para fluid typography
+@function fluid-type($min-font-size, $max-font-size, $min-vw: 320px, $max-vw: 1200px) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+  
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    @return calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+  } @else {
+    @warn "All units must be the same for fluid-type function";
+    @return $min-font-size;
+  }
+}
+
+// Función para obtener tamaño de fuente del sistema
+@function get-font-size($size-name) {
+  $font-sizes: (
+    'xs': $font-size-xs,
+    'sm': $font-size-sm,
+    'base': $font-size-base,
+    'lg': $font-size-lg,
+    'xl': $font-size-xl,
+    '2xl': $font-size-2xl,
+    '3xl': $font-size-3xl,
+    '4xl': $font-size-4xl,
+    '5xl': $font-size-5xl,
+    '6xl': $font-size-6xl,
+    '7xl': $font-size-7xl
+  );
+  
+  @if map-has-key($font-sizes, $size-name) {
+    @return map-get($font-sizes, $size-name);
+  } @else {
+    @warn "Font size `#{$size-name}` not found. Available sizes: #{map-keys($font-sizes)}";
+    @return $font-size-base;
+  }
+}
+
+// ================================
+// Z-INDEX FUNCTIONS
+// ================================
+
+// Función para obtener z-index del sistema
+@function z-index($layer) {
+  @if map-has-key($z-indexes, $layer) {
+    @return map-get($z-indexes, $layer);
+  } @else {
+    @warn "Z-index layer `#{$layer}` not found. Available layers: #{map-keys($z-indexes)}";
+    @return 1;
+  }
+}
+
+// ================================
+// MATH FUNCTIONS
+// ================================
+
+// Función para potencia
+@function pow($number, $exponent) {
+  $result: 1;
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $result: $result * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $result: $result / $number;
+    }
+  }
+  @return $result;
+}
+
+// Función para raíz cuadrada aproximada
+@function sqrt($number) {
+  $guess: $number / 2;
+  $precision: 0.001;
+  
+  @while abs($guess * $guess - $number) > $precision {
+    $guess: ($guess + $number / $guess) / 2;
+  }
+  
+  @return $guess;
+}
+
+// Función para valor absoluto
+@function abs($number) {
+  @return if($number < 0, -$number, $number);
+}
+
+// Función para redondear a decimales específicos
+@function decimal-round($number, $digits: 2) {
+  $multiplier: pow(10, $digits);
+  @return round($number * $multiplier) / $multiplier;
+}
+
+// ================================
+// UTILITY FUNCTIONS
+// ================================
+
+// Función para capitalizar string
+@function capitalize($string) {
+  @return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+// Función para reemplazar string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+}
+
+// Función para generar ID único
+@function unique-id() {
+  @return unquote("id-#{random(10000)}");
+}
+
+// ================================
+// VALIDATION FUNCTIONS
+// ================================
+
+// Función para validar si un valor está en una lista
+@function is-valid-value($value, $valid-values) {
+  @return index($valid-values, $value) != null;
+}
+
+// Función para validar color
+@function is-valid-color($color) {
+  @return type-of($color) == 'color';
+}
+
+// Función para validar número
+@function is-number($value) {
+  @return type-of($value) == 'number';
+}
+
+// Función para validar unidad
+@function has-unit($value, $unit) {
+  @return unit($value) == $unit;
+}
+
+// ================================
+// RESPONSIVE FUNCTIONS
+// ================================
+
+// Función para generar clamp responsive
+@function responsive-clamp($min-size, $max-size, $min-vw: 320px, $max-vw: 1200px) {
+  $slope: ($max-size - $min-size) / ($max-vw - $min-vw);
+  $y-axis-intersection: -$min-vw * $slope + $min-size;
+  
+  @return clamp(#{$min-size}, #{$y-axis-intersection} + #{100vw * $slope}, #{$max-size});
+}
+
+// Función para container query
+@function container-clamp($min-size, $max-size, $min-width: 320px, $max-width: 1200px) {
+  @return clamp(#{$min-size}, #{$min-size} + (#{$max-size} - #{$min-size}) * ((100cqw - #{$min-width}) / (#{$max-width} - #{$min-width})), #{$max-size});
+} 

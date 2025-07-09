@@ -1,0 +1,340 @@
+//
+// Modal Component Styles
+// Estilos para modales y overlays
+//
+
+// ================================
+// BASE MODAL STYLES
+// ================================
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color-dark, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: z-index('modal');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-base;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  &__content {
+    position: relative;
+    background: $color-white;
+    border-radius: $border-radius-xl;
+    padding: $spacing-8;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: scale(0.8);
+    transition: transform $transition-base;
+    box-shadow: $shadow-xl;
+    
+    .modal.active & {
+      transform: scale(1);
+    }
+  }
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacing-6;
+    padding-bottom: $spacing-4;
+    border-bottom: 1px solid $color-border;
+    
+    h2, h3 {
+      margin: 0;
+      color: $color-primary;
+    }
+  }
+  
+  &__body {
+    margin-bottom: $spacing-6;
+    
+    p {
+      line-height: 1.6;
+      color: $color-text;
+    }
+  }
+  
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: $spacing-3;
+    padding-top: $spacing-4;
+    border-top: 1px solid $color-border;
+  }
+  
+  &__close {
+    @include button-reset;
+    position: absolute;
+    top: $spacing-4;
+    right: $spacing-4;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $color-background-light;
+    border-radius: 50%;
+    color: $color-text-muted;
+    cursor: pointer;
+    transition: all $transition-base;
+    
+    &:hover {
+      background: $color-primary;
+      color: $color-white;
+    }
+    
+    i {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// ================================
+// MODAL VARIANTS
+// ================================
+
+.modal--sm {
+  .modal__content {
+    max-width: 400px;
+  }
+}
+
+.modal--md {
+  .modal__content {
+    max-width: 600px;
+  }
+}
+
+.modal--lg {
+  .modal__content {
+    max-width: 800px;
+  }
+}
+
+.modal--xl {
+  .modal__content {
+    max-width: 1000px;
+  }
+}
+
+.modal--fullscreen {
+  .modal__content {
+    max-width: 95vw;
+    max-height: 95vh;
+    border-radius: $border-radius-lg;
+  }
+}
+
+// ================================
+// ALERT MODALS
+// ================================
+
+.modal--success {
+  .modal__header {
+    color: $color-success;
+    border-bottom-color: rgba($color-success, 0.2);
+    
+    &::before {
+      content: '\f058';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      margin-right: $spacing-2;
+      color: $color-success;
+    }
+  }
+}
+
+.modal--warning {
+  .modal__header {
+    color: $color-warning;
+    border-bottom-color: rgba($color-warning, 0.2);
+    
+    &::before {
+      content: '\f071';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      margin-right: $spacing-2;
+      color: $color-warning;
+    }
+  }
+}
+
+.modal--error {
+  .modal__header {
+    color: $color-error;
+    border-bottom-color: rgba($color-error, 0.2);
+    
+    &::before {
+      content: '\f06a';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      margin-right: $spacing-2;
+      color: $color-error;
+    }
+  }
+}
+
+// ================================
+// MODAL ANIMATIONS
+// ================================
+
+@keyframes modalSlideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalSlideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal--slide-top.active .modal__content {
+  animation: modalSlideInFromTop 0.3s ease-out;
+}
+
+.modal--slide-bottom.active .modal__content {
+  animation: modalSlideInFromBottom 0.3s ease-out;
+}
+
+.modal--fade.active .modal__content {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+// ================================
+// RESPONSIVE MODAL
+// ================================
+
+@include respond-to('tablet') {
+  .modal {
+    &__content {
+      padding: $spacing-6;
+      max-width: 95vw;
+      margin: $spacing-4;
+    }
+    
+    &__header {
+      margin-bottom: $spacing-4;
+      
+      h2, h3 {
+        font-size: 1.25rem;
+      }
+    }
+    
+    &__footer {
+      flex-direction: column;
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@include respond-to('mobile') {
+  .modal {
+    &__content {
+      padding: $spacing-4;
+      margin: $spacing-2;
+      max-height: 95vh;
+      border-radius: $border-radius-lg;
+    }
+    
+    &__close {
+      top: $spacing-2;
+      right: $spacing-2;
+    }
+    
+    &__header {
+      margin-bottom: $spacing-3;
+      padding-bottom: $spacing-3;
+      
+      h2, h3 {
+        font-size: 1.125rem;
+        padding-right: $spacing-8;
+      }
+    }
+    
+    &__body {
+      margin-bottom: $spacing-4;
+    }
+    
+    &__footer {
+      padding-top: $spacing-3;
+    }
+  }
+}
+
+// ================================
+// MODAL UTILITIES
+// ================================
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-8;
+  
+  .loader {
+    width: 40px;
+    height: 40px;
+    border: 4px solid $color-border;
+    border-top: 4px solid $color-primary;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+} 

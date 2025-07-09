@@ -1,0 +1,84 @@
+{
+  "name": "softcronw-website",
+  "version": "1.0.0",
+  "description": "SoftCronw - Desarrollo web low-cost profesional",
+  "main": "index.html",
+  "scripts": {
+    "test": "npm run test:all",
+    "test:all": "npm run test:html && npm run test:css && npm run test:js && npm run test:links && npm run test:accessibility && npm run test:performance",
+    "test:html": "html-validate *.html",
+    "test:css": "stylelint 'css/**/*.css' && sass --check css/main.scss",
+    "test:scss": "sass --check css/**/*.scss",
+    "test:js": "eslint js/*.js",
+    "test:links": "blc http://localhost:3000 -ro --filter-level 3",
+    "test:accessibility": "axe http://localhost:3000 --output accessibility-report.json",
+    "test:performance": "lighthouse http://localhost:3000 --output json --output-path ./reports/lighthouse.json --chrome-flags='--headless'",
+    "build": "npm run build:css && npm run build:js && npm run optimize:images",
+    "build:css": "sass css/main.scss css/styles.css --style compressed",
+    "build:js": "npm run minify:js",
+    "minify:css": "cleancss -o css/styles.min.css css/styles.css",
+    "minify:js": "uglifyjs js/*.js -c -m -o js/scripts.min.js",
+    "minify:html": "html-minifier --collapse-whitespace --remove-comments --minify-css --minify-js *.html",
+    "optimize:images": "imagemin images/*.{jpg,jpeg,png} --out-dir=images/optimized --plugin=imagemin-mozjpeg --plugin=imagemin-pngquant",
+    "convert:webp": "node scripts/convert-to-webp.js",
+    "serve": "http-server . -p 3000 -c-1",
+    "dev": "npm run serve",
+    "validate": "npm run validate:html && npm run validate:css",
+    "validate:html": "html-validate *.html --formatter stylish",
+    "validate:css": "stylelint 'css/**/*.css' --formatter verbose",
+    "deploy:prepare": "npm run test:all && npm run build && npm run validate",
+    "deploy:ionos": "node scripts/deploy-to-ionos.js",
+    "report:generate": "node scripts/generate-testing-report.js",
+    "seo:check": "node scripts/seo-analyzer.js",
+    "monitor:setup": "node scripts/setup-monitoring.js"
+  },
+  "keywords": [
+    "desarrollo web",
+    "low-cost",
+    "páginas web",
+    "ecommerce",
+    "SEO",
+    "responsive"
+  ],
+  "author": "SoftCronw",
+  "license": "MIT",
+  "devDependencies": {
+    "@axe-core/cli": "^4.8.2",
+    "broken-link-checker": "^0.7.8",
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.52.0",
+    "html-minifier": "^4.0.0",
+    "html-validate": "^8.6.0",
+    "http-server": "^14.1.1",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^8.0.0",
+    "lighthouse": "^11.3.0",
+    "sass": "^1.69.5",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "uglify-js": "^3.17.4",
+    "webp-converter": "^2.3.3"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "node-fetch": "^3.3.2",
+    "sharp": "^0.32.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/softcronw/website.git"
+  },
+  "homepage": "https://softcronw.com",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie < 11"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+} 

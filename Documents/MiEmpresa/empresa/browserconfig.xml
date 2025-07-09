@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="images/mstile-70x70.png"/>
+            <square150x150logo src="images/mstile-150x150.png"/>
+            <square310x310logo src="images/mstile-310x310.png"/>
+            <wide310x150logo src="images/mstile-310x150.png"/>
+            <TileColor>#007bff</TileColor>
+        </tile>
+        <notification>
+            <polling-uri src="https://www.softcronw.com/notifications/polling1.xml"/>
+            <polling-uri2 src="https://www.softcronw.com/notifications/polling2.xml"/>
+            <polling-uri3 src="https://www.softcronw.com/notifications/polling3.xml"/>
+            <polling-uri4 src="https://www.softcronw.com/notifications/polling4.xml"/>
+            <polling-uri5 src="https://www.softcronw.com/notifications/polling5.xml"/>
+            <frequency>30</frequency>
+            <cycle>1</cycle>
+        </notification>
+    </msapplication>
+</browserconfig> 

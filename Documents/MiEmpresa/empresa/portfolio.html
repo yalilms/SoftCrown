@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de SoftCronw - Descubre nuestros proyectos extraordinarios de desarrollo web, e-commerce, diseño UX/UI y aplicaciones corporativas.">
+    <meta name="keywords" content="portfolio SoftCronw, desarrollo web, e-commerce, diseño UX/UI, aplicaciones web, casos de estudio">
+    <meta name="author" content="SoftCronw">
+    <meta name="robots" content="index, follow">
+    <title>Portfolio - SoftCronw | Proyectos Extraordinarios</title>
+    
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Vendors CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h1 class="loading-text">SoftCronw</h1>
+                <div class="loading-spinner"></div>
+            </div>
+            <p class="loading-subtitle">Cargando portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__container">
+                <a href="index.html" class="nav__logo">
+                    <span class="logo-text">SoftCronw</span>
+                </a>
+                
+                <button class="hamburger" aria-label="Toggle navigation">
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                    <span class="hamburger__line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay">
+        <nav class="nav-menu">
+            <ul class="nav-menu__list">
+                <li class="nav-menu__item">
+                    <a href="index.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-home"></i>
+                        <span class="nav-menu__text">Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="servicios.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-code"></i>
+                        <span class="nav-menu__text">Servicios</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="sobre-nosotros.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-users"></i>
+                        <span class="nav-menu__text">Sobre Nosotros</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="portfolio.html" class="nav-menu__link nav-menu__link--active">
+                        <i class="nav-menu__icon fas fa-briefcase"></i>
+                        <span class="nav-menu__text">Portfolio</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="contacto.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-envelope"></i>
+                        <span class="nav-menu__text">Contacto</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content" data-aos="fade-up">
+                        <nav aria-label="breadcrumb" class="hero-breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                                <li class="breadcrumb-item active">Portfolio</li>
+                            </ol>
+                        </nav>
+                        
+                        <h1 class="hero-title">
+                            <span class="title-line">Nuestros</span>
+                            <span class="title-line title-line--highlight">Proyectos</span>
+                            <span class="title-line">Extraordinarios</span>
+                        </h1>
+                        
+                        <p class="hero-description">
+                            Cada proyecto es una obra maestra única, desarrollada con pasión y tecnología de vanguardia para transformar ideas en experiencias digitales excepcionales.
+                        </p>
+                        
+                        <div class="hero-cta">
+                            <a href="#portfolio-grid" class="btn btn-primary btn-lg">
+                                <span>Explorar Proyectos</span>
+                                <i class="fas fa-arrow-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-stats" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" data-count="50">0</div>
+                                    <div class="stat-label">Proyectos Completados</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" data-count="100">0</div>
+                                    <div class="stat-label">% Clientes Satisfechos</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" data-count="15">0</div>
+                                    <div class="stat-label">Tecnologías Dominadas</div>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" data-count="24">0</div>
+                                    <div class="stat-label">Soporte 24/7</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filters -->
+    <section class="portfolio-filters">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="filters-container" data-aos="fade-up">
+                        <h2 class="filters-title">Filtrar por Categoría</h2>
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="*">
+                                <span class="btn-text">Todos</span>
+                                <span class="btn-count">4</span>
+                            </button>
+                            <button class="filter-btn" data-filter=".web">
+                                <span class="btn-text">Desarrollo Web</span>
+                                <span class="btn-count">3</span>
+                            </button>
+                            <button class="filter-btn" data-filter=".ecommerce">
+                                <span class="btn-text">E-commerce</span>
+                                <span class="btn-count">2</span>
+                            </button>
+                            <button class="filter-btn" data-filter=".corporativa">
+                                <span class="btn-text">Corporativa</span>
+                                <span class="btn-count">1</span>
+                            </button>
+                            <button class="filter-btn" data-filter=".design">
+                                <span class="btn-text">Diseño UX/UI</span>
+                                <span class="btn-count">2</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-grid" id="portfolio-grid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="portfolio-masonry" id="portfolio-masonry">
+                        
+                        <!-- Proyecto 1: EcoMarket -->
+                        <div class="portfolio-item web ecommerce" data-aos="fade-up">
+                            <div class="portfolio-card">
+                                <div class="card-image">
+                                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="EcoMarket - E-commerce Sostenible" class="img-fluid">
+                                    <div class="image-overlay">
+                                        <div class="overlay-content">
+                                            <h3 class="project-title">EcoMarket</h3>
+                                            <p class="project-category">E-commerce • Sostenible</p>
+                                            <div class="project-actions">
+                                                <button class="btn-action btn-view" data-project="ecomarket">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <a href="https://ecomarket-demo.com" class="btn-action btn-link" target="_blank">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-content">
+                                    <div class="content-header">
+                                        <h3 class="project-name">EcoMarket</h3>
+                                        <div class="project-status">
+                                            <span class="status-badge status-live">En Vivo</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="project-description">
+                                        Plataforma de e-commerce para productos ecológicos con sistema de puntos de sostenibilidad y marketplace integrado.
+                                    </p>
+                                    
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">MongoDB</span>
+                                        <span class="tech-tag">Stripe</span>
+                                    </div>
+                                    
+                                    <div class="project-metrics">
+                                        <div class="metric">
+                                            <i class="fas fa-users"></i>
+                                            <span>10K+ Usuarios</span>
+                                        </div>
+                                        <div class="metric">
+                                            <i class="fas fa-shopping-cart"></i>
+                                            <span>5K+ Ventas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 2: FinanceHub -->
+                        <div class="portfolio-item web corporativa" data-aos="fade-up" data-aos-delay="100">
+                            <div class="portfolio-card">
+                                <div class="card-image">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="FinanceHub - Plataforma Financiera" class="img-fluid">
+                                    <div class="image-overlay">
+                                        <div class="overlay-content">
+                                            <h3 class="project-title">FinanceHub</h3>
+                                            <p class="project-category">Corporativa • Fintech</p>
+                                            <div class="project-actions">
+                                                <button class="btn-action btn-view" data-project="financehub">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <a href="https://financehub-demo.com" class="btn-action btn-link" target="_blank">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-content">
+                                    <div class="content-header">
+                                        <h3 class="project-name">FinanceHub</h3>
+                                        <div class="project-status">
+                                            <span class="status-badge status-live">En Vivo</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="project-description">
+                                        Plataforma integral de gestión financiera corporativa con análisis en tiempo real, reporting avanzado y API robusta.
+                                    </p>
+                                    
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Vue.js</span>
+                                        <span class="tech-tag">Laravel</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                        <span class="tech-tag">Docker</span>
+                                    </div>
+                                    
+                                    <div class="project-metrics">
+                                        <div class="metric">
+                                            <i class="fas fa-building"></i>
+                                            <span>50+ Empresas</span>
+                                        </div>
+                                        <div class="metric">
+                                            <i class="fas fa-chart-line"></i>
+                                            <span>$2M+ Gestionado</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 3: ArtistryLab -->
+                        <div class="portfolio-item web design" data-aos="fade-up" data-aos-delay="200">
+                            <div class="portfolio-card">
+                                <div class="card-image">
+                                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="ArtistryLab - Portfolio Creativo" class="img-fluid">
+                                    <div class="image-overlay">
+                                        <div class="overlay-content">
+                                            <h3 class="project-title">ArtistryLab</h3>
+                                            <p class="project-category">Diseño • Portfolio</p>
+                                            <div class="project-actions">
+                                                <button class="btn-action btn-view" data-project="artistrylab">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <a href="https://artistrylab-demo.com" class="btn-action btn-link" target="_blank">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-content">
+                                    <div class="content-header">
+                                        <h3 class="project-name">ArtistryLab</h3>
+                                        <div class="project-status">
+                                            <span class="status-badge status-live">En Vivo</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="project-description">
+                                        Portfolio interactivo para estudio creativo con animaciones 3D, galería inmersiva y sistema de gestión de proyectos.
+                                    </p>
+                                    
+                                    <div class="project-tech">
+                                        <span class="tech-tag">Three.js</span>
+                                        <span class="tech-tag">GSAP</span>
+                                        <span class="tech-tag">WebGL</span>
+                                        <span class="tech-tag">Nuxt.js</span>
+                                    </div>
+                                    
+                                    <div class="project-metrics">
+                                        <div class="metric">
+                                            <i class="fas fa-eye"></i>
+                                            <span>100K+ Vistas</span>
+                                        </div>
+                                        <div class="metric">
+                                            <i class="fas fa-heart"></i>
+                                            <span>95% Satisfacción</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proyecto 4: MedConnect -->
+                        <div class="portfolio-item web ecommerce design" data-aos="fade-up" data-aos-delay="300">
+                            <div class="portfolio-card">
+                                <div class="card-image">
+                                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2340&q=80" alt="MedConnect - Aplicación Médica" class="img-fluid">
+                                    <div class="image-overlay">
+                                        <div class="overlay-content">
+                                            <h3 class="project-title">MedConnect</h3>
+                                            <p class="project-category">Salud • Aplicación Web</p>
+                                            <div class="project-actions">
+                                                <button class="btn-action btn-view" data-project="medconnect">
+                                                    <i class="fas fa-eye"></i>
+                                                </button>
+                                                <a href="https://medconnect-demo.com" class="btn-action btn-link" target="_blank">
+                                                    <i class="fas fa-external-link-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card-content">
+                                    <div class="content-header">
+                                        <h3 class="project-name">MedConnect</h3>
+                                        <div class="project-status">
+                                            <span class="status-badge status-development">En Desarrollo</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="project-description">
+                                        Plataforma de telemedicina con citas online, historial médico digital y sistema de prescripciones electrónicas.
+                                    </p>
+                                    
+                                    <div class="project-tech">
+                                        <span class="tech-tag">React Native</span>
+                                        <span class="tech-tag">Firebase</span>
+                                        <span class="tech-tag">Socket.io</span>
+                                        <span class="tech-tag">WebRTC</span>
+                                    </div>
+                                    
+                                    <div class="project-metrics">
+                                        <div class="metric">
+                                            <i class="fas fa-user-md"></i>
+                                            <span>500+ Médicos</span>
+                                        </div>
+                                        <div class="metric">
+                                            <i class="fas fa-calendar-check"></i>
+                                            <span>2K+ Citas</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Process Section -->
+    <section class="work-process">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header text-center" data-aos="fade-up">
+                        <h2 class="section-title">Nuestro Proceso de Trabajo</h2>
+                        <p class="section-description">
+                            Cada proyecto extraordinario nace de un proceso meticuloso y probado
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="process-timeline">
+                        <div class="timeline-line"></div>
+                        
+                        <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                            <div class="step-number">01</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3 class="step-title">Descubrimiento</h3>
+                                <p class="step-description">
+                                    Analizamos tus necesidades, objetivos y audiencia para crear la estrategia perfecta.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                            <div class="step-number">02</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-pencil-ruler"></i>
+                                </div>
+                                <h3 class="step-title">Diseño</h3>
+                                <p class="step-description">
+                                    Creamos prototipos interactivos y diseños únicos que cautivan y convierten.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                            <div class="step-number">03</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h3 class="step-title">Desarrollo</h3>
+                                <p class="step-description">
+                                    Construimos tu proyecto con las mejores tecnologías y prácticas de desarrollo.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                            <div class="step-number">04</div>
+                            <div class="step-content">
+                                <div class="step-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h3 class="step-title">Lanzamiento</h3>
+                                <p class="step-description">
+                                    Desplegamos tu proyecto y te acompañamos en el camino hacia el éxito.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="process-cta" data-aos="fade-up" data-aos-delay="500">
+                        <h3 class="cta-title">¿Listo para crear algo extraordinario?</h3>
+                        <p class="cta-description">
+                            Transformemos tu visión en realidad digital
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="contacto.html" class="btn btn-primary btn-lg">
+                                <span>Empezar Proyecto</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="servicios.html" class="btn btn-outline-primary btn-lg">
+                                <span>Ver Servicios</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Proyecto</h2>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-content">
+                <div class="modal-gallery">
+                    <div class="gallery-main">
+                        <img id="modalMainImage" src="" alt="Imagen principal del proyecto" class="img-fluid">
+                        <div class="gallery-nav">
+                            <button class="nav-btn nav-prev" id="galleryPrev">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="nav-btn nav-next" id="galleryNext">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-thumbnails" id="galleryThumbnails">
+                        <!-- Thumbnails will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="modal-info">
+                    <div class="info-section">
+                        <h3 class="info-title">Descripción del Proyecto</h3>
+                        <p class="info-description" id="modalDescription">
+                            <!-- Description will be populated by JavaScript -->
+                        </p>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3 class="info-title">Tecnologías Utilizadas</h3>
+                        <div class="tech-stack" id="modalTechStack">
+                            <!-- Tech stack will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3 class="info-title">Características Destacadas</h3>
+                        <ul class="features-list" id="modalFeatures">
+                            <!-- Features will be populated by JavaScript -->
+                        </ul>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3 class="info-title">Testimonial del Cliente</h3>
+                        <div class="testimonial" id="modalTestimonial">
+                            <!-- Testimonial will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3 class="info-title">Compartir Proyecto</h3>
+                        <div class="share-buttons">
+                            <a href="#" class="share-btn share-facebook" data-platform="facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="share-btn share-twitter" data-platform="twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="share-btn share-linkedin" data-platform="linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="share-btn share-whatsapp" data-platform="whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <div class="modal-navigation">
+                    <button class="nav-project nav-project-prev" id="navProjectPrev">
+                        <i class="fas fa-chevron-left"></i>
+                        <span>Proyecto Anterior</span>
+                    </button>
+                    <button class="nav-project nav-project-next" id="navProjectNext">
+                        <span>Siguiente Proyecto</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-primary" id="modalLiveLink" target="_blank">
+                        <span>Ver Sitio en Vivo</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="contacto.html" class="btn btn-outline-primary">
+                        <span>Proyecto Similar</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="footer-content">
+                        <h3 class="footer-title">SoftCronw</h3>
+                        <p class="footer-description">
+                            Transformando ideas en experiencias digitales extraordinarias
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="footer-links">
+                        <a href="index.html">Inicio</a>
+                        <a href="servicios.html">Servicios</a>
+                        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+                        <a href="contacto.html">Contacto</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-bottom">
+                        <p>&copy; 2024 SoftCronw. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <h1 class="loading-text">SoftCronw</h1>
+                <div class="loading-spinner"></div>
+            </div>
+            <p class="loading-subtitle">Cargando portfolio...</p>
+        </div>
+    </div>
+    
+    <!-- Chatbot SoftCronw Unificado -->
+    <div id="softcronw-chatbot" class="chatbot-container">
+        <!-- Chatbot Toggle Button -->
+        <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Abrir chat">
+            <div class="toggle-icon">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="toggle-badge">
+                <span class="badge-text">¿Necesitas ayuda?</span>
+                <small class="badge-subtitle">Pregunta a nuestro asistente IA</small>
+            </div>
+            <div class="notification-dot" id="notification-dot"></div>
+        </button>
+
+        <!-- Chatbot Widget -->
+        <div class="chatbot-widget hidden" id="chatbot-widget">
+            <!-- Header -->
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <img src="images/chatbot-avatar.png" alt="SoftCronw Assistant" onerror="this.style.display='none'">
+                    <div class="avatar-fallback">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                </div>
+                <div class="chatbot-info">
+                    <h4 class="chatbot-name">Sofia</h4>
+                    <p class="chatbot-title">Asistente Digital de SoftCronw</p>
+                    <div class="status-indicator">
+                        <span class="status-dot online"></span>
+                        <span class="status-text">En línea</span>
+                    </div>
+                </div>
+                <div class="chatbot-controls">
+                    <button class="control-btn minimize" id="chatbot-minimize" aria-label="Minimizar chat">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="control-btn close" id="chatbot-close" aria-label="Cerrar chat">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="typing-indicator hidden" id="typing-indicator">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="typing-text">Sofia está escribiendo...</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions" id="quick-actions">
+                <button class="quick-btn" data-action="services">💻 Servicios</button>
+                <button class="quick-btn" data-action="pricing">💰 Precios</button>
+                <button class="quick-btn" data-action="quote">📋 Presupuesto</button>
+                <button class="quick-btn" data-action="contact">📞 Contacto</button>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chatbot-input">
+                <div class="input-wrapper">
+                    <textarea 
+                        class="message-input" 
+                        id="message-input" 
+                        placeholder="Escribe tu mensaje..."
+                        rows="1"
+                        maxlength="500"
+                    ></textarea>
+                    <div class="input-actions">
+                        <button class="attachment-btn" id="attachment-btn" aria-label="Adjuntar archivo">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="send-btn" id="send-btn" aria-label="Enviar mensaje">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="input-suggestions" id="input-suggestions">
+                    <span class="suggestion" data-text="¿Cuánto cuesta una página web?">💰 Precios</span>
+                    <span class="suggestion" data-text="¿Qué servicios ofrecen?">🔧 Servicios</span>
+                    <span class="suggestion" data-text="Necesito una tienda online">🛒 E-commerce</span>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="chatbot-footer">
+                <div class="footer-options">
+                    <button class="footer-btn" id="voice-btn" aria-label="Activar voz">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="footer-btn" id="emoji-btn" aria-label="Emojis">
+                        <i class="fas fa-smile"></i>
+                    </button>
+                    <button class="footer-btn" id="clear-btn" aria-label="Limpiar chat">
+                        <i class="fas fa-broom"></i>
+                    </button>
+                </div>
+                <div class="footer-branding">
+                    <span>Powered by <strong>SoftCronw AI</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chatbot Preview (cuando está minimizado) -->
+        <div class="chatbot-preview hidden" id="chatbot-preview">
+            <div class="preview-header">
+                <span class="preview-title">Sofia - SoftCronw</span>
+                <button class="preview-close" id="preview-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="preview-messages" id="preview-messages">
+                <div class="preview-message">
+                    <span>👋 ¡Hola! ¿En qué puedo ayudarte?</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- Sistema Unificado de Librerías -->
+    <script src="js/libraries-unified.js"></script>
+    
+    <!-- SoftCronw Core Scripts -->
+    <script src="js/loading-manager.js"></script>
+    <script src="js/chatbot-core.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html> 

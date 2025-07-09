@@ -1,0 +1,505 @@
+//
+// _placeholders.scss
+// Placeholders reutilizables para SoftCronw
+// Evita duplicación de código usando @extend
+//
+
+// ================================
+// LAYOUT PLACEHOLDERS
+// ================================
+
+// Placeholder para contenedor centrado
+%container {
+  width: 100%;
+  max-width: map-get($container-max-widths, 2xl);
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+  
+  @include respond-to('md') {
+    padding: 0 $spacing-6;
+  }
+}
+
+// Placeholder para flex center
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Placeholder para flex between
+%flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// Placeholder para grid auto-fit
+%grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-6;
+}
+
+// Placeholder para posicionamiento absoluto centrado
+%absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// ================================
+// TYPOGRAPHY PLACEHOLDERS
+// ================================
+
+// Placeholder para heading principal
+%heading-primary {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-bold;
+  color: $color-gray-900;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+}
+
+// Placeholder para heading secundario
+%heading-secondary {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-semibold;
+  color: $color-gray-800;
+  line-height: $line-height-snug;
+}
+
+// Placeholder para texto body
+%text-body {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-regular;
+  color: $color-gray-700;
+  line-height: $line-height-relaxed;
+}
+
+// Placeholder para texto small
+%text-small {
+  font-family: $font-family-secondary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  color: $color-gray-600;
+  line-height: $line-height-normal;
+}
+
+// Placeholder para texto truncado
+%text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Placeholder para texto multilinea truncado
+%text-truncate-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ================================
+// BUTTON PLACEHOLDERS
+// ================================
+
+// Placeholder base para botones
+%button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $button-padding-y $button-padding-x;
+  border: none;
+  border-radius: $button-border-radius;
+  font-family: $font-family-primary;
+  font-weight: $button-font-weight;
+  font-size: $font-size-base;
+  text-decoration: none;
+  cursor: pointer;
+  transition: $button-transition;
+  user-select: none;
+  white-space: nowrap;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
+
+// Placeholder para efecto hover en botones
+%button-hover-effect {
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba($color-black, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// ================================
+// CARD PLACEHOLDERS
+// ================================
+
+// Placeholder base para tarjetas
+%card-base {
+  background: $card-bg;
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  padding: $card-padding;
+  transition: $transition-all;
+}
+
+// Placeholder para efecto hover en tarjetas
+%card-hover {
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Placeholder para tarjeta glassmorphism
+%card-glass {
+  background: rgba($color-white, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba($color-white, 0.2);
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  padding: $card-padding;
+}
+
+// ================================
+// FORM PLACEHOLDERS
+// ================================
+
+// Placeholder base para inputs
+%input-base {
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  font-family: $font-family-secondary;
+  font-size: $font-size-base;
+  background: $color-white;
+  transition: $transition-colors;
+  
+  &:focus {
+    outline: none;
+    border-color: $input-focus-border-color;
+    box-shadow: 0 0 0 3px rgba($input-focus-border-color, 0.1);
+  }
+  
+  &::placeholder {
+    color: $color-gray-400;
+  }
+  
+  &:disabled {
+    background: $color-gray-100;
+    cursor: not-allowed;
+  }
+}
+
+// Placeholder para estado de error en inputs
+%input-error {
+  border-color: $color-error;
+  
+  &:focus {
+    border-color: $color-error;
+    box-shadow: 0 0 0 3px rgba($color-error, 0.1);
+  }
+}
+
+// Placeholder para estado de éxito en inputs
+%input-success {
+  border-color: $color-success;
+  
+  &:focus {
+    border-color: $color-success;
+    box-shadow: 0 0 0 3px rgba($color-success, 0.1);
+  }
+}
+
+// ================================
+// ANIMATION PLACEHOLDERS
+// ================================
+
+// Placeholder para fade in
+%fade-in {
+  opacity: 0;
+  animation: fadeIn $duration-base $ease-in-out forwards;
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Placeholder para slide up
+%slide-up {
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp $duration-base $ease-out forwards;
+  
+  @keyframes slideUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+// Placeholder para efecto float
+%float-animation {
+  animation: float 3s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+}
+
+// Placeholder para pulse
+%pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+}
+
+// ================================
+// UTILITY PLACEHOLDERS
+// ================================
+
+// Placeholder para ocultar visualmente
+%visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// Placeholder para clearfix
+%clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Placeholder para aspect ratio cuadrado
+%aspect-square {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Placeholder para aspect ratio 16:9
+%aspect-video {
+  position: relative;
+  
+  &::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%; // 9/16 * 100%
+  }
+  
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// ================================
+// SCROLLBAR PLACEHOLDERS
+// ================================
+
+// Placeholder para scrollbar personalizado
+%custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $color-gray-100;
+    border-radius: $border-radius-full;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $color-gray-400;
+    border-radius: $border-radius-full;
+    
+    &:hover {
+      background: $color-gray-500;
+    }
+  }
+}
+
+// ================================
+// SHADOW PLACEHOLDERS
+// ================================
+
+// Placeholder para sombra suave
+%shadow-soft {
+  box-shadow: 0 4px 20px rgba($color-black, 0.1);
+}
+
+// Placeholder para sombra intensa
+%shadow-intense {
+  box-shadow: 0 10px 40px rgba($color-black, 0.2);
+}
+
+// Placeholder para sombra colorida
+%shadow-colored {
+  box-shadow: 0 10px 30px rgba($color-primary, 0.3);
+}
+
+// ================================
+// GRADIENT PLACEHOLDERS
+// ================================
+
+// Placeholder para gradiente principal
+%gradient-primary {
+  background: $gradient-primary;
+}
+
+// Placeholder para gradiente secundario
+%gradient-secondary {
+  background: $gradient-secondary;
+}
+
+// Placeholder para gradiente hero
+%gradient-hero {
+  background: $gradient-hero;
+}
+
+// Placeholder para texto con gradiente
+%text-gradient-primary {
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ================================
+// LOADING PLACEHOLDERS
+// ================================
+
+// Placeholder para shimmer loading
+%shimmer-loading {
+  background: linear-gradient(90deg, $color-gray-200 25%, $color-gray-100 50%, $color-gray-200 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+}
+
+// Placeholder para skeleton loading
+%skeleton-loading {
+  background: $color-gray-200;
+  border-radius: $border-radius-md;
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent, rgba($color-white, 0.6), transparent);
+    animation: skeleton 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes skeleton {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+// ================================
+// INTERACTIVE PLACEHOLDERS
+// ================================
+
+// Placeholder para elementos interactivos
+%interactive {
+  cursor: pointer;
+  transition: $transition-all;
+  user-select: none;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+// Placeholder para elementos clickeables
+%clickable {
+  cursor: pointer;
+  transition: $transition-opacity;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+  
+  &:active {
+    opacity: 0.6;
+  }
+} 

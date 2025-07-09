@@ -1,0 +1,355 @@
+# =================================================================
+# SoftCronw .htaccess Configuration for Ionos Hosting
+# Optimized for Security, Performance & SEO
+# =================================================================
+
+# ----------------------------------------------------------------------
+# | HTTP Strict Transport Security (HSTS)                            |
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Security Headers                                                 |
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+    # Prevent clickjacking attacks
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Prevent MIME type confusion attacks
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Enable XSS filtering in browsers
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Control referrer information
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com; frame-src 'self' https://www.youtube.com https://www.google.com;"
+    
+    # Permissions Policy (formerly Feature Policy)
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # Remove server signature
+    Header always unset Server
+    Header always unset X-Powered-By
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | HTTPS Redirect                                                   |
+# ----------------------------------------------------------------------
+
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force www (or non-www - choose one)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ----------------------------------------------------------------------
+# | Compression (Gzip)                                               |
+# ----------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+    # Compress HTML, CSS, JavaScript, Text, XML and fonts
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-font-woff
+    AddOutputFilterByType DEFLATE application/x-font-woff2
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE font/woff
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    
+    # Remove browser bugs (only needed for really old browsers)
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Browser Caching                                                  |
+# ----------------------------------------------------------------------
+
+<IfModule mod_expires.c>
+    ExpiresActive on
+    
+    # Default expiration: 1 month
+    ExpiresDefault                          "access plus 1 month"
+    
+    # CSS and JavaScript
+    ExpiresByType text/css                  "access plus 1 year"
+    ExpiresByType application/javascript    "access plus 1 year"
+    ExpiresByType text/javascript          "access plus 1 year"
+    
+    # Images
+    ExpiresByType image/png                 "access plus 1 year"
+    ExpiresByType image/jpg                 "access plus 1 year"
+    ExpiresByType image/jpeg                "access plus 1 year"
+    ExpiresByType image/gif                 "access plus 1 year"
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType image/svg+xml             "access plus 1 year"
+    ExpiresByType image/x-icon              "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon  "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/ttf                  "access plus 1 year"
+    ExpiresByType font/otf                  "access plus 1 year"
+    ExpiresByType font/woff                 "access plus 1 year"
+    ExpiresByType font/woff2                "access plus 1 year"
+    ExpiresByType application/font-woff     "access plus 1 year"
+    ExpiresByType application/x-font-woff   "access plus 1 year"
+    ExpiresByType application/font-woff2    "access plus 1 year"
+    
+    # HTML and data
+    ExpiresByType text/html                 "access plus 0 seconds"
+    ExpiresByType application/json          "access plus 0 seconds"
+    ExpiresByType application/xml           "access plus 0 seconds"
+    ExpiresByType text/xml                  "access plus 0 seconds"
+    
+    # Manifest files
+    ExpiresByType application/manifest+json "access plus 1 week"
+    ExpiresByType text/cache-manifest       "access plus 0 seconds"
+</IfModule>
+
+# Cache-Control headers
+<IfModule mod_headers.c>
+    # 1 Year for most static assets
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "max-age=31536000, public, immutable"
+    </FilesMatch>
+    
+    # 1 Week for HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "max-age=604800, public, must-revalidate"
+    </FilesMatch>
+    
+    # No cache for dynamic content
+    <FilesMatch "\.(php|json|xml)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | ETags                                                            |
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# ----------------------------------------------------------------------
+# | URL Redirects and Rewrites                                       |
+# ----------------------------------------------------------------------
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect .html to clean URLs
+RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
+RewriteRule ^ /%1 [NC,L,R=301]
+
+# Trailing slash redirect
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1/ [L,R=301]
+
+# SEO-friendly URLs
+RewriteRule ^sobre-nosotros/?$ /sobre-nosotros.html [NC,L]
+RewriteRule ^servicios/?$ /servicios.html [NC,L]
+RewriteRule ^portfolio/?$ /portfolio.html [NC,L]
+RewriteRule ^contacto/?$ /contacto.html [NC,L]
+RewriteRule ^pagos/?$ /pagos.html [NC,L]
+
+# ----------------------------------------------------------------------
+# | Error Pages                                                      |
+# ----------------------------------------------------------------------
+
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+# ----------------------------------------------------------------------
+# | File Protection                                                  |
+# ----------------------------------------------------------------------
+
+# Protect system files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Protect sensitive files
+<FilesMatch "(^#.*#|\.(bak|old|orig|save|swo|swp|tmp)|~)$">
+    Require all denied
+</FilesMatch>
+
+# Protect configuration files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|conf)$">
+    Require all denied
+</FilesMatch>
+
+# Protect backup and log files
+<FilesMatch "\.(backup|log|old|bak)$">
+    Require all denied
+</FilesMatch>
+
+# ----------------------------------------------------------------------
+# | MIME Types                                                       |
+# ----------------------------------------------------------------------
+
+<IfModule mod_mime.c>
+    # JavaScript
+    AddType application/javascript js jsonp
+    AddType application/json json
+    
+    # Video
+    AddType video/mp4 mp4 m4v
+    AddType video/webm webm
+    
+    # Audio
+    AddType audio/mp4 m4a f4a f4b
+    AddType audio/ogg oga ogg
+    
+    # Images
+    AddType image/webp webp
+    AddType image/svg+xml svg svgz
+    
+    # Fonts
+    AddType font/woff woff
+    AddType font/woff2 woff2
+    AddType application/vnd.ms-fontobject eot
+    AddType font/ttf ttf
+    AddType font/otf otf
+    
+    # Other
+    AddType application/manifest+json webmanifest
+    AddType text/cache-manifest appcache manifest
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | UTF-8 Encoding                                                  |
+# ----------------------------------------------------------------------
+
+AddDefaultCharset utf-8
+<IfModule mod_mime.c>
+    AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Prevent Image Hotlinking                                        |
+# ----------------------------------------------------------------------
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?softcronw\.com [NC]
+RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png|gif|webp|svg)$ [NC]
+RewriteRule \.(jpe?g|png|gif|webp|svg)$ - [F]
+
+# ----------------------------------------------------------------------
+# | Disable Server Signature                                        |
+# ----------------------------------------------------------------------
+
+ServerSignature Off
+
+# ----------------------------------------------------------------------
+# | IP Blocking (Add malicious IPs here)                           |
+# ----------------------------------------------------------------------
+
+# Example: Block specific IP
+# Require all granted
+# Require not ip 192.168.1.100
+
+# ----------------------------------------------------------------------
+# | Performance Optimizations                                       |
+# ----------------------------------------------------------------------
+
+# Limit request size (10MB)
+LimitRequestBody 10485760
+
+# Disable server status
+<Location /server-status>
+    Require all denied
+</Location>
+
+<Location /server-info>
+    Require all denied
+</Location>
+
+# ----------------------------------------------------------------------
+# | Modern Image Format Support                                     |
+# ----------------------------------------------------------------------
+
+# Serve WebP to supporting browsers
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png)$
+    RewriteCond %{REQUEST_FILENAME}.webp -f
+    RewriteRule (.+)\.(jpe?g|png)$ $1.$2.webp [T=image/webp,E=accept:1,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header append Vary Accept env=REDIRECT_accept
+</IfModule>
+
+<IfModule mod_mime.c>
+    AddType image/webp .webp
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Content Optimization                                            |
+# ----------------------------------------------------------------------
+
+# Remove version strings from CSS and JS
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.+)\.(\d+)\.(css|js)$ $1.$3 [L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Cross-Origin Resource Sharing (CORS)                           |
+# ----------------------------------------------------------------------
+
+<IfModule mod_headers.c>
+    # Allow fonts from any origin
+    <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font\.css)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+    
+    # Allow images from any origin
+    <FilesMatch "\.(png|jpe?g|gif|webp|svg)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | END CONFIGURATION                                               |
+# ---------------------------------------------------------------------- 

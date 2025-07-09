@@ -1,0 +1,646 @@
+//
+// _cards.scss
+// Sistema de tarjetas para SoftCronw
+// Metodología BEM con efectos modernos y glassmorphism
+//
+
+// ================================
+// CARD BASE - BLOQUE BEM
+// ================================
+
+.card {
+  @extend %card-base;
+  position: relative;
+  overflow: hidden;
+  
+  // BEM Modifier: Hover effect
+  &:hover {
+    @extend %card-hover;
+  }
+  
+  // BEM Element: Card header
+  &__header {
+    padding: $spacing-6 $spacing-6 0;
+    
+    // BEM Modifier: Centered header
+    &--center {
+      text-align: center;
+    }
+    
+    // BEM Modifier: No padding header
+    &--flush {
+      padding: 0;
+    }
+  }
+  
+  // BEM Element: Card body/content
+  &__body {
+    padding: $spacing-6;
+    flex: 1;
+    
+    // BEM Modifier: No padding body
+    &--flush {
+      padding: 0;
+    }
+    
+    // BEM Modifier: Compact body
+    &--compact {
+      padding: $spacing-4;
+    }
+  }
+  
+  // BEM Element: Card footer
+  &__footer {
+    padding: 0 $spacing-6 $spacing-6;
+    margin-top: auto;
+    
+    // BEM Modifier: Centered footer
+    &--center {
+      text-align: center;
+    }
+    
+    // BEM Modifier: No padding footer
+    &--flush {
+      padding: 0;
+    }
+    
+    // BEM Modifier: Sticky footer
+    &--sticky {
+      position: sticky;
+      bottom: 0;
+      background: inherit;
+      backdrop-filter: inherit;
+    }
+  }
+  
+  // BEM Element: Card image
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    
+    // BEM Modifier: Cover image
+    &--cover {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    // BEM Modifier: Rounded image
+    &--rounded {
+      border-radius: $border-radius-lg;
+    }
+    
+    // BEM Modifier: Circle image
+    &--circle {
+      border-radius: 50%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+  }
+  
+  // BEM Element: Card title
+  &__title {
+    @extend %heading-secondary;
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-3;
+    color: $color-gray-900;
+    
+    // BEM Modifier: Large title
+    &--large {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+    }
+    
+    // BEM Modifier: Small title
+    &--small {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  // BEM Element: Card subtitle
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $color-gray-500;
+    margin-bottom: $spacing-4;
+    font-weight: $font-weight-medium;
+  }
+  
+  // BEM Element: Card text/description
+  &__text {
+    @extend %text-body;
+    margin-bottom: $spacing-4;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    // BEM Modifier: Truncated text
+    &--truncate {
+      @extend %text-truncate-multiline;
+    }
+  }
+  
+  // BEM Element: Card actions
+  &__actions {
+    display: flex;
+    gap: $spacing-3;
+    margin-top: $spacing-4;
+    
+    // BEM Modifier: Centered actions
+    &--center {
+      justify-content: center;
+    }
+    
+    // BEM Modifier: Right aligned actions
+    &--right {
+      justify-content: flex-end;
+    }
+    
+    // BEM Modifier: Spaced actions
+    &--spaced {
+      justify-content: space-between;
+    }
+    
+    // BEM Modifier: Stacked actions (mobile)
+    &--stack {
+      flex-direction: column;
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+  
+  // BEM Element: Card meta information
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-2;
+    font-size: $font-size-sm;
+    color: $color-gray-500;
+    margin-bottom: $spacing-3;
+    
+    // BEM Modifier: Centered meta
+    &--center {
+      justify-content: center;
+    }
+  }
+  
+  // BEM Element: Card badge/tag
+  &__badge {
+    position: absolute;
+    top: $spacing-4;
+    right: $spacing-4;
+    background: $color-primary;
+    color: $color-white;
+    padding: $spacing-1 $spacing-3;
+    border-radius: $border-radius-full;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-semibold;
+    z-index: 1;
+    
+    // BEM Modifier: Badge variants
+    &--success {
+      background: $color-success;
+    }
+    
+    &--warning {
+      background: $color-warning;
+    }
+    
+    &--error {
+      background: $color-error;
+    }
+    
+    &--secondary {
+      background: $color-secondary;
+    }
+  }
+}
+
+// ================================
+// CARD VARIANTS - MODIFICADORES BEM
+// ================================
+
+// BEM Modifier: Glass card (glassmorphism)
+.card--glass {
+  @extend %card-glass;
+  
+  &:hover {
+    background: rgba($color-white, 0.15);
+    transform: translateY(-8px);
+  }
+}
+
+// BEM Modifier: Bordered card
+.card--bordered {
+  border: 1px solid $color-gray-200;
+  
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+// BEM Modifier: Elevated card
+.card--elevated {
+  box-shadow: $shadow-xl;
+  
+  &:hover {
+    box-shadow: $shadow-2xl;
+  }
+}
+
+// BEM Modifier: Flat card (no shadow)
+.card--flat {
+  box-shadow: none;
+  border: 1px solid $color-gray-100;
+  
+  &:hover {
+    box-shadow: $shadow-sm;
+  }
+}
+
+// BEM Modifier: Gradient card
+.card--gradient {
+  background: $gradient-hero;
+  color: $color-white;
+  
+  .card__title,
+  .card__text,
+  .card__subtitle {
+    color: inherit;
+  }
+  
+  .card__meta {
+    color: rgba($color-white, 0.8);
+  }
+}
+
+// BEM Modifier: Dark card
+.card--dark {
+  background: $color-gray-900;
+  color: $color-white;
+  
+  .card__title {
+    color: $color-white;
+  }
+  
+  .card__text {
+    color: $color-gray-300;
+  }
+  
+  .card__subtitle,
+  .card__meta {
+    color: $color-gray-400;
+  }
+}
+
+// BEM Modifier: Interactive card (clickable)
+.card--interactive {
+  cursor: pointer;
+  transition: $transition-all;
+  
+  &:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: $shadow-2xl;
+  }
+  
+  &:active {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+// BEM Modifier: Horizontal card
+.card--horizontal {
+  display: flex;
+  align-items: stretch;
+  
+  .card__image {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: $border-radius-lg 0 0 $border-radius-lg;
+  }
+  
+  .card__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  // Mobile responsive
+  @include respond-below('md') {
+    flex-direction: column;
+    
+    .card__image {
+      width: 100%;
+      height: 200px;
+      border-radius: $border-radius-lg $border-radius-lg 0 0;
+    }
+  }
+}
+
+// ================================
+// CARD SIZES - MODIFICADORES BEM
+// ================================
+
+// BEM Modifier: Small card
+.card--sm {
+  .card__header,
+  .card__body,
+  .card__footer {
+    padding: $spacing-4;
+  }
+  
+  .card__title {
+    font-size: $font-size-lg;
+  }
+  
+  .card__text {
+    font-size: $font-size-sm;
+  }
+}
+
+// BEM Modifier: Large card
+.card--lg {
+  .card__header,
+  .card__body,
+  .card__footer {
+    padding: $spacing-8;
+  }
+  
+  .card__title {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-4;
+  }
+}
+
+// BEM Modifier: Extra large card
+.card--xl {
+  .card__header,
+  .card__body,
+  .card__footer {
+    padding: $spacing-10;
+  }
+  
+  .card__title {
+    font-size: $font-size-4xl;
+    margin-bottom: $spacing-6;
+  }
+}
+
+// ================================
+// SPECIAL CARD TYPES
+// ================================
+
+// Profile card
+.card--profile {
+  text-align: center;
+  
+  .card__image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto $spacing-4;
+    object-fit: cover;
+  }
+  
+  .card__title {
+    margin-bottom: $spacing-2;
+  }
+  
+  .card__subtitle {
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Testimonial card
+.card--testimonial {
+  position: relative;
+  
+  &::before {
+    content: '"';
+    position: absolute;
+    top: $spacing-4;
+    left: $spacing-4;
+    font-size: $font-size-4xl;
+    color: $color-primary;
+    opacity: 0.3;
+    font-family: Georgia, serif;
+  }
+  
+  .card__text {
+    font-style: italic;
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-6;
+  }
+  
+  .card__footer {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    
+    .card__image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    
+    .card__author {
+      .card__title {
+        font-size: $font-size-base;
+        margin-bottom: $spacing-1;
+      }
+      
+      .card__subtitle {
+        font-size: $font-size-sm;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Product card
+.card--product {
+  .card__image {
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  
+  .card__price {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-2;
+  }
+  
+  .card__original-price {
+    font-size: $font-size-sm;
+    color: $color-gray-500;
+    text-decoration: line-through;
+    margin-left: $spacing-2;
+  }
+  
+  .card__rating {
+    display: flex;
+    align-items: center;
+    gap: $spacing-1;
+    margin-bottom: $spacing-3;
+    
+    .star {
+      color: $color-accent;
+      font-size: $font-size-sm;
+    }
+    
+    .rating-text {
+      font-size: $font-size-xs;
+      color: $color-gray-500;
+      margin-left: $spacing-2;
+    }
+  }
+}
+
+// Stats card
+.card--stats {
+  text-align: center;
+  
+  .card__number {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-2;
+    display: block;
+  }
+  
+  .card__label {
+    font-size: $font-size-sm;
+    color: $color-gray-600;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    font-weight: $font-weight-medium;
+  }
+  
+  .card__trend {
+    font-size: $font-size-xs;
+    margin-top: $spacing-2;
+    
+    &--up {
+      color: $color-success;
+    }
+    
+    &--down {
+      color: $color-error;
+    }
+  }
+}
+
+// ================================
+// CARD ANIMATIONS
+// ================================
+
+// Loading card skeleton
+.card--loading {
+  @extend %skeleton-loading;
+  
+  .card__title,
+  .card__text,
+  .card__image {
+    @extend %shimmer-loading;
+  }
+}
+
+// Staggered animation for card groups
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-6;
+  
+  .card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp $duration-base $ease-out forwards;
+    
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 100ms};
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ================================
+// RESPONSIVE CARDS
+// ================================
+
+@include respond-below('sm') {
+  .card {
+    // Mobile optimizations
+    border-radius: $border-radius-lg;
+    
+    &__actions--stack {
+      flex-direction: column;
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+  
+  .card--horizontal {
+    flex-direction: column;
+    
+    .card__image {
+      width: 100%;
+      height: 200px;
+      border-radius: $border-radius-lg $border-radius-lg 0 0;
+    }
+  }
+  
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-4;
+  }
+}
+
+// ================================
+// ACCESSIBILITY
+// ================================
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid currentColor;
+  }
+  
+  .card--glass {
+    background: $color-white;
+    backdrop-filter: none;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+  
+  .card-grid .card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+} 

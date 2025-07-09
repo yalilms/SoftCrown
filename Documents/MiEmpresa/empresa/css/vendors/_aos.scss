@@ -1,0 +1,646 @@
+//
+// _aos.scss
+// AOS (Animate On Scroll) customizations para SoftCronw
+// Integrando animaciones de scroll con nuestro sistema de diseño
+//
+
+// ================================
+// AOS VARIABLE OVERRIDES
+// ================================
+
+// Animation durations
+$aos-duration-fast: $duration-fast !default;
+$aos-duration-normal: $duration-base !default;
+$aos-duration-slow: $duration-slow !default;
+
+// Animation easings
+$aos-easing-default: $ease-out !default;
+$aos-easing-bounce: $ease-out-back !default;
+
+// Animation delays
+$aos-delay-short: 100ms !default;
+$aos-delay-medium: 200ms !default;
+$aos-delay-long: 300ms !default;
+
+// ================================
+// AOS BASE STYLES
+// ================================
+
+[data-aos] {
+  pointer-events: none;
+  
+  &.aos-animate {
+    pointer-events: auto;
+  }
+}
+
+// ================================
+// CUSTOM AOS ANIMATIONS
+// ================================
+
+// Enhanced fade animations
+[data-aos="fade-up-custom"] {
+  transform: translate3d(0, 40px, 0);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+[data-aos="fade-down-custom"] {
+  transform: translate3d(0, -40px, 0);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+[data-aos="fade-left-custom"] {
+  transform: translate3d(-40px, 0, 0);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+[data-aos="fade-right-custom"] {
+  transform: translate3d(40px, 0, 0);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+// Scale animations
+[data-aos="scale-up"] {
+  transform: scale(0.8);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+[data-aos="scale-down"] {
+  transform: scale(1.2);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// Flip animations
+[data-aos="flip-up"] {
+  transform: perspective(2500px) rotateX(-90deg);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: perspective(2500px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+[data-aos="flip-down"] {
+  transform: perspective(2500px) rotateX(90deg);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: perspective(2500px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+[data-aos="flip-left"] {
+  transform: perspective(2500px) rotateY(-90deg);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: perspective(2500px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+[data-aos="flip-right"] {
+  transform: perspective(2500px) rotateY(90deg);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: perspective(2500px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+// Slide animations with bounce
+[data-aos="slide-up-bounce"] {
+  transform: translate3d(0, 60px, 0);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-timing-function: $aos-easing-bounce;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+[data-aos="slide-down-bounce"] {
+  transform: translate3d(0, -60px, 0);
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-timing-function: $aos-easing-bounce;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+// Zoom animations
+[data-aos="zoom-in-up"] {
+  transform: translate3d(0, 40px, 0) scale(0.8);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+[data-aos="zoom-in-down"] {
+  transform: translate3d(0, -40px, 0) scale(0.8);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+[data-aos="zoom-out-up"] {
+  transform: translate3d(0, 40px, 0) scale(1.2);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+// Rotation animations
+[data-aos="rotate-in"] {
+  transform: rotate(-180deg);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+[data-aos="rotate-in-up"] {
+  transform: translate3d(0, 40px, 0) rotate(-180deg);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+[data-aos="rotate-in-down"] {
+  transform: translate3d(0, -40px, 0) rotate(180deg);
+  opacity: 0;
+  transition-property: transform, opacity;
+  
+  &.aos-animate {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+// ================================
+// STAGGERED ANIMATIONS
+// ================================
+
+// Staggered fade up for lists
+.aos-stagger {
+  > * {
+    &[data-aos] {
+      transition-delay: 0ms;
+    }
+    
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i})[data-aos] {
+        transition-delay: #{$i * 100ms};
+      }
+    }
+  }
+}
+
+// Staggered animations for grids
+.aos-grid-stagger {
+  > * {
+    &[data-aos] {
+      transition-delay: 0ms;
+    }
+    
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i})[data-aos] {
+        transition-delay: #{$i * 150ms};
+      }
+    }
+  }
+}
+
+// ================================
+// COMPONENT-SPECIFIC AOS STYLES
+// ================================
+
+// Cards with AOS
+.card[data-aos] {
+  will-change: transform, opacity;
+  
+  &.aos-animate {
+    will-change: auto;
+  }
+}
+
+// Buttons with AOS
+.btn[data-aos] {
+  will-change: transform, opacity;
+  
+  &.aos-animate {
+    will-change: auto;
+  }
+}
+
+// Images with AOS
+img[data-aos] {
+  will-change: transform, opacity;
+  
+  &.aos-animate {
+    will-change: auto;
+  }
+}
+
+// Text elements with AOS
+h1[data-aos],
+h2[data-aos],
+h3[data-aos],
+h4[data-aos],
+h5[data-aos],
+h6[data-aos],
+p[data-aos] {
+  will-change: transform, opacity;
+  
+  &.aos-animate {
+    will-change: auto;
+  }
+}
+
+// ================================
+// DURATION UTILITIES
+// ================================
+
+[data-aos][data-aos-duration="100"] {
+  transition-duration: 100ms;
+}
+
+[data-aos][data-aos-duration="200"] {
+  transition-duration: 200ms;
+}
+
+[data-aos][data-aos-duration="300"] {
+  transition-duration: 300ms;
+}
+
+[data-aos][data-aos-duration="400"] {
+  transition-duration: 400ms;
+}
+
+[data-aos][data-aos-duration="500"] {
+  transition-duration: 500ms;
+}
+
+[data-aos][data-aos-duration="600"] {
+  transition-duration: 600ms;
+}
+
+[data-aos][data-aos-duration="700"] {
+  transition-duration: 700ms;
+}
+
+[data-aos][data-aos-duration="800"] {
+  transition-duration: 800ms;
+}
+
+[data-aos][data-aos-duration="900"] {
+  transition-duration: 900ms;
+}
+
+[data-aos][data-aos-duration="1000"] {
+  transition-duration: 1000ms;
+}
+
+[data-aos][data-aos-duration="1200"] {
+  transition-duration: 1200ms;
+}
+
+[data-aos][data-aos-duration="1500"] {
+  transition-duration: 1500ms;
+}
+
+// ================================
+// EASING UTILITIES
+// ================================
+
+[data-aos][data-aos-easing="linear"] {
+  transition-timing-function: linear;
+}
+
+[data-aos][data-aos-easing="ease"] {
+  transition-timing-function: ease;
+}
+
+[data-aos][data-aos-easing="ease-in"] {
+  transition-timing-function: ease-in;
+}
+
+[data-aos][data-aos-easing="ease-out"] {
+  transition-timing-function: ease-out;
+}
+
+[data-aos][data-aos-easing="ease-in-out"] {
+  transition-timing-function: ease-in-out;
+}
+
+[data-aos][data-aos-easing="ease-in-back"] {
+  transition-timing-function: $ease-in-back;
+}
+
+[data-aos][data-aos-easing="ease-out-back"] {
+  transition-timing-function: $ease-out-back;
+}
+
+[data-aos][data-aos-easing="ease-in-out-back"] {
+  transition-timing-function: $ease-in-out-back;
+}
+
+[data-aos][data-aos-easing="bounce"] {
+  transition-timing-function: $ease-bounce;
+}
+
+// ================================
+// ONCE UTILITIES
+// ================================
+
+[data-aos][data-aos-once="true"] {
+  &.aos-animate {
+    transition: none;
+  }
+}
+
+// ================================
+// OFFSET UTILITIES
+// ================================
+
+[data-aos][data-aos-offset="50"] {
+  &:not(.aos-animate) {
+    transition-delay: 0ms;
+  }
+}
+
+[data-aos][data-aos-offset="100"] {
+  &:not(.aos-animate) {
+    transition-delay: 50ms;
+  }
+}
+
+[data-aos][data-aos-offset="200"] {
+  &:not(.aos-animate) {
+    transition-delay: 100ms;
+  }
+}
+
+// ================================
+// ADVANCED ANIMATIONS
+// ================================
+
+// Text reveal animation
+[data-aos="text-reveal"] {
+  overflow: hidden;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $color-primary;
+    transform: translateX(-100%);
+    transition: transform 0.6s $ease-out;
+  }
+  
+  &.aos-animate::before {
+    transform: translateX(100%);
+  }
+}
+
+// Counter animation
+[data-aos="counter"] {
+  &:not(.aos-animate) {
+    .counter-number {
+      opacity: 0;
+    }
+  }
+  
+  &.aos-animate {
+    .counter-number {
+      opacity: 1;
+      animation: counter-up 2s $ease-out;
+    }
+  }
+}
+
+// Progress bar animation
+[data-aos="progress"] {
+  .progress-bar {
+    width: 0;
+    transition: width 1.5s $ease-out;
+  }
+  
+  &.aos-animate {
+    .progress-bar {
+      width: var(--progress-width, 100%);
+    }
+  }
+}
+
+// Typewriter animation
+[data-aos="typewriter"] {
+  overflow: hidden;
+  border-right: 3px solid $color-primary;
+  white-space: nowrap;
+  width: 0;
+  
+  &.aos-animate {
+    animation: typewriter 3s steps(40) forwards, blink-cursor 0.5s step-end infinite;
+  }
+}
+
+// ================================
+// KEYFRAMES FOR ADVANCED ANIMATIONS
+// ================================
+
+@keyframes counter-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-cursor {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: $color-primary;
+  }
+}
+
+// ================================
+// RESPONSIVE AOS ADJUSTMENTS
+// ================================
+
+@include respond-below('md') {
+  // Reduce animation intensity on mobile
+  [data-aos="fade-up-custom"],
+  [data-aos="fade-down-custom"] {
+    transform: translate3d(0, 20px, 0);
+  }
+  
+  [data-aos="fade-left-custom"],
+  [data-aos="fade-right-custom"] {
+    transform: translate3d(20px, 0, 0);
+  }
+  
+  [data-aos="slide-up-bounce"],
+  [data-aos="slide-down-bounce"] {
+    transform: translate3d(0, 30px, 0);
+  }
+  
+  // Reduce stagger delays on mobile
+  .aos-stagger > * {
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i})[data-aos] {
+        transition-delay: #{$i * 50ms};
+      }
+    }
+  }
+}
+
+// ================================
+// ACCESSIBILITY
+// ================================
+
+// Respect reduced motion preference
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .aos-stagger > *[data-aos],
+  .aos-grid-stagger > *[data-aos] {
+    transition-delay: 0ms !important;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  [data-aos="text-reveal"]::before {
+    background: currentColor;
+  }
+  
+  [data-aos="typewriter"] {
+    border-right-color: currentColor;
+  }
+}
+
+// ================================
+// PERFORMANCE OPTIMIZATIONS
+// ================================
+
+// Use hardware acceleration for common animations
+[data-aos*="fade"],
+[data-aos*="slide"],
+[data-aos*="zoom"],
+[data-aos*="flip"] {
+  will-change: transform, opacity;
+  
+  &.aos-animate {
+    will-change: auto;
+  }
+}
+
+// Optimize for mobile devices
+@media (max-width: 768px) {
+  [data-aos] {
+    transition-duration: 0.4s;
+  }
+}
+
+// ================================
+// DEBUG MODE
+// ================================
+
+// Add debug styles when needed
+.aos-debug {
+  [data-aos]:not(.aos-animate) {
+    outline: 2px dashed $color-error;
+  }
+  
+  [data-aos].aos-animate {
+    outline: 2px solid $color-success;
+  }
+} 

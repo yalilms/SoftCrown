@@ -1,0 +1,549 @@
+//
+// _bootstrap.scss
+// Bootstrap customizations para SoftCronw
+// Overrides selectivos para mantener consistencia con nuestro sistema
+//
+
+// ================================
+// BOOTSTRAP VARIABLE OVERRIDES
+// Definir antes de importar Bootstrap
+// ================================
+
+// Colors - Map Bootstrap colors to our design system
+$primary: $color-primary !default;
+$secondary: $color-secondary !default;
+$success: $color-success !default;
+$danger: $color-error !default;
+$warning: $color-warning !default;
+$info: $color-info !default;
+$light: $color-gray-100 !default;
+$dark: $color-gray-900 !default;
+
+// Grays
+$gray-100: $color-gray-100 !default;
+$gray-200: $color-gray-200 !default;
+$gray-300: $color-gray-300 !default;
+$gray-400: $color-gray-400 !default;
+$gray-500: $color-gray-500 !default;
+$gray-600: $color-gray-600 !default;
+$gray-700: $color-gray-700 !default;
+$gray-800: $color-gray-800 !default;
+$gray-900: $color-gray-900 !default;
+
+// Body
+$body-bg: $color-bg-primary !default;
+$body-color: $color-gray-700 !default;
+
+// Typography
+$font-family-sans-serif: $font-family-secondary !default;
+$font-family-monospace: $font-family-monospace !default;
+$font-size-base: $font-size-base !default;
+$font-weight-normal: $font-weight-regular !default;
+$font-weight-bold: $font-weight-bold !default;
+$line-height-base: $line-height-normal !default;
+
+// Headings
+$headings-font-family: $font-family-primary !default;
+$headings-font-weight: $font-weight-bold !default;
+$headings-line-height: $line-height-tight !default;
+$headings-color: $color-gray-900 !default;
+
+// Links
+$link-color: $color-primary !default;
+$link-decoration: none !default;
+$link-hover-color: shade($color-primary, 15%) !default;
+$link-hover-decoration: underline !default;
+
+// Spacing
+$spacer: $spacing-base !default;
+
+// Border radius
+$border-radius: $border-radius-base !default;
+$border-radius-sm: $border-radius-sm !default;
+$border-radius-lg: $border-radius-lg !default;
+$border-radius-pill: $border-radius-full !default;
+
+// Shadows
+$box-shadow: $shadow-sm !default;
+$box-shadow-sm: $shadow-xs !default;
+$box-shadow-lg: $shadow-lg !default;
+
+// Grid
+$grid-breakpoints: (
+  xs: 0,
+  sm: map-get($breakpoints, 'sm'),
+  md: map-get($breakpoints, 'md'),
+  lg: map-get($breakpoints, 'lg'),
+  xl: map-get($breakpoints, 'xl'),
+  xxl: map-get($breakpoints, '2xl')
+) !default;
+
+$container-max-widths: (
+  sm: map-get($container-max-widths, 'sm'),
+  md: map-get($container-max-widths, 'md'),
+  lg: map-get($container-max-widths, 'lg'),
+  xl: map-get($container-max-widths, 'xl'),
+  xxl: map-get($container-max-widths, '2xl')
+) !default;
+
+// Components
+$component-active-color: $color-white !default;
+$component-active-bg: $color-primary !default;
+
+// Buttons
+$btn-padding-y: $button-padding-y !default;
+$btn-padding-x: $button-padding-x !default;
+$btn-font-weight: $button-font-weight !default;
+$btn-border-radius: $button-border-radius !default;
+$btn-transition: $button-transition !default;
+
+// Forms
+$input-padding-y: $input-padding-y !default;
+$input-padding-x: $input-padding-x !default;
+$input-font-size: $font-size-base !default;
+$input-border-color: $input-border-color !default;
+$input-border-radius: $input-border-radius !default;
+$input-focus-border-color: $input-focus-border-color !default;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba($input-focus-border-color, 0.25) !default;
+
+// Cards
+$card-spacer-y: $card-padding !default;
+$card-spacer-x: $card-padding !default;
+$card-border-radius: $card-border-radius !default;
+$card-box-shadow: $card-shadow !default;
+$card-bg: $card-bg !default;
+
+// Modals
+$modal-backdrop-bg: $color-black !default;
+$modal-backdrop-opacity: 0.5 !default;
+$modal-content-border-radius: $border-radius-xl !default;
+$modal-content-box-shadow-xs: $shadow-lg !default;
+
+// Navbar
+$navbar-padding-y: $spacing-4 !default;
+$navbar-padding-x: 0 !default;
+$navbar-brand-font-size: $font-size-xl !default;
+$navbar-brand-font-weight: $font-weight-bold !default;
+
+// Alerts
+$alert-padding-y: $spacing-4 !default;
+$alert-padding-x: $spacing-6 !default;
+$alert-border-radius: $border-radius-lg !default;
+
+// Tables
+$table-cell-padding-y: $spacing-3 !default;
+$table-cell-padding-x: $spacing-4 !default;
+$table-hover-bg: $color-gray-50 !default;
+
+// ================================
+// IMPORT BOOTSTRAP (if using)
+// Uncomment if you want to include Bootstrap
+// ================================
+
+// @import "~bootstrap/scss/bootstrap";
+
+// ================================
+// BOOTSTRAP COMPONENT OVERRIDES
+// Custom styles to override Bootstrap defaults
+// ================================
+
+// Button overrides
+.btn {
+  // Add our glassmorphism effect to Bootstrap buttons
+  &.btn-glass {
+    @include button-glass();
+  }
+  
+  // Enhanced focus states
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+  }
+  
+  // Loading state
+  &.loading {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 16px;
+      height: 16px;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: btn-spin 1s linear infinite;
+      color: $color-white;
+    }
+  }
+}
+
+// Card overrides
+.card {
+  // Add glassmorphism variant
+  &.card-glass {
+    @extend %card-glass;
+  }
+  
+  // Enhanced hover effects
+  &.card-hover {
+    transition: $transition-all;
+    
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: $shadow-xl;
+    }
+  }
+  
+  // Gradient cards
+  &.card-gradient {
+    background: $gradient-hero;
+    color: $color-white;
+    border: none;
+    
+    .card-title,
+    .card-text {
+      color: inherit;
+    }
+  }
+}
+
+// Form overrides
+.form-control {
+  // Enhanced focus styles
+  &:focus {
+    border-color: $input-focus-border-color;
+    box-shadow: 0 0 0 3px rgba($input-focus-border-color, 0.1);
+  }
+  
+  // Error states
+  &.is-invalid {
+    @extend %input-error;
+  }
+  
+  // Success states
+  &.is-valid {
+    @extend %input-success;
+  }
+}
+
+// Modal overrides
+.modal {
+  // Glassmorphism backdrop
+  &.modal-glass {
+    .modal-backdrop {
+      backdrop-filter: blur(10px);
+    }
+    
+    .modal-content {
+      @include glassmorphism();
+      border: none;
+    }
+  }
+  
+  // Enhanced animations
+  &.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: translate(0, -50px);
+  }
+  
+  &.show .modal-dialog {
+    transform: none;
+  }
+}
+
+// Navbar overrides
+.navbar {
+  // Glassmorphism navbar
+  &.navbar-glass {
+    background: rgba($color-white, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba($color-white, 0.1);
+    box-shadow: $shadow-lg;
+  }
+  
+  // Scrolled state
+  &.scrolled {
+    background: $color-white;
+    box-shadow: $shadow-lg;
+    
+    .navbar-brand {
+      transform: scale(0.9);
+    }
+  }
+}
+
+// Alert overrides
+.alert {
+  // Add icons to alerts
+  &.alert-with-icon {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3;
+    
+    &::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  
+  &.alert-primary.alert-with-icon::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$color-primary}' viewBox='0 0 16 16'%3e%3cpath d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z'/%3e%3c/svg%3e");
+  }
+  
+  &.alert-success.alert-with-icon::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$color-success}' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.061L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z'/%3e%3c/svg%3e");
+  }
+  
+  &.alert-warning.alert-with-icon::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$color-warning}' viewBox='0 0 16 16'%3e%3cpath d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/%3e%3c/svg%3e");
+  }
+  
+  &.alert-danger.alert-with-icon::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='#{$color-error}' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z'/%3e%3c/svg%3e");
+  }
+  
+  // Glassmorphism alerts
+  &.alert-glass {
+    @include glassmorphism(0.1, 15px, 0.2);
+    border: 1px solid rgba($color-white, 0.3);
+  }
+}
+
+// Table overrides
+.table {
+  // Hover rows
+  &.table-hover tbody tr:hover {
+    background-color: rgba($color-primary, 0.05);
+  }
+  
+  // Striped with our colors
+  &.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba($color-gray-50, 0.5);
+  }
+  
+  // Glass table
+  &.table-glass {
+    @include glassmorphism();
+    
+    th {
+      background: rgba($color-white, 0.1);
+      backdrop-filter: blur(10px);
+    }
+  }
+}
+
+// Badge overrides
+.badge {
+  // Glassmorphism badges
+  &.badge-glass {
+    @include glassmorphism(0.2, 10px, 0.3);
+    color: $color-white;
+  }
+  
+  // Pill badges with icons
+  &.badge-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    
+    .icon {
+      width: 0.875em;
+      height: 0.875em;
+    }
+  }
+}
+
+// Progress overrides
+.progress {
+  // Animated progress bars
+  &.progress-animated .progress-bar {
+    animation: progress-bar-stripes 1s linear infinite;
+  }
+  
+  // Gradient progress bars
+  &.progress-gradient .progress-bar {
+    background: $gradient-primary;
+  }
+  
+  // Glass progress bars
+  &.progress-glass {
+    @include glassmorphism(0.1, 10px, 0.2);
+    
+    .progress-bar {
+      backdrop-filter: blur(5px);
+    }
+  }
+}
+
+// Dropdown overrides
+.dropdown-menu {
+  // Glassmorphism dropdown
+  &.dropdown-glass {
+    @include glassmorphism();
+    border: 1px solid rgba($color-white, 0.2);
+    box-shadow: $shadow-xl;
+  }
+  
+  // Enhanced animations
+  &.show {
+    animation: dropdown-fade-in 0.2s ease-out;
+  }
+}
+
+// Breadcrumb overrides
+.breadcrumb {
+  // Glassmorphism breadcrumb
+  &.breadcrumb-glass {
+    @include glassmorphism(0.1, 15px, 0.2);
+    border-radius: $border-radius-full;
+    padding: $spacing-3 $spacing-6;
+  }
+  
+  // Modern separator
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: '›';
+    color: $color-gray-400;
+  }
+}
+
+// Pagination overrides
+.pagination {
+  // Modern pagination
+  .page-link {
+    border-radius: $border-radius-md;
+    margin: 0 0.125rem;
+    border: 1px solid $color-gray-300;
+    
+    &:hover {
+      background: rgba($color-primary, 0.1);
+      border-color: $color-primary;
+    }
+  }
+  
+  .page-item.active .page-link {
+    background: $gradient-primary;
+    border-color: $color-primary;
+    box-shadow: $shadow-primary;
+  }
+}
+
+// ================================
+// UTILITY CLASSES
+// ================================
+
+// Background utilities with our colors
+.bg-primary-gradient { background: $gradient-primary !important; }
+.bg-secondary-gradient { background: $gradient-secondary !important; }
+.bg-accent-gradient { background: $gradient-accent !important; }
+.bg-hero-gradient { background: $gradient-hero !important; }
+
+// Text utilities with gradients
+.text-primary-gradient { @include text-gradient($color-primary, $color-primary-light); }
+.text-secondary-gradient { @include text-gradient($color-secondary, $color-secondary-light); }
+.text-accent-gradient { @include text-gradient($color-accent, $color-accent-light); }
+
+// Glass utilities
+.glass { @include glassmorphism(); }
+.glass-dark { @include glassmorphism-dark(); }
+
+// Shadow utilities with our system
+.shadow-primary { box-shadow: $shadow-primary !important; }
+.shadow-secondary { box-shadow: $shadow-secondary !important; }
+.shadow-accent { box-shadow: $shadow-accent !important; }
+
+// Border radius utilities
+.rounded-2xl { border-radius: $border-radius-2xl !important; }
+.rounded-3xl { border-radius: $border-radius-3xl !important; }
+
+// ================================
+// ANIMATIONS FOR BOOTSTRAP COMPONENTS
+// ================================
+
+@keyframes dropdown-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes progress-bar-stripes {
+  0% { background-position: 1rem 0; }
+  100% { background-position: 0 0; }
+}
+
+// ================================
+// RESPONSIVE OVERRIDES
+// ================================
+
+@include respond-below('md') {
+  // Stack buttons in small screens
+  .btn-group-responsive {
+    .btn {
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  // Full width cards on mobile
+  .card-responsive {
+    margin-bottom: 1rem;
+  }
+  
+  // Adjust modal on mobile
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+}
+
+// ================================
+// ACCESSIBILITY ENHANCEMENTS
+// ================================
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .btn,
+  .form-control,
+  .card {
+    border: 2px solid currentColor;
+  }
+  
+  .glass,
+  .dropdown-glass,
+  .alert-glass {
+    background: $color-white !important;
+    backdrop-filter: none !important;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .card-hover,
+  .modal,
+  .dropdown-menu {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .progress-animated .progress-bar {
+    animation: none !important;
+  }
+} 
