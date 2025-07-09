@@ -4,6 +4,145 @@
 //
 
 // =====================================
+// SERVICES HERO SECTION
+// =====================================
+
+.services-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(0,245,255,0.1)"/></svg>');
+    background-size: 50px 50px;
+    animation: float 20s infinite linear;
+  }
+  
+  .services-hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    
+    .services-hero__title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      
+      .text-gradient {
+        background: linear-gradient(45deg, #00f5ff, #ff00ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+    
+    .services-hero__subtitle {
+      font-size: 1.25rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .services-hero__stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+      }
+      
+      .stat {
+        text-align: center;
+        
+        .stat__number {
+          display: block;
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: #00f5ff;
+          margin-bottom: 0.5rem;
+        }
+        
+        .stat__label {
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.8);
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  
+  .services-hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    
+    .floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      
+      .floating-element {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(45deg, rgba(0, 245, 255, 0.2), rgba(255, 0, 255, 0.2));
+        border-radius: 50%;
+        animation: floatElement 8s ease-in-out infinite;
+        
+        &--1 {
+          top: 20%;
+          left: 10%;
+          animation-delay: 0s;
+        }
+        
+        &--2 {
+          top: 60%;
+          right: 15%;
+          animation-delay: 2s;
+        }
+        
+        &--3 {
+          bottom: 30%;
+          left: 20%;
+          animation-delay: 4s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes floatElement {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+  }
+}
+
+// =====================================
 // SERVICES GRID SPECTACULAR
 // =====================================
 

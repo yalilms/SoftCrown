@@ -118,7 +118,7 @@
 }
 
 // ================================
-// MENÚ HAMBURGUESA FUTURISTA
+// MENÚ HAMBURGUESA FUTURISTA UNIFICADO
 // ================================
 
 .hamburger {
@@ -129,18 +129,13 @@
   background: var(--nav-glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 50%;
   border: 1px solid var(--nav-glass-border);
+  border-radius: 50%;
   cursor: pointer;
-  z-index: z-index('modal') + 1;
+  z-index: 2;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  // Efecto neomorphism
-  box-shadow: 
-    10px 10px 20px rgba(0, 0, 0, 0.1),
-    -10px -10px 20px rgba(255, 255, 255, 0.1),
-    inset 2px 2px 5px rgba(255, 255, 255, 0.1),
-    inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.1),
+              inset -2px -2px 5px rgba(0, 0, 0, 0.1);
   
   &::before {
     content: '';
@@ -158,9 +153,8 @@
   
   &:hover {
     transform: scale(1.1) rotateZ(180deg);
-    box-shadow: 
-      15px 15px 30px rgba(0, 0, 0, 0.2),
-      -15px -15px 30px rgba(255, 255, 255, 0.2);
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2),
+                -15px -15px 30px rgba(255, 255, 255, 0.2);
     
     &::before {
       width: 100%;
@@ -169,11 +163,10 @@
     }
     
     .hamburger__line {
-      background: $color-white;
+      background: #fff;
     }
   }
   
-  // Líneas del hamburguesa con morfing
   &__line {
     position: absolute;
     left: 50%;
@@ -197,12 +190,11 @@
     }
   }
   
-  // Estado activo con morfing a X
   &.hamburger--active {
     transform: scale(1.1) rotateZ(45deg);
     
     .hamburger__line {
-      background: $color-white;
+      background: #fff;
       
       &:nth-child(1) {
         transform: translateX(-50%) rotateZ(45deg);
@@ -217,6 +209,297 @@
       &:nth-child(3) {
         transform: translateX(-50%) rotateZ(-45deg);
         top: 29px;
+      }
+    }
+  }
+  
+  // Responsive
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+    
+    &__line {
+      width: 20px;
+      
+      &:nth-child(1) {
+        top: 15px;
+      }
+      
+      &:nth-child(2) {
+        top: 24px;
+      }
+      
+      &:nth-child(3) {
+        top: 33px;
+      }
+      
+      &.hamburger--active {
+        &:nth-child(1),
+        &:nth-child(3) {
+          top: 24px;
+        }
+      }
+    }
+  }
+}
+
+// Overlay del menú desplegable
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, 
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(0, 212, 255, 0.1) 50%,
+    rgba(255, 107, 107, 0.1) 100%);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  z-index: 9998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Estado activo
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  // Efectos de partículas de fondo
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: particleFloat 20s ease-in-out infinite;
+  }
+}
+
+// Animación de partículas
+@keyframes particleFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-10px, -15px) rotate(1deg); }
+  50% { transform: translate(15px, -10px) rotate(-1deg); }
+  75% { transform: translate(-5px, 10px) rotate(0.5deg); }
+}
+
+// Menú de navegación dentro del overlay
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  &__item {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: menuItemSlide 0.6s ease-out forwards;
+    
+    // Delay escalonado para cada item
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
+    &:nth-child(5) { animation-delay: 0.5s; }
+  }
+  
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &:hover,
+    &--active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(10px);
+      
+      .nav-menu__icon {
+        color: #00d4ff;
+        transform: scale(1.2);
+      }
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 4px;
+      height: 0;
+      background: linear-gradient(180deg, #00d4ff, #ff6b6b);
+      border-radius: 2px;
+      transform: translateY(-50%);
+      transition: height 0.3s ease;
+    }
+    
+    &:hover::before,
+    &--active::before {
+      height: 100%;
+    }
+  }
+  
+  &__icon {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s ease;
+  }
+  
+  &__text {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+// Indicadores de página
+.nav-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.6);
+      transform: scale(1.2);
+    }
+    
+    &--active {
+      background: #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+  }
+}
+
+// Animación para items del menú
+@keyframes menuItemSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ================================
+// ESTILOS DEL HEADER SIMPLIFICADOS
+// ================================
+
+.header {
+  position: relative;
+  z-index: 1000;
+  padding: 1rem 0;
+  
+  .nav {
+    &__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 60px;
+    }
+    
+    &__logo {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+// ================================
+// NAVEGACIÓN PRINCIPAL (RESTO DEL CÓDIGO EXISTENTE)
+// ================================
+
+.nav {
+  position: relative;
+  z-index: 2;
+  
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-4 $spacing-6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 80px;
+  }
+  
+  // Logo futurista
+  &__logo {
+    position: relative;
+    font-size: 2rem;
+    font-weight: $font-weight-bold;
+    background: linear-gradient(45deg, var(--nav-primary-color), var(--nav-secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--nav-primary-color), var(--nav-secondary-color));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    &:hover {
+      transform: scale(1.05);
+      
+      &::after {
+        transform: scaleX(1);
       }
     }
   }

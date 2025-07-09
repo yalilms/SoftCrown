@@ -58,10 +58,11 @@
     <meta property="whatsapp:image" content="https://www.softcronw.com/images/whatsapp-share.jpg">
     
     <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
     <link rel="manifest" href="/site.webmanifest">
@@ -193,28 +194,6 @@
     }
     </script>
     
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-    <!-- End Google Tag Manager -->
-    
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID', {
-        page_title: 'Inicio - SoftCronw',
-        page_location: window.location.href,
-        custom_map: {
-          'custom_parameter_1': 'home_page'
-        }
-      });
-    </script>
     
     <!-- Google Fonts Optimized -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -234,84 +213,43 @@
      <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
      <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
      
-     <!-- SEO & Performance CSS -->
-     <link rel="preload" href="css/seo-performance.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+     <!-- SEO & Performance CSS - No crítico al inicio -->
+     <link href="css/seo-performance.css" rel="stylesheet" media="print" onload="this.media='all'">
      <noscript><link rel="stylesheet" href="css/seo-performance.css"></noscript>
      
-     <!-- Chatbot CSS -->
-     <link rel="preload" href="css/chatbot.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-     <noscript><link rel="stylesheet" href="css/chatbot.css"></noscript>
+     
     
-    <!-- Bootstrap 5 CSS - Defer non-critical -->
+    <!-- Bootstrap 5 CSS - Crítico para layout -->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"></noscript>
     
-    <!-- Font Awesome - Defer -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Font Awesome - No crítico, usar prefetch -->
+    <link rel="prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
-    <!-- AOS Animation Library - Defer -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- AOS Animation Library - No crítico, usar prefetch -->
+    <link rel="prefetch" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" as="style">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet"></noscript>
     
-         <!-- Performance Optimizations -->
-     <link rel="preload" href="js/app.js" as="script">
+         <!-- Performance Optimizations - Solo archivos críticos -->
      <link rel="preload" href="js/performance-monitor.js" as="script">
      <link rel="preload" href="js/loading-manager.js" as="script">
+     <link rel="preload" href="js/libraries-unified.js" as="script">
      <link rel="prefetch" href="servicios.html">
      <link rel="prefetch" href="contacto.html">
      <link rel="prefetch" href="portfolio.html">
      <link rel="prefetch" href="sobre-nosotros.html">
     
-    <!-- Hotjar Tracking Code -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
+
  </head>
  <body itemscope itemtype="https://schema.org/WebPage">
-     <!-- Google Tag Manager (noscript) -->
-     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-     <!-- End Google Tag Manager (noscript) -->
+    
      
      <!-- Skip to main content -->
      <a class="skip-link screen-reader-text" href="#main">Saltar al contenido principal</a>
      
-     <!-- Breadcrumbs -->
-     <nav class="breadcrumbs" aria-label="Navegación de migas de pan" itemscope itemtype="https://schema.org/BreadcrumbList">
-         <div class="container">
-             <ol class="breadcrumb-list">
-                 <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                     <a itemprop="item" href="https://www.softcronw.com/">
-                         <span itemprop="name">Inicio</span>
-                     </a>
-                     <meta itemprop="position" content="1" />
-                 </li>
-             </ol>
-         </div>
-     </nav>
-     
-     <!-- Particles Background -->
-     <div id="particles-js"></div>
-    
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <h1 class="loading-text">SoftCronw</h1>
-                <div class="loading-spinner"></div>
-            </div>
-            <p class="loading-subtitle">Cargando experiencia digital...</p>
-        </div>
-    </div>
-
     <!-- Futuristic Header -->
     <header class="header">
         <nav class="nav">
@@ -357,6 +295,12 @@
                     </a>
                 </li>
                 <li class="nav-menu__item">
+                    <a href="pagos.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-credit-card"></i>
+                        <span class="nav-menu__text">Pagos</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
                     <a href="contacto.html" class="nav-menu__link">
                         <i class="nav-menu__icon fas fa-envelope"></i>
                         <span class="nav-menu__text">Contacto</span>
@@ -370,6 +314,7 @@
                 <span class="nav-indicator__dot" data-page="servicios"></span>
                 <span class="nav-indicator__dot" data-page="nosotros"></span>
                 <span class="nav-indicator__dot" data-page="portfolio"></span>
+                <span class="nav-indicator__dot" data-page="pagos"></span>
                 <span class="nav-indicator__dot" data-page="contacto"></span>
             </div>
         </nav>
@@ -448,52 +393,7 @@
                             </div>
                         </div>
                         
-                        <!-- Enhanced Stats with Counters -->
-                        <div class="hero-stats-spectacular">
-                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
-                                <div class="stat-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number" data-count="250">0</div>
-                                    <div class="stat-label">Proyectos Exitosos</div>
-                                </div>
-                                <div class="stat-glow"></div>
-                            </div>
-                            
-                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="500">
-                                <div class="stat-icon">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number" data-count="99">0</div>
-                                    <div class="stat-label">% Satisfacción</div>
-                                </div>
-                                <div class="stat-glow"></div>
-                            </div>
-                            
-                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="700">
-                                <div class="stat-icon">
-                                    <i class="fas fa-clock"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number" data-count="24">0</div>
-                                    <div class="stat-label">Horas Soporte</div>
-                                </div>
-                                <div class="stat-glow"></div>
-                            </div>
-                            
-                            <div class="stat-card" data-aos="zoom-in" data-aos-delay="900">
-                                <div class="stat-icon">
-                                    <i class="fas fa-bolt"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number" data-count="72">0</div>
-                                    <div class="stat-label">Horas Entrega</div>
-                                </div>
-                                <div class="stat-glow"></div>
-                            </div>
-                        </div>
+
                         
                         <!-- Mega CTA Buttons -->
                         <div class="hero-buttons-mega">
@@ -527,29 +427,13 @@
                                 <div class="btn-laser"></div>
                             </a>
                         </div>
-                        
-                        <!-- Trust Indicators -->
-                        <div class="trust-indicators" data-aos="fade-up" data-aos-delay="1000">
-                            <div class="trust-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>100% Seguro</span>
-                            </div>
-                            <div class="trust-item">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <span>Garantía Total</span>
-                            </div>
-                            <div class="trust-item">
-                                <i class="fas fa-rocket"></i>
-                                <span>Entrega Rápida</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
                 <div class="col-lg-5" data-aos="fade-left" data-aos-duration="1500" data-aos-delay="400">
                     <div class="hero-visual-simplified">
                         <div class="hero-image">
-                            <img src="images/hero-web-development.png" alt="Desarrollo Web SoftCronw" class="img-fluid">
+                            <img src="images/hero_inicio.png" alt="Desarrollo Web SoftCronw" class="img-fluid">
                         </div>
                         <div class="floating-elements">
                             <div class="tech-icon">
@@ -565,14 +449,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Simplified Scroll Indicator -->
-        <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="1200">
-            <div class="scroll-arrow">
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            <span class="scroll-text">Descubre más</span>
         </div>
     </section>
 
@@ -1322,95 +1198,336 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-background">
-            <div class="footer-shapes">
-                <div class="footer-shape shape-1"></div>
-                <div class="footer-shape shape-2"></div>
-            </div>
-        </div>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="footer-brand">
-                        <h3 class="footer-logo">SoftCronw</h3>
-                        <p class="footer-description">
-                            Transformamos ideas en experiencias digitales extraordinarias. 
-                            Tu socio tecnológico de confianza.
+    <!-- Footer Espectacular SoftCronw -->
+    <footer class="footer-spectacular">
+        <!-- Footer CTA Superior -->
+        <section class="footer-cta-banner">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <div class="cta-main">
+                        <h2 class="cta-title">
+                            <span class="title-primary">¿Listo para transformar</span>
+                            <span class="title-highlight">tu negocio digital?</span>
+                        </h2>
+                        <p class="cta-subtitle">
+                            Únete a más de 250+ empresas que ya confían en SoftCronw para crear experiencias digitales extraordinarias
                         </p>
-                        <div class="footer-social">
-                            <a href="#" class="social-link" aria-label="Facebook">
-                                <i class="fab fa-facebook-f"></i>
+                        <div class="cta-buttons">
+                            <a href="contacto.html" class="btn-cta-primary">
+                                <span class="btn-text">Empezar Ahora</span>
+                                <i class="fas fa-rocket btn-icon"></i>
+                                <div class="btn-glow"></div>
                             </a>
-                            <a href="#" class="social-link" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
+                            <a href="portfolio.html" class="btn-cta-secondary">
+                                <span class="btn-text">Ver Portfolio</span>
+                                <i class="fas fa-eye btn-icon"></i>
                             </a>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h4 class="footer-title">Servicios</h4>
-                    <ul class="footer-links">
-                        <li><a href="servicios.html#desarrollo">Desarrollo Web</a></li>
-                        <li><a href="servicios.html#diseno">Diseño UX/UI</a></li>
-                        <li><a href="servicios.html#ecommerce">E-commerce</a></li>
-                        <li><a href="servicios.html#seo">SEO & Marketing</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <h4 class="footer-title">Empresa</h4>
-                    <ul class="footer-links">
-                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Carreras</a></li>
-                    </ul>
-                </div>
-                
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <h4 class="footer-title">Contacto</h4>
-                    <div class="footer-contact">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>info@softcronw.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+34 900 123 456</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Madrid, España</span>
+                    <div class="cta-visual">
+                        <div class="cta-stats">
+                            <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="stat-number">250+</div>
+                                <div class="stat-label">Proyectos</div>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="stat-number">99%</div>
+                                <div class="stat-label">Satisfacción</div>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="stat-number">24h</div>
+                                <div class="stat-label">Soporte</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <p class="copyright">
+            <div class="cta-background">
+                <div class="cta-particles"></div>
+                <div class="cta-glow-orbs">
+                    <div class="glow-orb orb-1"></div>
+                    <div class="glow-orb orb-2"></div>
+                    <div class="glow-orb orb-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Principal -->
+        <section class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Columna Marca -->
+                    <div class="footer-brand-column" data-aos="fade-up" data-aos-delay="100">
+                        <div class="brand-content">
+                            <div class="footer-logo-container">
+                                <h3 class="footer-logo">
+                                    <span class="logo-icon">⚡</span>
+                                    SoftCronw
+                                </h3>
+                                <div class="logo-tagline">Innovación Digital</div>
+                            </div>
+                            <p class="footer-description">
+                                Transformamos ideas en experiencias digitales extraordinarias. Tu socio tecnológico de confianza para crear el futuro digital de tu empresa.
+                            </p>
+                            <div class="footer-awards">
+                                <div class="award-badge">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Top Agency 2024</span>
+                                </div>
+                                <div class="award-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>5★ Reviews</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Servicios -->
+                    <div class="footer-services-column" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="footer-column-title">
+                            <i class="fas fa-code column-icon"></i>
+                            Servicios
+                        </h4>
+                        <ul class="footer-links-list">
+                            <li class="footer-link-item">
+                                <a href="servicios.html#desarrollo" class="footer-link">
+                                    <i class="fas fa-laptop-code link-icon"></i>
+                                    <span>Desarrollo Web</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="servicios.html#diseno" class="footer-link">
+                                    <i class="fas fa-paint-brush link-icon"></i>
+                                    <span>Diseño UX/UI</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="servicios.html#ecommerce" class="footer-link">
+                                    <i class="fas fa-shopping-cart link-icon"></i>
+                                    <span>E-commerce</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="servicios.html#seo" class="footer-link">
+                                    <i class="fas fa-chart-line link-icon"></i>
+                                    <span>SEO & Marketing</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna Empresa -->
+                    <div class="footer-company-column" data-aos="fade-up" data-aos-delay="300">
+                        <h4 class="footer-column-title">
+                            <i class="fas fa-building column-icon"></i>
+                            Empresa
+                        </h4>
+                        <ul class="footer-links-list">
+                            <li class="footer-link-item">
+                                <a href="sobre-nosotros.html" class="footer-link">
+                                    <i class="fas fa-users link-icon"></i>
+                                    <span>Sobre Nosotros</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="portfolio.html" class="footer-link">
+                                    <i class="fas fa-briefcase link-icon"></i>
+                                    <span>Portfolio</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">
+                                    <i class="fas fa-blog link-icon"></i>
+                                    <span>Blog</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">
+                                    <i class="fas fa-handshake link-icon"></i>
+                                    <span>Carreras</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna Newsletter y Contacto -->
+                    <div class="footer-newsletter-column" data-aos="fade-up" data-aos-delay="400">
+                        <h4 class="footer-column-title">
+                            <i class="fas fa-envelope column-icon"></i>
+                            Newsletter
+                        </h4>
+                        <p class="newsletter-description">
+                            Recibe las últimas tendencias en diseño web, tips de desarrollo y ofertas exclusivas.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input 
+                                    type="email" 
+                                    placeholder="tu@email.com" 
+                                    class="newsletter-input"
+                                    required
+                                >
+                                <button type="submit" class="newsletter-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <div class="form-privacy">
+                                <i class="fas fa-shield-alt privacy-icon"></i>
+                                <span>100% privado, sin spam</span>
+                            </div>
+                        </form>
+                        
+                        <div class="contact-quick">
+                            <h5 class="contact-title">Contacto Rápido</h5>
+                            <div class="contact-items">
+                                <a href="mailto:info@softcronw.com" class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@softcronw.com</span>
+                                </a>
+                                <a href="tel:+34900123456" class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+34 900 123 456</span>
+                                </a>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Madrid, España</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Social y Tecnologías -->
+        <section class="footer-social-tech">
+            <div class="container">
+                <div class="social-tech-grid">
+                    <!-- Redes Sociales -->
+                    <div class="social-section" data-aos="fade-right">
+                        <h4 class="section-title">Síguenos</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span class="social-tooltip">Facebook</span>
+                            </a>
+                            <a href="#" class="social-link twitter" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span class="social-tooltip">Twitter</span>
+                            </a>
+                            <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span class="social-tooltip">LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span class="social-tooltip">Instagram</span>
+                            </a>
+                            <a href="#" class="social-link github" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span class="social-tooltip">GitHub</span>
+                            </a>
+                            <a href="#" class="social-link dribbble" aria-label="Dribbble">
+                                <i class="fab fa-dribbble"></i>
+                                <span class="social-tooltip">Dribbble</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Stack Tecnológico -->
+                    <div class="tech-stack-section" data-aos="fade-left">
+                        <h4 class="section-title">Stack Tecnológico</h4>
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label">Frontend</span>
+                                <div class="tech-items">
+                                    <div class="tech-item">
+                                        <i class="fab fa-react"></i>
+                                        <span>React</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fab fa-vuejs"></i>
+                                        <span>Vue</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fab fa-angular"></i>
+                                        <span>Angular</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label">Backend</span>
+                                <div class="tech-items">
+                                    <div class="tech-item">
+                                        <i class="fab fa-node-js"></i>
+                                        <span>Node.js</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fab fa-python"></i>
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fab fa-php"></i>
+                                        <span>PHP</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Bottom -->
+        <section class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright-section">
+                        <p class="copyright-text">
                             © 2024 SoftCronw. Todos los derechos reservados.
                         </p>
-                    </div>
-                    <div class="col-md-6 text-md-end">
-                        <div class="footer-links-bottom">
-                            <a href="#">Política de Privacidad</a>
-                            <a href="#">Términos de Servicio</a>
-                            <a href="#">Cookies</a>
+                        <div class="made-with">
+                            <span>Hecho con</span>
+                            <i class="fas fa-heart heart-icon"></i>
+                            <span>en Madrid</span>
                         </div>
                     </div>
+                    <div class="legal-links">
+                        <a href="#" class="legal-link">Política de Privacidad</a>
+                        <a href="#" class="legal-link">Términos de Servicio</a>
+                        <a href="#" class="legal-link">Cookies</a>
+                    </div>
+                    <div class="footer-end-cta">
+                        <a href="#" class="back-to-top" id="backToTop">
+                            <i class="fas fa-chevron-up"></i>
+                            <span>Subir</span>
+                        </a>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Background Elements -->
+        <div class="footer-background">
+            <div class="gradient-mesh"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+            <div class="footer-glow-effects">
+                <div class="glow-effect glow-1"></div>
+                <div class="glow-effect glow-2"></div>
+                <div class="glow-effect glow-3"></div>
             </div>
         </div>
     </footer>
@@ -1538,9 +1655,37 @@
     <!-- SoftCronw Core Scripts -->
     <script src="js/performance-monitor.js"></script>
     <script src="js/loading-manager.js"></script>
+
     <script src="js/chatbot-core.js"></script>
     <script src="js/script.js"></script>
     <script src="js/spectacular.js"></script>
+    
+    <!-- Inicialización SoftCronw para Deploy Ionos -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Debug activado para detectar problemas en producción
+            if (typeof DebugSystem !== 'undefined') {
+                DebugSystem.enableVisualMode();
+                console.log('✅ SoftCronw Debug System activado para Ionos');
+            }
+            
+            // Verificación de componentes críticos
+            const criticalElements = [
+                '.hamburger',
+                '#loading-screen', 
+                '#softcronw-chatbot'
+            ];
+            
+            criticalElements.forEach(selector => {
+                const element = document.querySelector(selector);
+                if (!element) {
+                    console.warn('⚠️ Elemento crítico no encontrado:', selector);
+                }
+            });
+            
+            console.log('🚀 SoftCronw iniciado correctamente para deploy Ionos');
+        });
+    </script>
 </main>
 </body>
 </html> 

@@ -130,45 +130,7 @@
       background: rgba($color-gray-500, 0.1);
     }
     
-    // Hamburger icon
-    .hamburger {
-      width: 24px;
-      height: 18px;
-      position: relative;
-      
-      span {
-        display: block;
-        position: absolute;
-        height: 2px;
-        width: 100%;
-        background: currentColor;
-        border-radius: 1px;
-        transition: $transition-all;
-        
-        &:nth-child(1) { top: 0; }
-        &:nth-child(2) { top: 50%; transform: translateY(-50%); }
-        &:nth-child(3) { bottom: 0; }
-      }
-    }
-    
-    // Active state (X icon)
-    &.active {
-      .hamburger span {
-        &:nth-child(1) {
-          top: 50%;
-          transform: translateY(-50%) rotate(45deg);
-        }
-        
-        &:nth-child(2) {
-          opacity: 0;
-        }
-        
-        &:nth-child(3) {
-          bottom: 50%;
-          transform: translateY(50%) rotate(-45deg);
-        }
-      }
-    }
+    // Nota: Hamburger icon ahora está centralizado en _navigation.scss
   }
 }
 

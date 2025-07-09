@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios - SoftCronw | Desarrollo Web Profesional</title>
     <meta name="description" content="Servicios de desarrollo web, diseño UI/UX, aplicaciones móviles y consultoría digital. Precios competitivos y soluciones profesionales.">
+    <meta name="keywords" content="servicios desarrollo web, diseño UX/UI, aplicaciones móviles, consultoría digital, desarrollo web España, precios competitivos">
+    <meta name="author" content="SoftCronw">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -66,6 +72,12 @@
                     </a>
                 </li>
                 <li class="nav-menu__item">
+                    <a href="pagos.html" class="nav-menu__link">
+                        <i class="nav-menu__icon fas fa-credit-card"></i>
+                        <span class="nav-menu__text">Pagos</span>
+                    </a>
+                </li>
+                <li class="nav-menu__item">
                     <a href="contacto.html" class="nav-menu__link">
                         <i class="nav-menu__icon fas fa-envelope"></i>
                         <span class="nav-menu__text">Contacto</span>
@@ -79,6 +91,7 @@
                 <span class="nav-indicator__dot nav-indicator__dot--active" data-page="servicios"></span>
                 <span class="nav-indicator__dot" data-page="nosotros"></span>
                 <span class="nav-indicator__dot" data-page="portfolio"></span>
+                <span class="nav-indicator__dot" data-page="pagos"></span>
                 <span class="nav-indicator__dot" data-page="contacto"></span>
             </div>
         </nav>
@@ -702,217 +715,6 @@
                         </div>
                     </div>
 
-                </div>
-            </div>
-        </section>
-                                </div>
-                            </div>
-                            
-                            <div class="service-card__back">
-                                <h3 class="service-card__title">Diseño UI/UX</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Investigación de Usuario</li>
-                                    <li><i class="fas fa-check"></i> Wireframes y Prototipos</li>
-                                    <li><i class="fas fa-check"></i> Diseño Visual</li>
-                                    <li><i class="fas fa-check"></i> Sistema de Diseño</li>
-                                    <li><i class="fas fa-check"></i> Testing de Usabilidad</li>
-                                </ul>
-                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('diseno-uiux')">
-                                    Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mantenimiento Web -->
-                    <div class="service-card" data-category="soporte" data-aos="flip-left" data-aos-delay="300">
-                        <div class="service-card__inner">
-                            <div class="service-card__front">
-                                <div class="service-card__icon">
-                                    <i class="fas fa-tools"></i>
-                                </div>
-                                <h3 class="service-card__title">Mantenimiento Web</h3>
-                                <p class="service-card__preview">Mantén tu sitio siempre actualizado</p>
-                                <div class="service-card__price">
-                                    <span class="price-from">Desde</span>
-                                    <span class="price-amount">$199</span>
-                                    <span class="price-period">/mes</span>
-                                </div>
-                            </div>
-                            
-                            <div class="service-card__back">
-                                <h3 class="service-card__title">Mantenimiento Web</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Actualizaciones de Seguridad</li>
-                                    <li><i class="fas fa-check"></i> Backups Automáticos</li>
-                                    <li><i class="fas fa-check"></i> Monitoreo 24/7</li>
-                                    <li><i class="fas fa-check"></i> Optimización Performance</li>
-                                    <li><i class="fas fa-check"></i> Soporte Técnico</li>
-                                </ul>
-                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('mantenimiento')">
-                                    Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Soporte Técnico -->
-                    <div class="service-card" data-category="soporte" data-aos="flip-left" data-aos-delay="400">
-                        <div class="service-card__inner">
-                            <div class="service-card__front">
-                                <div class="service-card__icon">
-                                    <i class="fas fa-headset"></i>
-                                </div>
-                                <h3 class="service-card__title">Soporte Técnico</h3>
-                                <p class="service-card__preview">Asistencia especializada 24/7</p>
-                                <div class="service-card__price">
-                                    <span class="price-from">Desde</span>
-                                    <span class="price-amount">$99</span>
-                                    <span class="price-period">/mes</span>
-                                </div>
-                            </div>
-                            
-                            <div class="service-card__back">
-                                <h3 class="service-card__title">Soporte Técnico</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Respuesta en 2 horas</li>
-                                    <li><i class="fas fa-check"></i> Chat en Vivo</li>
-                                    <li><i class="fas fa-check"></i> Soporte Remoto</li>
-                                    <li><i class="fas fa-check"></i> Resolución de Incidencias</li>
-                                    <li><i class="fas fa-check"></i> Capacitación de Usuario</li>
-                                </ul>
-                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('soporte-tecnico')">
-                                    Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Optimización SEO -->
-                    <div class="service-card" data-category="marketing" data-aos="flip-left" data-aos-delay="500">
-                        <div class="service-card__inner">
-                            <div class="service-card__front">
-                                <div class="service-card__icon">
-                                    <i class="fas fa-search"></i>
-                                </div>
-                                <h3 class="service-card__title">Optimización SEO</h3>
-                                <p class="service-card__preview">Mejora tu posicionamiento</p>
-                                <div class="service-card__price">
-                                    <span class="price-from">Desde</span>
-                                    <span class="price-amount">$399</span>
-                                    <span class="price-period">/mes</span>
-                                </div>
-                            </div>
-                            
-                            <div class="service-card__back">
-                                <h3 class="service-card__title">Optimización SEO</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Auditoría SEO Completa</li>
-                                    <li><i class="fas fa-check"></i> Optimización On-Page</li>
-                                    <li><i class="fas fa-check"></i> Link Building</li>
-                                    <li><i class="fas fa-check"></i> Content Marketing</li>
-                                    <li><i class="fas fa-check"></i> Reportes Mensuales</li>
-                                </ul>
-                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('seo')">
-                                    Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- E-commerce -->
-                    <div class="service-card" data-category="desarrollo" data-aos="flip-left" data-aos-delay="600">
-                        <div class="service-card__inner">
-                            <div class="service-card__front">
-                                <div class="service-card__icon">
-                                    <i class="fas fa-shopping-cart"></i>
-                                </div>
-                                <h3 class="service-card__title">E-commerce</h3>
-                                <p class="service-card__preview">Tiendas online profesionales</p>
-                                <div class="service-card__price">
-                                    <span class="price-from">Desde</span>
-                                    <span class="price-amount">$1,299</span>
-                                </div>
-                            </div>
-                            
-                            <div class="service-card__back">
-                                <h3 class="service-card__title">E-commerce</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Plataforma Personalizada</li>
-                                    <li><i class="fas fa-check"></i> Pasarelas de Pago</li>
-                                    <li><i class="fas fa-check"></i> Gestión de Inventario</li>
-                                    <li><i class="fas fa-check"></i> Panel Administrativo</li>
-                                    <li><i class="fas fa-check"></i> Integración con APIs</li>
-                                </ul>
-                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('ecommerce')">
-                                    Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Aplicaciones Móviles -->
-                    <div class="service-card" data-category="desarrollo" data-aos="flip-left" data-aos-delay="700">
-                        <div class="service-card__inner">
-                            <div class="service-card__front">
-                                <div class="service-card__icon">
-                                    <i class="fas fa-mobile-alt"></i>
-                                </div>
-                                <h3 class="service-card__title">Apps Móviles</h3>
-                                <p class="service-card__preview">iOS y Android nativas</p>
-                                <div class="service-card__price">
-                                    <span class="price-from">Desde</span>
-                                    <span class="price-amount">$1,899</span>
-                                </div>
-                            </div>
-                            
-                            <div class="service-card__back">
-                                <h3 class="service-card__title">Apps Móviles</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Desarrollo Nativo</li>
-                                    <li><i class="fas fa-check"></i> UI/UX Optimizada</li>
-                                    <li><i class="fas fa-check"></i> Integración con APIs</li>
-                                    <li><i class="fas fa-check"></i> Publicación en Stores</li>
-                                    <li><i class="fas fa-check"></i> Soporte Post-Launch</li>
-                                </ul>
-                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('apps-moviles')">
-                                    Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Consultoría Digital -->
-                    <div class="service-card" data-category="marketing" data-aos="flip-left" data-aos-delay="800">
-                        <div class="service-card__inner">
-                            <div class="service-card__front">
-                                <div class="service-card__icon">
-                                    <i class="fas fa-chart-pie"></i>
-                                </div>
-                                <h3 class="service-card__title">Consultoría Digital</h3>
-                                <p class="service-card__preview">Estrategias digitales exitosas</p>
-                                <div class="service-card__price">
-                                    <span class="price-from">Desde</span>
-                                    <span class="price-amount">$299</span>
-                                    <span class="price-period">/hora</span>
-                                </div>
-                            </div>
-                            
-                            <div class="service-card__back">
-                                <h3 class="service-card__title">Consultoría Digital</h3>
-                                <ul class="service-features">
-                                    <li><i class="fas fa-check"></i> Análisis de Mercado</li>
-                                    <li><i class="fas fa-check"></i> Estrategia Digital</li>
-                                    <li><i class="fas fa-check"></i> Transformación Digital</li>
-                                    <li><i class="fas fa-check"></i> Optimización de Procesos</li>
-                                    <li><i class="fas fa-check"></i> Plan de Implementación</li>
-                                </ul>
-                                <button class="btn btn--secondary btn--sm" onclick="openServiceModal('consultoria')">
-                                    Ver Detalles
-                                </button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1570,88 +1372,339 @@
     <!-- Modal Container for Dynamic Content -->
     <div id="modal-container"></div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__brand">
-                    <h3 class="footer__logo">SoftCronw</h3>
-                    <p class="footer__description">
-                        Transformamos ideas en soluciones digitales exitosas.
-                    </p>
-                    <div class="footer__social">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+    <!-- Footer Espectacular SoftCronw -->
+    <footer class="footer-spectacular">
+        <!-- Footer CTA Superior -->
+        <section class="footer-cta-banner">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <div class="cta-main">
+                        <h2 class="cta-title">
+                            <span class="title-primary">¿Listo para transformar</span>
+                            <span class="title-highlight">tu negocio digital?</span>
+                        </h2>
+                        <p class="cta-subtitle">
+                            Únete a más de 250+ empresas que ya confían en SoftCronw para crear experiencias digitales extraordinarias
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="contacto.html" class="btn-cta-primary">
+                                <span class="btn-text">Empezar Ahora</span>
+                                <i class="fas fa-rocket btn-icon"></i>
+                                <div class="btn-glow"></div>
+                            </a>
+                            <a href="portfolio.html" class="btn-cta-secondary">
+                                <span class="btn-text">Ver Portfolio</span>
+                                <i class="fas fa-eye btn-icon"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="footer__links">
-                    <div class="footer__column">
-                        <h4>Servicios</h4>
-                        <ul>
-                            <li><a href="#desarrollo">Desarrollo Web</a></li>
-                            <li><a href="#diseno">Diseño UI/UX</a></li>
-                            <li><a href="#ecommerce">E-commerce</a></li>
-                            <li><a href="#apps">Apps Móviles</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer__column">
-                        <h4>Empresa</h4>
-                        <ul>
-                            <li><a href="sobre-nosotros.html">Nosotros</a></li>
-                            <li><a href="portfolio.html">Portfolio</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer__column">
-                        <h4>Contacto</h4>
-                        <ul>
-                            <li>
-                                <i class="fas fa-envelope"></i>
-                                info@softcronw.com
-                            </li>
-                            <li>
-                                <i class="fas fa-phone"></i>
-                                +1 (555) 123-4567
-                            </li>
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                Ciudad, País
-                            </li>
-                        </ul>
+                    <div class="cta-visual">
+                        <div class="cta-stats">
+                            <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="stat-number">250+</div>
+                                <div class="stat-label">Proyectos</div>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="stat-number">99%</div>
+                                <div class="stat-label">Satisfacción</div>
+                            </div>
+                            <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="stat-number">24h</div>
+                                <div class="stat-label">Soporte</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="footer__bottom">
-                <p>&copy; 2024 SoftCronw. Todos los derechos reservados.</p>
+            <div class="cta-background">
+                <div class="cta-particles"></div>
+                <div class="cta-glow-orbs">
+                    <div class="glow-orb orb-1"></div>
+                    <div class="glow-orb orb-2"></div>
+                    <div class="glow-orb orb-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Principal -->
+        <section class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Columna Marca -->
+                    <div class="footer-brand-column" data-aos="fade-up" data-aos-delay="100">
+                        <div class="brand-content">
+                            <div class="footer-logo-container">
+                                <h3 class="footer-logo">
+                                    <span class="logo-icon">⚡</span>
+                                    SoftCronw
+                                </h3>
+                                <div class="logo-tagline">Innovación Digital</div>
+                            </div>
+                            <p class="footer-description">
+                                Transformamos ideas en experiencias digitales extraordinarias. Tu socio tecnológico de confianza para crear el futuro digital de tu empresa.
+                            </p>
+                            <div class="footer-awards">
+                                <div class="award-badge">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Top Agency 2024</span>
+                                </div>
+                                <div class="award-badge">
+                                    <i class="fas fa-star"></i>
+                                    <span>5★ Reviews</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Servicios -->
+                    <div class="footer-services-column" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="footer-column-title">
+                            <i class="fas fa-code column-icon"></i>
+                            Servicios
+                        </h4>
+                        <ul class="footer-links-list">
+                            <li class="footer-link-item">
+                                <a href="servicios.html#desarrollo" class="footer-link">
+                                    <i class="fas fa-laptop-code link-icon"></i>
+                                    <span>Desarrollo Web</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="servicios.html#diseno" class="footer-link">
+                                    <i class="fas fa-paint-brush link-icon"></i>
+                                    <span>Diseño UX/UI</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="servicios.html#ecommerce" class="footer-link">
+                                    <i class="fas fa-shopping-cart link-icon"></i>
+                                    <span>E-commerce</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="servicios.html#seo" class="footer-link">
+                                    <i class="fas fa-chart-line link-icon"></i>
+                                    <span>SEO & Marketing</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna Empresa -->
+                    <div class="footer-company-column" data-aos="fade-up" data-aos-delay="300">
+                        <h4 class="footer-column-title">
+                            <i class="fas fa-building column-icon"></i>
+                            Empresa
+                        </h4>
+                        <ul class="footer-links-list">
+                            <li class="footer-link-item">
+                                <a href="sobre-nosotros.html" class="footer-link">
+                                    <i class="fas fa-users link-icon"></i>
+                                    <span>Sobre Nosotros</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="portfolio.html" class="footer-link">
+                                    <i class="fas fa-briefcase link-icon"></i>
+                                    <span>Portfolio</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">
+                                    <i class="fas fa-blog link-icon"></i>
+                                    <span>Blog</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                            <li class="footer-link-item">
+                                <a href="#" class="footer-link">
+                                    <i class="fas fa-handshake link-icon"></i>
+                                    <span>Carreras</span>
+                                    <i class="fas fa-arrow-right link-arrow"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Columna Newsletter y Contacto -->
+                    <div class="footer-newsletter-column" data-aos="fade-up" data-aos-delay="400">
+                        <h4 class="footer-column-title">
+                            <i class="fas fa-envelope column-icon"></i>
+                            Newsletter
+                        </h4>
+                        <p class="newsletter-description">
+                            Recibe las últimas tendencias en diseño web, tips de desarrollo y ofertas exclusivas.
+                        </p>
+                        <form class="newsletter-form">
+                            <div class="form-group">
+                                <input 
+                                    type="email" 
+                                    placeholder="tu@email.com" 
+                                    class="newsletter-input"
+                                    required
+                                >
+                                <button type="submit" class="newsletter-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <div class="form-privacy">
+                                <i class="fas fa-shield-alt privacy-icon"></i>
+                                <span>100% privado, sin spam</span>
+                            </div>
+                        </form>
+                        
+                        <div class="contact-quick">
+                            <h5 class="contact-title">Contacto Rápido</h5>
+                            <div class="contact-items">
+                                <a href="mailto:info@softcronw.com" class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@softcronw.com</span>
+                                </a>
+                                <a href="tel:+34900123456" class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+34 900 123 456</span>
+                                </a>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Madrid, España</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Social y Tecnologías -->
+        <section class="footer-social-tech">
+            <div class="container">
+                <div class="social-tech-grid">
+                    <!-- Redes Sociales -->
+                    <div class="social-section" data-aos="fade-right">
+                        <h4 class="section-title">Síguenos</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span class="social-tooltip">Facebook</span>
+                            </a>
+                            <a href="#" class="social-link twitter" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span class="social-tooltip">Twitter</span>
+                            </a>
+                            <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span class="social-tooltip">LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span class="social-tooltip">Instagram</span>
+                            </a>
+                            <a href="#" class="social-link github" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                                <span class="social-tooltip">GitHub</span>
+                            </a>
+                            <a href="#" class="social-link dribbble" aria-label="Dribbble">
+                                <i class="fab fa-dribbble"></i>
+                                <span class="social-tooltip">Dribbble</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Stack Tecnológico -->
+                    <div class="tech-stack-section" data-aos="fade-left">
+                        <h4 class="section-title">Stack Tecnológico</h4>
+                        <div class="tech-stack">
+                            <div class="tech-category">
+                                <span class="tech-label">Frontend</span>
+                                <div class="tech-items">
+                                    <div class="tech-item">
+                                        <i class="fab fa-react"></i>
+                                        <span>React</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fab fa-vuejs"></i>
+                                        <span>Vue</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fab fa-angular"></i>
+                                        <span>Angular</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tech-category">
+                                <span class="tech-label">Backend</span>
+                                <div class="tech-items">
+                                    <div class="tech-item">
+                                        <i class="fab fa-node-js"></i>
+                                        <span>Node.js</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fab fa-python"></i>
+                                        <span>Python</span>
+                                    </div>
+                                    <div class="tech-item">
+                                        <i class="fab fa-php"></i>
+                                        <span>PHP</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Bottom -->
+        <section class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="copyright-section">
+                        <p class="copyright-text">
+                            © 2024 SoftCronw. Todos los derechos reservados.
+                        </p>
+                        <div class="made-with">
+                            <span>Hecho con</span>
+                            <i class="fas fa-heart heart-icon"></i>
+                            <span>en Madrid</span>
+                        </div>
+                    </div>
+                    <div class="legal-links">
+                        <a href="#" class="legal-link">Política de Privacidad</a>
+                        <a href="#" class="legal-link">Términos de Servicio</a>
+                        <a href="#" class="legal-link">Cookies</a>
+                    </div>
+                    <div class="footer-end-cta">
+                        <a href="#" class="back-to-top" id="backToTop">
+                            <i class="fas fa-chevron-up"></i>
+                            <span>Subir</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Background Elements -->
+        <div class="footer-background">
+            <div class="gradient-mesh"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+            <div class="footer-glow-effects">
+                <div class="glow-effect glow-1"></div>
+                <div class="glow-effect glow-2"></div>
+                <div class="glow-effect glow-3"></div>
             </div>
         </div>
     </footer>
-    
-    <!-- Loading Screen -->
-    <div id="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <h1 class="loading-text">SoftCronw</h1>
-                <div class="loading-spinner"></div>
-            </div>
-            <p class="loading-subtitle">Cargando servicios...</p>
-        </div>
-    </div>
 
     <!-- Chatbot SoftCronw Unificado -->
     <div id="softcronw-chatbot" class="chatbot-container">
@@ -1781,7 +1834,9 @@
     <script src="js/libraries-unified.js"></script>
     
     <!-- SoftCronw Core Scripts -->
+    <script src="js/performance-monitor.js"></script>
     <script src="js/loading-manager.js"></script>
+
     <script src="js/chatbot-core.js"></script>
     <script src="js/script.js"></script>
     <script src="js/services-spectacular.js"></script>

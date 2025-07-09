@@ -408,10 +408,18 @@ class SoftCronwChatbot {
                     <label>Describe tu proyecto:</label>
                     <textarea id="project-description" placeholder="Cuéntanos qué necesitas..."></textarea>
                 </div>
-                <button onclick="chatbot.submitQuoteForm()" class="quote-submit-btn">Enviar Solicitud 🚀</button>
+                <button id="quote-submit-btn" class="quote-submit-btn">Enviar Solicitud 🚀</button>
             </div>
         `;
         this.addMessage(formHtml, 'bot');
+        
+        // Agregar event listener al botón después de que se agregue al DOM
+        setTimeout(() => {
+            const submitBtn = document.getElementById('quote-submit-btn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', () => this.submitQuoteForm());
+            }
+        }, 100);
     }
     
     submitQuoteForm() {
@@ -544,32 +552,77 @@ class ChatbotAnalytics {
 
 let chatbot;
 
-// Inicializar cuando las librerías estén cargadas
-document.addEventListener('librariesLoaded', function() {
-    initializeChatbot();
-});
-
-// Fallback: inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-    // Esperar un poco por si las librerías están cargando
-    setTimeout(() => {
-        if (!chatbot) {
-            initializeChatbot();
-        }
-    }, 2000);
-});
-
+// Función para inicializar el chatbot de forma segura
 function initializeChatbot() {
     try {
+        // Verificar que no esté ya inicializado
+        if (chatbot) {
+            console.log('🤖 Chatbot ya inicializado');
+            return;
+        }
+        
+        // Verificar que los elementos DOM existan
+        const toggleBtn = document.getElementById('chatbot-toggle');
+        const chatContainer = document.getElementById('softcronw-chatbot');
+        
+        if (!toggleBtn || !chatContainer) {
+            console.log('⏳ Elementos del chatbot no encontrados, reintentando...');
+            return false;
+        }
+        
         chatbot = new SoftCronwChatbot();
         console.log('🤖 SoftCronw Chatbot inicializado correctamente');
         
         // Hacer disponible globalmente para debugging
         window.chatbot = chatbot;
+        return true;
     } catch (error) {
         console.error('❌ Error inicializando chatbot:', error);
+        return false;
     }
 }
+
+// Múltiples puntos de inicialización para mayor robustez
+
+// 1. Inmediato si el DOM ya está cargado
+if (document.readyState === 'loading') {
+    // DOM aún cargando
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(initializeChatbot, 100);
+    });
+} else {
+    // DOM ya cargado
+    setTimeout(initializeChatbot, 100);
+}
+
+// 2. Cuando las librerías estén cargadas (si el evento existe)
+document.addEventListener('librariesLoaded', function() {
+    if (!chatbot) {
+        initializeChatbot();
+    }
+});
+
+// 3. Fallback adicional después de un tiempo corto
+setTimeout(() => {
+    if (!chatbot) {
+        console.log('🔄 Inicializando chatbot (fallback)...');
+        initializeChatbot();
+    }
+}, 500);
+
+// 4. Fallback final después de más tiempo
+setTimeout(() => {
+    if (!chatbot) {
+        console.log('🔄 Último intento de inicialización del chatbot...');
+        const success = initializeChatbot();
+        if (!success) {
+            console.warn('⚠️ No se pudo inicializar el chatbot - elementos DOM no encontrados');
+        }
+    }
+}, 2000);
+
+// 5. Inicialización manual disponible globalmente
+window.initializeChatbot = initializeChatbot;
 
 // Exportar para uso externo
 if (typeof module !== 'undefined' && module.exports) {
